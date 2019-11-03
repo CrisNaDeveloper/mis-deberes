@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Mis deberes</title>
+<!-- 	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons.min.css" /> -->
+<!-- 	<link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" /> -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/tema_mis_deberes.min.css" />
+
+
+
+	<link rel="stylesheet" href="themes/alertify.core.css" />
+	<link rel="stylesheet" href="themes/alertify.default.css" id="toggleCSS" />
+
+	<link rel="stylesheet" href="themes/alertify.core.css" />
+	<link rel="stylesheet" href="themes/alertify.default.css" id="toggleCSS" />
+
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="lib/alertify.min.js"></script>
+	<!--script  src="cordova-2.7.0.js" type="text/javascript"></script-->
+	<!-- Firebase App is always required and must be first -->
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
+	<!-- Add additional services that you want to use -->
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-messaging.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-functions.js"></script>
+
+	<!-- Comment out (or don't include) services that you don't want to use -->
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-storage.js"></script>
+	<script src="js/admob_simple.js"></script>
+<!-- 	<script src="jquery.mobile-1.4.5/jquery-1.10.2.min.js"></script>
+	<script src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+	<script src="js/misdeberes.js"></script>
+
+
+
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+
+</head>
+
+
+
+<body data-theme="b">
+
+
+
+
+	<div data-role="page" id="login">
+
+
+
+
+
+
+		<div data-role="header" data-theme="b">LOGIN</div>
+		
+
+		<div data-role="content" data-theme="b">
+
+
+
+			<label for="usuario"> Usuario (correo): </label>
+			<input data-theme="b" type="text" name="usuario" id="usuario" />
+
+			<label for="password">Password: </label>
+			<input data-theme="b" name="password" id="password" type="password" value="" autocomplete="off" data-clear-btn="true">
+
+					<a id="olvido" onclick="recuperacontrasenna($('#usuario').val())">¿Se te ha olvidado la contraseña?</a>
+
+
+
+		</div>
+
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			<a data-role="button" data-transition="flip" id="aceptar" onClick="validar_usuario()">Aceptar</a>
+			<a href="#registro" data-role="button" data-transition="flip">Registrarse</a>
+		</div>
+
+
+
+	</div>
+
+
+
+
+
+	<!---preguntas-->
+
+	<div data-role="page" id="preguntas">
+		<div data-role="header" data-theme="b" id="cabpreguntas"></div>
+
+		<div data-role="content" data-theme="b">
+
+
+		<form id="formupreg" method="get">
+
+			<label for="pregunta">Que quieres que le salga de pregunta:</label>
+			<textarea name="pregunta" id="pregunta"></textarea>
+
+
+
+			<label for="opcion1">Respuesta 1:</label>
+			<input type="text" id="opcion1" required>
+
+			<label for="radio1" style="display:none"></label>
+
+			<input type='radio' name='respuesta' id='radio1' checked value="1" style="visibility:hidden" >
+			<a data-role="button" data-transition="flip"  id="guardar1" onclick="guardoRespuesta(1)" >Guardar Respuesta 1</a>
+		</input>
+			<label for="opcion2">Respuesta 2:</label>
+			<input type="text" id="opcion2">
+
+			<label for="radio2" style="display:none"></label>
+
+			<input type='radio' name='respuesta'  id='radio2' value="2" style="visibility:hidden"></input>
+			<a data-role="button" data-transition="flip"  id="guardar2" onclick="guardoRespuesta(2)">Guardar Respuesta 2</a>
+			<label for="opcion3">Respuesta 3:</label>
+			<input type="text" id="opcion3">
+
+			<label for="radio3" style="display:none" style="visibility:hidden"></label>
+
+			<input type='radio' name='respuesta'  id='radio3'  value="3" style="visibility:hidden"></input>
+			<a data-role="button" data-transition="flip"  id="guardar3" onclick="guardoRespuesta(3)">Guardar Respuesta 3</a>
+			<label for="opcion4">Respuesta 4:</label>
+			<input type="text" id="opcion4">
+
+			<label for="radio4" style="display:none"></label>
+
+			<input type='radio' name='respuesta'  id='radio4'  value="4" style="visibility:hidden"></input>
+			<a data-role="button" data-transition="flip"  id="guardar4" onclick="guardoRespuesta(4)">Guardar Respuesta 4</a>
+			<div id="selrespu"></div>
+		</form>
+
+			
+		</div>
+
+		
+
+
+		<div id="divNivel" data-role="footer" data-theme="b"> </div>
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			<a href="#pregunta" id="sigpreg" data-role="button" data-transition="flip" onClick="crear_pregunta()">Siguiente pregunta</a>
+			<a href="#num_preg" data-role="button" data-transition="flip">volver</a>
+			<a data-role="button" data-transition="flip" onclick="terminar_test()">Terminar Preguntas</a>
+		</div>
+	</div>
+
+	<!--FIN preguntas-->
+
+
+	<!---respuestas-->
+
+	<div data-role="page" id="realizartest">
+		<div data-role="header" data-theme="b" id="cabcuestionario"></div>
+
+		<label for="pregcuestion" id="pregcuestion"></label>
+				<form id="formuresp" data-theme="b" method="get">
+
+				</form>
+
+
+
+
+
+
+		<div id="piepregunta" data-role="footer" data-theme="b"> </div>
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			<a href="#realizartest" data-role="button" data-transition="flip" onClick="crear_respuesta()">Siguiente pregunta</a>
+			<a href="#inicio" data-role="button" data-transition="flip">volver</a>
+			<a data-role="button" data-transition="flip" onclick="terminar_respuesta()">Terminar Preguntas</a>
+		</div>
+	</div>
+
+	<!--FIN preguntas-->
+
+
+
+	<!---VER PREGUNTAS-->
+
+	<div data-role="page" id="ver_preguntas">
+
+		<div data-role="header" data-theme="b">MIS DEBERES</div>
+
+
+
+		<div data-role="content" data-theme="b">
+			<!--aquí va la imagen-->
+			<div data-role="listview" data-inset="true" data-theme="b" data-dividertheme="b" id="listapreguntas">
+			</div>
+
+		</div>
+
+		<div data-role="footer" data-theme="b" data-position="fixed">
+
+			<a href="#inicio" data-role="button" data-transition="flip">volver</a>
+			<a href="#amigos" onclick="cargarListaAmigos()" data-role="button" data-transition="flip">compartir</a>
+			<a href="#inicio" data-role="button" data-transition="flip" id="botonborrar" onclick="borrarTest(id_test)">Borrar este test</a>
+			<a data-role="button" data-transition="flip" onclick="hacerTest(numpregcuestion,id_test,nombre,numrespaprobar)" ;>Hacer test</a>
+		</div>
+
+	</div>
+
+
+	<!--FIN VER PREGUNTAS-->
+
+
+
+
+
+
+
+	<!--INICIO-->
+
+	<div data-role="page" id="inicio">
+
+		<div data-role="header" data-theme="b">MIS DEBERES
+		<a  onclick="desconectar()" data-role="button" data-theme="b" data-icon="power" data-iconpos="notext" class="ui-btn-right">Desconectar</a>
+		</div>
+
+		<div data-role="content" data-theme="b">
+			<form>
+				<fieldset data-role="controlgroup">
+					<legend>Mis test:</legend>
+					<!--aquí va la imagen-->
+					<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="a" id="listatests">
+
+						<li data-role="list-divider">Mis tests:</li>
+
+					</ul>
+				</fieldset>
+
+				<fieldset data-role="controlgroup">
+					<legend>Test que me han compartido:</legend>
+
+
+					<div data-role="content" data-theme="b">
+						<!--aquí va la imagen-->
+						<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="a" id="listacompartidos">
+
+							<li data-role="list-divider">Mis tests:</li>
+				</fieldset>
+
+
+
+
+
+				</div>
+
+				<div data-role="footer" data-theme="b" data-position="fixed">
+					<a href="#num_preg" data-role="button" data-transition="flip" onclick="limpiarCrearTest()">Crear Test</a>
+					<a href="#login" data-role="button" data-transition="flip">volver</a>
+					<a href="#annadir_alumno" data-role="button" data-transition="flip">añadir alumnos</a>
+					<a href="#resultados" data-role="button" data-transition="flip" onClick="cargarListaAlumnos()">Ver resultados</a>
+				</div>
+
+			</form>
+
+		</div>
+
+		<!--FIN INICIO-->
+
+
+
+		<!--NUM_PREG-->
+
+		<div data-role="page" id="num_preg">
+
+			<div data-role="header" data-theme="b">Creación del Test</div>
+
+
+
+			<div data-role="content" data-theme="b">
+				<!--comprobacion que el num_preg>que el de aciertos-->
+				<label for="nomtest">Nombre del test:</label>
+				<textarea name="nomtest" id="nomtest"></textarea>
+				<label for="aciertos">Respuestas correctas necesarias para aprobar:</label>
+				<textarea name="aciertos" id="aciertos"></textarea> 
+
+				<label for="premio">PREMIO(Código o frase que quieres que aparezca si aprueba):</label>
+				<textarea name="premio" id="premio"></textarea> 
+
+
+					<label for="listacategorias">Selecciona la categoría:</label>
+			
+				<select name="listacategorias" id="listacategorias" data-theme="b" onload="cargarcategorias()">
+				
+				</select>
+				
+				
+					<label for="listaedades">Selecciona la edad:</label>
+					<select name="listaedades" id="listaedades" data-theme="b" onload="cargaredades()">
+					
+				</select>
+				
+			</div>
+
+			<div data-role="footer" data-theme="b" data-position="fixed">
+				<a data-role="button" data-transition="flip" onClick="crear_test()">Crear Test</a>
+				<a href="#inicio" data-role="button" data-transition="flip">volver</a>
+			</div>
+
+		</div>
+
+		<!--FIN NUM_PREG-->
+
+
+
+
+
+		<!--COMPARTIR-->
+
+		<div data-role="page" id="compartir">
+
+			<div data-role="header" data-theme="b">Preguntas</div>
+
+
+
+			<div data-role="content" data-theme="b">
+				<!--comprobacion que el num_preg>que el de aciertos-->
+				¿QUIERES COMPARTIR ESTE TEST?
+
+			</div>
+
+			<div data-role="footer" data-theme="b" data-position="fixed">
+				<a href="#amigos" data-role="button" data-transition="flip">SI</a>
+				<a href="#inicio" data-role="button" data-transition="flip">NO</a>
+			</div>
+
+		</div>
+
+		<!--COMPARTIR-->
+
+
+
+		<!--AMIGOS-->
+
+		<div data-role="page" data-theme='b' id="amigos">
+
+			<div data-role="header" data-theme="b">Alumnos</div>
+			<div data-theme="b" id="divamigos" data-form="ui-body-b">
+
+			</div>
+
+
+
+
+			<div data-role="footer" data-theme="b" data-position="fixed">
+				<a data-role="button" data-transition="flip" onClick="compartirTest()">compartir</a>
+				<a href="#inicio" data-role="button" data-transition="flip">volver</a>
+			</div>
+
+		</div>
+
+		<!--amigos-->
+
+
+
+
+
+
+
+
+		<!--REGISTRARSE-->
+
+		<div id="registro" data-role="page" data-theme="b">
+			<div data-role="header" data-theme="b" data-theme="b">
+				<h1>Registrase </h1>
+			</div>
+
+			<div data-role="content" data-theme="b">
+				<form name="registrarse">
+					<label for="usuarionuevo">Usuario(correo):</label>
+					<input type="text" name="usuarionuevo" id="usuarionuevo" />
+
+
+
+					<label for="passwordnuevo">Password:</label>
+					<input name="passwordnuevo" id="passwordnuevo" type="password" value="" autocomplete="off" data-clear-btn="true">
+
+
+
+				</form>
+			</div>
+
+			<div data-role="footer" data-theme="b" data-position="fixed">
+				<a data-role="button" data-transition="flip" onClick="aceptar_registro()">Aceptar</a>
+				<a href="#login" data-role="button" data-transition="flip">volver</a>
+			</div>
+
+		</div>
+
+
+
+		<!--FIN REGISTRARSE-->
+
+
+
+		<!--AÑADIR ALUMNO-->
+
+		<div id="annadir_alumno" data-role="page" data-theme="b">
+			<div data-role="header" data-theme="b" data-theme="b">
+				<h1>Añadir alumno </h1>
+			</div>
+
+			<div data-role="content" data-theme="b">
+				<form name="registrarse">
+					<label for="alumnonuevo">Usuario(correo):</label>
+					<input type="text" name="alumnonuevo" id="alumnonuevo" />
+					<label for="apodonuevo">Apodo:</label>
+					<input type="text" name="apodonuevo" id="apodonuevo" />
+				</form>
+			</div>
+
+			<div data-role="footer" data-theme="b" data-position="fixed">
+				<a data-role="button" data-transition="flip" onClick="annadirAlumno()">Aceptar</a>
+				<a href="#inicio" data-role="button" data-transition="flip">volver</a>
+			</div>
+
+			<!--RESULTADO EXAMEN-->
+			<!--popup-->
+
+
+
+
+
+
+			<div data-role="page" id="resultexam" ></div>
+
+
+			<!--AREA MENSAJES-->
+			<div id="popupresultado" data-position-to="window" data-role="popup" data-theme="b" data-overlay-theme="b" >
+				<a  data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+		
+
+						<h1 id="cabepopup">El codigo secreto es: </h1>
+
+						
+			
+
+				<div id="textopopup"></div>
+			</div>
+
+		</div>
+		<!--FIN AREA MENSAJES-->
+		<!--FIN RESULTADO EXAMEN-->
+
+
+		<!---VER resultados estadistidas-->
+
+		<div data-role="page" data-theme="b" id="resultados">
+
+			<div data-role="header" data-theme="b">RESULTADOS DE LOS TEST</div>
+
+			
+			<select name="listaalumnos" id="listaalumnos" data-theme="b" onChange="cargarTestAlumno()" >
+			</select>
+
+			<table data-role="table" data-theme="b" id="tablaresultados" data-mode="columntoggle"  class="ui-responsive ui-body-d table-stripe" data-column-btn-text="Selecione Filtro" data-column-btn-theme="b" >
+					<thead ><tr class='ui-bar-d' id='trtest'>
+						<th  ><h4>Nombre</h4></th>
+								<th data-priority='1' ><h4>Aprobado</h4></th>
+								<th data-priority='2' ><h4>Fecha</h4></th>
+								<th data-priority='3' ><h4>Aciertos</h4></th>
+								<th data-priority='4' ><h4>Total preguntas</h4></th>
+								<th data-priority='5' ><h4>Aciertos Necesarios</h4></th>
+								
+								</tr>
+					</thead>
+					<tbody   id='tbodyresultado'>
+					</tbody>
+			</table>
+					
+				
+			<div data-role="footer" data-theme="b" data-position="fixed">
+				<a href="#inicio" data-role="button" data-transition="flip">volver</a>
+			</div>
+
+		</div>
+
+
+		<!--FIN resultados estadistidas-->
+
+
+
+
+
+</body>
+</html>

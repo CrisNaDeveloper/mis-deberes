@@ -1,0 +1,88 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-play-services-version-adapter": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-admobpro": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-battery-status": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-console": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-device-motion": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-device-orientation": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-media": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-extension": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-admobsdk": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.apperse.misdeberes"
+    }
+  }
+}

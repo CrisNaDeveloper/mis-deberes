@@ -1,0 +1,11 @@
+{
+"android": {
+"release": {
+"keystore": "misdeberes.keystore",
+"storePassword": "petitsuit",
+"alias": "misdeberes",
+"password" : "petitsuit",
+"keystoreType": ""
+}
+}
+}

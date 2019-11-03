@@ -1,0 +1,70 @@
+{
+  "project_info": {
+    "project_number": "616346485951",
+    "firebase_url": "https://mis-deberes.firebaseio.com",
+    "project_id": "mis-deberes",
+    "storage_bucket": "mis-deberes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616346485951:android:74f45552231acda7",
+        "android_client_info": {
+          "package_name": "com.apperse.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "616346485951-15nhag25c6kl7t917b60udv6psu9kehf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaZHjkJv7CBX-hmEyEAl-nCHiRKijlQO0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "616346485951-15nhag25c6kl7t917b60udv6psu9kehf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616346485951:android:52002f5c4e758799",
+        "android_client_info": {
+          "package_name": "com.misdeberes.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "616346485951-15nhag25c6kl7t917b60udv6psu9kehf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaZHjkJv7CBX-hmEyEAl-nCHiRKijlQO0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "616346485951-15nhag25c6kl7t917b60udv6psu9kehf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-2512504278709047~4760943994"
+    }
+  ],
+  "configuration_version": "1"
+}

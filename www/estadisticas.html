@@ -1,0 +1,115 @@
+<html class="ui-mobile"><head><base href="file:///C:/Users/cristina.navarro/cosas/mis%20deberes/mis%20deberes/proyecto%20cordova/y/www/index.html#resultados">
+	<meta charset="utf-8">
+	<title>Mis deberes</title>
+
+
+
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons.min.css">
+	<link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css">
+
+	<link rel="stylesheet" type="text/css" href="css/tema_mis_deberes.min.css">
+
+
+	<link rel="stylesheet" href="themes/alertify.core.css">
+	<link rel="stylesheet" href="themes/alertify.default.css" id="toggleCSS">
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="lib/alertify.min.js"></script>
+	<!--script  src="cordova-2.7.0.js" type="text/javascript"></script-->
+	<!-- Firebase App is always required and must be first -->
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
+	<!-- Add additional services that you want to use -->
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-messaging.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-functions.js"></script>
+
+	<!-- Comment out (or don't include) services that you don't want to use -->
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-storage.js"></script>
+	<script src="js/admob_simple.js"></script>
+	<script src="jquery.mobile-1.4.5/jquery-1.10.2.min.js"></script>
+	<script src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
+	<script src="js/misdeberes.js"></script>
+
+
+
+
+
+
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+
+</head>
+
+
+
+<body data-theme="b" class="ui-mobile-viewport ui-overlay-b" style="">
+
+
+
+
+
+		<!---VER resultados estadistidas-->
+
+		<div data-role="page" data-theme="b" id="resultados" data-url="resultados" tabindex="0" class="ui-page ui-page-theme-b ui-page-footer-fixed ui-page-active" style="padding-bottom: 50px; min-height: 639px;">
+
+			<div data-role="header" data-theme="b" role="banner" class="ui-header ui-bar-b">RESULTADOS DE LOS TEST</div>
+
+			
+
+			
+			
+			<div class="ui-select"><div id="listaalumnos-button" class="ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-b ui-corner-all ui-shadow"><span>Crispu hotmail</span><select name="listaalumnos" id="listaalumnos" data-theme="b" onchange="cargarTestAlumno()"><option value="--">Seleccione un Alumno...</option>&nbsp;<option select="" value="c_navarro_martinez@hotmail.com">Crispu hotmail</option>&nbsp;<option select="" value="xgarcinuno@hotmail.com">Garci hotmail</option>&nbsp;<option select="" value="alfonsonama@hotmail.com">Alfon hotmail</option></select></div></div>
+
+			<div data-role="content" data-theme="b" class="ui-content ui-body-b" role="main">
+
+
+							
+									&nbsp;&nbsp;&nbsp;<div style="display: none;" id="tablaresultados-popup-placeholder">
+										<!-- placeholder for tablaresultados-popup --></div>
+										<a href="#tablaresultados-popup" class="ui-table-columntoggle-btn ui-btn ui-btn-b ui-corner-all ui-shadow ui-mini" data-rel="popup">Selecione Test</a>
+										<table data-role="table" data-theme="b" id="tablaresultados" data-mode="columntoggle" class="ui-responsive ui-body-d table-stripe table-stroke ui-table ui-table-columntoggle" data-column-btn-text="Selecione Test" data-column-btn-theme="b">
+											<thead><tr class="ui-bar-d" id="trtest">
+												<th><h3>Resultados</h3></th>
+												<th data-priority="1" ><h4>Capitales europeas</h4>								</th>
+												<th data-priority="2"><h4>Conocimientos generales</h4></th>
+											
+											</tr></thead>
+											<tbody id="tbodyresultado">
+												<tr id="traprobado"></tr>
+											</tbody>
+											
+											<td> Ha Aprobado</td>
+											<td>SI</td>
+											<td>SI</td>
+										</table>
+					
+					
+
+						
+			
+
+				
+
+			</div>
+
+			<div data-role="footer" data-theme="b" data-position="fixed" role="contentinfo" class="ui-footer ui-bar-b ui-footer-fixed slideup">
+
+				<a href="#inicio" data-role="button" data-transition="flip" class="ui-link ui-btn ui-shadow ui-corner-all" role="button">volver</a>
+
+			</div>
+
+		<div class="ui-popup-screen ui-overlay-inherit ui-screen-hidden" id="tablaresultados-popup-screen"></div><div class="ui-popup-container ui-popup-hidden ui-popup-truncate" id="tablaresultados-popup-popup"><div class="ui-table-columntoggle-popup ui-popup ui-body-inherit ui-overlay-shadow ui-corner-all" id="tablaresultados-popup"><fieldset class="ui-controlgroup ui-controlgroup-vertical ui-corner-all"><div class="ui-controlgroup-controls "></div></fieldset></div></div></div>
+
+
+		<!--FIN VER PREGUNTAS-->
+
+
+
+
+
+
+
+<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon-loading"></span><h1>loading</h1></div></body></html>
