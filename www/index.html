@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/tema_mis_deberes.min.css" />
 
-
+<link rel="stylesheet" type="text/css" href="css/scratch.css" />
 
 	<link rel="stylesheet" href="themes/alertify.core.css" />
 	<link rel="stylesheet" href="themes/alertify.default.css" id="toggleCSS" />
@@ -40,7 +40,7 @@
 
 	<script src="js/misdeberes.js"></script>
 
-
+		<script src="js/scratch.js"></script>
 
 	<meta http-equiv="Access-Control-Allow-Origin" content="*">
 
@@ -82,6 +82,7 @@
 		<div data-role="footer" data-theme="b" data-position="fixed">
 			<a data-role="button" data-transition="flip" id="aceptar" onClick="validar_usuario()">Aceptar</a>
 			<a href="#registro" data-role="button" data-transition="flip">Registrarse</a>
+			<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
 		</div>
 
 
@@ -150,6 +151,7 @@
 			<a href="#pregunta" id="sigpreg" data-role="button" data-transition="flip" onClick="crear_pregunta()">Siguiente pregunta</a>
 			<a href="#num_preg" data-role="button" data-transition="flip">volver</a>
 			<a data-role="button" data-transition="flip" onclick="terminar_test()">Terminar Preguntas</a>
+				<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
 		</div>
 	</div>
 
@@ -176,6 +178,7 @@
 			<a href="#realizartest" data-role="button" data-transition="flip" onClick="crear_respuesta()">Siguiente pregunta</a>
 			<a href="#inicio" data-role="button" data-transition="flip">volver</a>
 			<a data-role="button" data-transition="flip" onclick="terminar_respuesta()">Terminar Preguntas</a>
+				<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
 		</div>
 	</div>
 
@@ -204,6 +207,7 @@
 			<a href="#amigos" onclick="cargarListaAmigos()" data-role="button" data-transition="flip">compartir</a>
 			<a href="#inicio" data-role="button" data-transition="flip" id="botonborrar" onclick="borrarTest(id_test)">Borrar este test</a>
 			<a data-role="button" data-transition="flip" onclick="hacerTest(numpregcuestion,id_test,nombre,numrespaprobar)" ;>Hacer test</a>
+				<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
 		</div>
 
 	</div>
@@ -259,6 +263,7 @@
 					<a href="#login" data-role="button" data-transition="flip">volver</a>
 					<a href="#annadir_alumno" data-role="button" data-transition="flip">añadir alumnos</a>
 					<a href="#resultados" data-role="button" data-transition="flip" onClick="cargarListaAlumnos()">Ver resultados</a>
+						<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
 				</div>
 
 			</form>
@@ -305,6 +310,7 @@
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a data-role="button" data-transition="flip" onClick="crear_test()">Crear Test</a>
 				<a href="#inicio" data-role="button" data-transition="flip">volver</a>
+					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
 			</div>
 
 		</div>
@@ -332,6 +338,7 @@
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a href="#amigos" data-role="button" data-transition="flip">SI</a>
 				<a href="#inicio" data-role="button" data-transition="flip">NO</a>
+					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
 			</div>
 
 		</div>
@@ -355,6 +362,7 @@
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a data-role="button" data-transition="flip" onClick="compartirTest()">compartir</a>
 				<a href="#inicio" data-role="button" data-transition="flip">volver</a>
+					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
 			</div>
 
 		</div>
@@ -393,6 +401,7 @@
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a data-role="button" data-transition="flip" onClick="aceptar_registro()">Aceptar</a>
 				<a href="#login" data-role="button" data-transition="flip">volver</a>
+					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
 			</div>
 
 		</div>
@@ -422,6 +431,7 @@
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a data-role="button" data-transition="flip" onClick="annadirAlumno()">Aceptar</a>
 				<a href="#inicio" data-role="button" data-transition="flip">volver</a>
+					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
 			</div>
 
 			<!--RESULTADO EXAMEN-->
@@ -436,13 +446,21 @@
 
 
 			<!--AREA MENSAJES-->
-			<div id="popupresultado" data-position-to="window" data-role="popup" data-theme="b" data-overlay-theme="b" >
+			<div id="popupresultado" data-position-to="window" data-role="popup" data-theme="b" data-overlay-theme="b">
 				<a  data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-		
 
-						<h1 id="cabepopup">El codigo secreto es: </h1>
+				
+				
+							
+							<div class="container" id="js-container">
+						  <canvas class="canvas" id="js-canvas" width="300" height="300"></canvas>
+						  <form class="form" style="visibility: hidden;">
+						<h1 id="cabepopup"></h1>
+							<h3>El código secreto es:</h3>
+							<h1><code></code></h1>
 
-						
+						  </form>  
+						</div>
 			
 
 				<div id="textopopup"></div>
@@ -481,6 +499,7 @@
 				
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a href="#inicio" data-role="button" data-transition="flip">volver</a>
+					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
 			</div>
 
 		</div>
