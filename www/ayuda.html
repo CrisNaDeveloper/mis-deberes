@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Mis deberes</title>
+<!-- 	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons.min.css" /> -->
+<!-- 	<link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" /> -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/tema_mis_deberes.min.css" />
+
+<link rel="stylesheet" type="text/css" href="css/scratch.css" />
+
+	<link rel="stylesheet" href="themes/alertify.core.css" />
+	<link rel="stylesheet" href="themes/alertify.default.css" id="toggleCSS" />
+
+	<link rel="stylesheet" href="themes/alertify.core.css" />
+	<link rel="stylesheet" href="themes/alertify.default.css" id="toggleCSS" />
+
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="lib/alertify.min.js"></script>
+	<!--script  src="cordova-2.7.0.js" type="text/javascript"></script-->
+	<!-- Firebase App is always required and must be first -->
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
+	<!-- Add additional services that you want to use -->
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-messaging.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-functions.js"></script>
+
+	<!-- Comment out (or don't include) services that you don't want to use -->
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-storage.js"></script>
+	<script src="js/admob_simple.js"></script>
+<!-- 	<script src="jquery.mobile-1.4.5/jquery-1.10.2.min.js"></script>
+	<script src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+	<script src="js/misdeberes.js"></script>
+
+		<script src="js/scratch.js"></script>
+
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+
+</head>
+
+
+
+<body data-theme="b">
+
+
+
+
+	<div data-role="page" id="queesmisdeberes">
+
+
+
+
+
+
+		<div data-role="header" data-theme="b">¿Que es Mis deberes?</div>
+		
+
+		<div data-role="content" data-theme="b">
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>Ayuda<o:p></o:p></b></p>
+
+<ol style='margin-top:0cm' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3'><b style='mso-bidi-font-weight:
+     normal'><a href="#_¿Qué_es_“Mis">¿Qué es “Mis deberes”?</a><o:p></o:p></b></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3'><b style='mso-bidi-font-weight:
+     normal'><a href="#_¿Qué_ofrece_de">¿Qué ofrece de más “Mis deberes”?</a><o:p></o:p></b></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3'><b style='mso-bidi-font-weight:
+     normal'><a href="#_¿Cómo_se_puede">¿Cómo se puede entrar a la aplicación?</a><o:p></o:p></b></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3'><b style='mso-bidi-font-weight:
+     normal'><a href="#_¿Cómo_registrarse?">¿Cómo registrarse?</a><o:p></o:p></b></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3'><b style='mso-bidi-font-weight:
+     normal'><a href="#_¿Se_me_olvido">¿Se me olvido la contraseña?</a><o:p></o:p></b></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3'><b style='mso-bidi-font-weight:
+     normal'><a href="#_¿Cómo_se_ven">¿Cómo se crea un test?</a><o:p></o:p></b></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3'><b style='mso-bidi-font-weight:
+     normal'><a href="#_¿Cómo_se_crean">¿Cómo se crean las preguntas?</a><o:p></o:p></b></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3'><b style='mso-bidi-font-weight:
+     normal'><a href="#_¿Cómo_se_ven">¿Cómo se ven los test?</a><o:p></o:p></b></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3'><b style='mso-bidi-font-weight:
+     normal'><a href="#_¿Cómo_hacer_un">¿Cómo hacer un test?</a><o:p></o:p></b></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3'><b style='mso-bidi-font-weight:
+     normal'><a href="#_¿Cómo_se_los">¿Cómo se los aciertos que tengo?</a><o:p></o:p></b></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3'><b style='mso-bidi-font-weight:
+     normal'><a href="#_¿Cómo_se_si">¿Cómo se si he aprobado?</a><o:p></o:p></b></li>
+</ol>
+
+<p class=MsoNormal style='margin-left:36.0pt'><b style='mso-bidi-font-weight:
+normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<h1><a name="_¿Qué_es_“Mis"></a>¿Qué es “Mis deberes”?</h1>
+
+<p class=MsoNormal style='margin-left:35.4pt'>Mis deberes <span class=GramE>es</span>
+una aplicación tanto web como app donde padres, profesores y alumnos puede crear
+<span class=SpellE>tests</span> y compartir entre alumnos, amigos, profesores u
+padres.</p>
+
+<h1><a name="_¿Qué_ofrece_de"></a>¿Qué ofrece de más “Mis deberes”?</h1>
+
+<p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt;mso-list:l1 level1 lfo1'><![if !supportLists]><span
+style='mso-bidi-font-family:Calibri'><span style='mso-list:Ignore'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Nos
+permite premiar a los alumnos que aprueban el test con un código o frase
+motivadora. Los padres pueden introducir la clave de desbloqueo de algún dispositivo
+(Tablet, móvil, consola).</p>
+
+<p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt;mso-list:l1 level1 lfo1'><![if !supportLists]><span
+style='mso-bidi-font-family:Calibri'><span style='mso-list:Ignore'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Se
+pueden crear los test desde la web, lo que supone la ventaja de que es más fácil
+crearlos en ordenador que en un móvil, viéndose en los dos dispositivos.</p>
+
+<p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt;mso-list:l1 level1 lfo1'><![if !supportLists]><span
+style='mso-bidi-font-family:Calibri'><span style='mso-list:Ignore'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Permite
+compartir con todos los alumnos de una clase y se permite que se comparta entre
+profesores, padres, amigos , <span class=GramE>etc..</span></p>
+
+<p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt;mso-list:l1 level1 lfo1'><![if !supportLists]><span
+style='mso-bidi-font-family:Calibri'><span style='mso-list:Ignore'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Las
+respuestas que se introducen se convierten en botones lo que hace que sea muy rápida
+la contestación de los <span class=SpellE>tests</span></p>
+
+<p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt;mso-list:l1 level1 lfo1'><![if !supportLists]><span
+style='mso-bidi-font-family:Calibri'><span style='mso-list:Ignore'>5.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Existe
+un apartado de estadísticas, donde se puede ver cuántos alumnos han aprobado y cuáles
+no, así como la cantidad de aciertos y errores.</p>
+
+<p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt;mso-list:l1 level1 lfo1'><![if !supportLists]><span
+style='mso-bidi-font-family:Calibri'><span style='mso-list:Ignore'>6.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>También
+hay estadísticas de los test que yo hago.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_¿Cómo_se_puede"></a>¿Cómo se puede entrar a la aplicación?</h1>
+
+<p class=MsoNormal style='margin-left:35.4pt'>Para acceder a la aplicación
+primero ha de registrarse.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_¿Cómo_registrarse?"></a>¿Cómo registrarse?</h1>
+
+<p class=MsoNormal style='margin-left:35.4pt'>Darse de alta es muy sencillo
+solo hay que poner un correo y <span class=SpellE>password</span>, se valida que
+sea un correo valido, las contraseñas nunca se guardan, la aplicación esta <span
+class=SpellE>securizada</span> y las contraseñas se guardan en un sistema
+cifrado diseñado por Google, solo tu conocerás tu clave, puedes pedir la clave
+si se te ha olvidado y te la enviará por correo.</p>
+
+<h1><a name="_¿Se_me_olvido"></a>¿Se me olvido la contraseña?</h1>
+
+<p class=MsoNormal style='margin-left:35.4pt'>No hay problema, vuelve al inicio
+y pincha sobre el enlace “¿Se te ha olvidado la contraseña?”</p>
+
+<h1>¿Cómo se crea un test?</h1>
+
+<p class=MsoNormal style='margin-left:35.4pt'>Para crear un test tendrás que
+dar al botón de crear y en la pantalla aparecerá:</p>
+
+<p class=MsoNormal style='margin-left:35.4pt'><span style='mso-tab-count:1'>                </span>Nombre
+del <span class=SpellE>tests</span> (necesario): Deberás poner un nombre identificativo
+del test</p>
+
+<p class=MsoNormal style='margin-left:70.8pt'>Respuestas correctas necesarias
+para aprobar (opcional): Deberás introducir un nº de las respuestas que han de
+estar bien para aprobar el test, será necesario para que se dé el premio.</p>
+
+<p class=MsoNormal style='margin-left:70.8pt'>Premio: Código o frase
+motivadora, que en el caso de igualar o superar las respuesta correctas
+necesarias</p>
+
+<p class=MsoNormal style='margin-left:70.8pt'>Categoría: Se ha de seleccionar
+una categoría de la listas, para posteriores búsquedas</p>
+
+<p class=MsoNormal style='margin-left:70.8pt'>Edad: Se ha de seleccionar de la
+lista un rango de edades para quien está dirigido el test para posteriores
+búsquedas.</p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1026" type="#_x0000_t75" style='width:264.75pt;
+ height:277.5pt'>
+ <v:imagedata src="texto_ayuda_archivos/image001.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=353 height=370
+src="texto_ayuda_archivos/image002.jpg" v:shapes="_x0000_i1026"><![endif]></p>
+
+<p class=MsoNormal style='margin-left:35.4pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:35.4pt'>Una vez rellenos los campos
+pulsaremos sobre el botón “Crear Test<span class=GramE>” ,</span> nos aparecerá
+un mensaje en verde informativo donde se nos indica que se ha creado y
+empezaremos a introducir las preguntas con sus posibles respuestas</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_¿Cómo_se_crean"></a>¿Cómo se crean las preguntas?</h1>
+
+<p class=MsoNormal style='margin-left:35.4pt'>Se nos muestra una pantalla en la
+que aparece:</p>
+
+<p class=MsoNormal style='margin-left:88.8pt;text-indent:-18.0pt;mso-list:l3 level1 lfo2'><![if !supportLists]><span
+style='mso-bidi-font-family:Calibri'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Que quieres que le salga de pregunta: Aquí introducirás
+un texto libre de pregunta</p>
+
+<p class=MsoNormal style='margin-left:88.8pt;text-indent:-18.0pt;mso-list:l3 level1 lfo2'><![if !supportLists]><span
+style='mso-bidi-font-family:Calibri'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Respuesta 1, 2, 3, y 4: Se da la posibilidad de
+introducir hasta 4 respuestas, será un texto libre, este texto libre luego
+cuando el test se visualice se transformará en un botón, pudiendo haber hasta
+4. Cada vez que introducimos una respuesta se ha de dar al botón “guardar
+respuesta”</p>
+
+<p class=MsoNormal style='margin-left:53.4pt;text-indent:17.4pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1029" type="#_x0000_t75" style='width:259.5pt;height:233.25pt'>
+ <v:imagedata src="texto_ayuda_archivos/image003.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=346 height=311
+src="texto_ayuda_archivos/image004.jpg" v:shapes="_x0000_i1029"><![endif]></p>
+
+<p class=MsoNormal style='margin-left:35.4pt'>La respuesta correcta se ha de dejar
+marcada con un radio seleccionado que aparece en verde a la izquierda de cada
+respuesta</p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-indent:35.4pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1028" type="#_x0000_t75" style='width:263.25pt;height:345pt'>
+ <v:imagedata src="texto_ayuda_archivos/image005.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=351 height=460
+src="texto_ayuda_archivos/image006.jpg" v:shapes="_x0000_i1028"><![endif]></p>
+
+<p class=MsoNormal style='margin-left:35.4pt'>Una vez creada la pregunta se nos
+mostrará un mensaje informativo de color verde y aparecerá la siguiente
+pregunta.</p>
+
+<p class=MsoNormal style='margin-left:35.4pt'>Se nos indicará el siguiente número
+de pregunta y aparecerá en blanco para rellenar<o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-indent:35.4pt'><b
+style='mso-bidi-font-weight:normal'><!--[if gte vml 1]><v:shape id="_x0000_i1027"
+ type="#_x0000_t75" style='width:261.75pt;height:359.25pt'>
+ <v:imagedata src="texto_ayuda_archivos/image007.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=349 height=479
+src="texto_ayuda_archivos/image008.jpg" v:shapes="_x0000_i1027"><![endif]><o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal style='margin-left:35.4pt'>Cuando queramos podemos terminar
+de hacer preguntas dando al botón “Terminar preguntas”, se nos mostrará un
+mensaje en verde indicándonos que se ha terminado el test y nos llevará a la
+pantalla donde se listan los test.</p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><!--[if gte vml 1]><v:shape id="_x0000_i1030"
+ type="#_x0000_t75" style='width:265.5pt;height:239.25pt'>
+ <v:imagedata src="texto_ayuda_archivos/image009.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=354 height=319
+src="texto_ayuda_archivos/image010.jpg" v:shapes="_x0000_i1030"><![endif]></p>
+
+<h1><a name="_¿Cómo_se_ven"></a>¿Cómo se ven los test?</h1>
+
+<p class=MsoNormal style='text-indent:35.4pt'>Los test aparecen listados, y
+podremos presionar sobre cada uno de ellos para ver las preguntas pero sin sus
+respuestas</p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><!--[if gte vml 1]><v:shape id="_x0000_i1031"
+ type="#_x0000_t75" style='width:265.5pt;height:239.25pt'>
+ <v:imagedata src="texto_ayuda_archivos/image009.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=354 height=319
+src="texto_ayuda_archivos/image011.jpg" v:shapes="_x0000_i1031"><![endif]></p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><!--[if gte vml 1]><v:shape id="_x0000_i1032"
+ type="#_x0000_t75" style='width:265.5pt;height:240.75pt'>
+ <v:imagedata src="texto_ayuda_archivos/image012.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=354 height=321
+src="texto_ayuda_archivos/image013.jpg" v:shapes="_x0000_i1032"><![endif]></p>
+
+<h1><a name="_¿Cómo_hacer_un"></a>¿Cómo hacer un test?<o:p></o:p></h1>
+
+<p class=MsoNormal style='margin-left:35.4pt'>Hacer un test es tan sencillo
+como <span class=SpellE>selecionarlo</span> de la lista, nos mostrará la
+pantalla con las preguntas del test seleccionado y <span class=SpellE>presinaremos</span>
+en “Hacer Test”</p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><!--[if gte vml 1]><v:shape id="_x0000_i1033"
+ type="#_x0000_t75" style='width:265.5pt;height:239.25pt'>
+ <v:imagedata src="texto_ayuda_archivos/image009.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=354 height=319
+src="texto_ayuda_archivos/image014.jpg" v:shapes="_x0000_i1033"><![endif]></p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><!--[if gte vml 1]><v:shape id="_x0000_i1034"
+ type="#_x0000_t75" style='width:265.5pt;height:240.75pt'>
+ <v:imagedata src="texto_ayuda_archivos/image012.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=354 height=321
+src="texto_ayuda_archivos/image013.jpg" v:shapes="_x0000_i1034"><![endif]></p>
+
+<p class=MsoNormal style='margin-left:70.8pt'>Al presionar sobre hacer test nos
+aparecerán los botones con las posibles respuestas.</p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><!--[if gte vml 1]><v:shape id="_x0000_i1035"
+ type="#_x0000_t75" style='width:261.75pt;height:236.25pt'>
+ <v:imagedata src="texto_ayuda_archivos/image015.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=349 height=315
+src="texto_ayuda_archivos/image016.jpg" v:shapes="_x0000_i1035"><![endif]></p>
+
+<p class=MsoNormal style='margin-left:70.8pt'>Según presionemos sobre la
+respuesta nos aparecerá la siguiente pregunta, se nos informará cuando sea la
+última pregunta, pero podremos terminar el test cuando nosotros deseemos
+presionando sobre “Terminar Preguntas”.</p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_¿Cómo_se_los"></a>¿Cómo se los aciertos que tengo?</h1>
+
+<p class=MsoNormal style='margin-left:35.4pt'>Se te va informando de los
+aciertos necesarios para aprobar y de los que tienes según vas pasando de
+pregunta</p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><!--[if gte vml 1]><v:shape id="_x0000_i1036"
+ type="#_x0000_t75" style='width:245.25pt;height:221.25pt'>
+ <v:imagedata src="texto_ayuda_archivos/image017.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=327 height=295
+src="texto_ayuda_archivos/image018.jpg" v:shapes="_x0000_i1036"><![endif]></p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_¿Cómo_se_si"></a>¿Cómo se si he aprobado?</h1>
+
+<p class=MsoNormal style='margin-left:35.4pt'>Aparte de indicarte en cada
+pregunta los aciertos que tienes <span style='mso-spacerun:yes'> </span>y
+cuantos son necesarios para aprobar, al finalizar aparecerá un texto
+informativo con tu premio en caso de aprobar</p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><!--[if gte vml 1]><v:shape id="_x0000_i1025"
+ type="#_x0000_t75" style='width:245.25pt;height:221.25pt'>
+ <v:imagedata src="texto_ayuda_archivos/image017.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=327 height=295
+src="texto_ayuda_archivos/image019.jpg" v:shapes="_x0000_i1025"><![endif]><b
+style='mso-bidi-font-weight:normal'><o:p></o:p></b></p>
+
+		</div>
+
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			
+			<a href="#inicio" data-role="button" data-transition="flip">Volver</a>
+		</div>
+
+
+
+	</div>
+	</body>
+	</html>
