@@ -176,7 +176,7 @@ function recuperacontrasenna(emailAddress) {
 			alertify.success("ha ocurrido un error al enviar el mensaje");
 		});
 	} else {
-		alertify.error("Rellene el campo usuario" + error);
+		alertify.error("Rellene el campo usuario" );
 	}
 }
 
@@ -185,6 +185,8 @@ function desconectar() {
 
 	firebase.auth().signOut().then(function () {
 		alertify.success("desconectado");
+		$('#usuario').val("");
+		$('#password').val("");
 		$.mobile.changePage("#login", {
 			transition: "slide",
 			reverse: true
@@ -308,7 +310,6 @@ function crear_pregunta() {
 
 	res = parseInt($('input:radio[name=respuesta]:checked').val());
 
-	//añadido david
 
 	var respuestas = [];
 
@@ -324,7 +325,7 @@ function crear_pregunta() {
 		}
 
 	}
-	//fin david
+
 
 
 	//if con else de david
@@ -335,6 +336,11 @@ function crear_pregunta() {
 
 
 	} else {
+		
+		if(isNaN(res)){
+			alertify.error("Ha de seleccionar la opción correcta");
+		return false;
+		}
 
 		if (preg != "" && res != "" && res != null && res != undefined) {
 			db.collection("preguntas").add({
@@ -1048,7 +1054,6 @@ function borrarTest(id_test) {
 		}).catch(function (error) {
 			console.error("Error borrando en test: ", error);
 		});
-		alert("urusario creador"+usuariocrea+"email"+email);
 
 	var compartidos_borrar = db.collection('test_compartidos').where('id_test', '==', id_test);
 	compartidos_borrar.get()
