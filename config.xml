@@ -11,11 +11,8 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="28" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
-	<preference name="android-build-tool" value="gradle" />
-<preference name="phonegap-version" value="cli-7.1.0" />
-<plugin name="cordova-plugin-admobpro" source="npm">
-<variable name="PLAY_SERVICES_VERSION" value="16.0.0" />
-</plugin>
+    <preference name="android-build-tool" value="gradle" />
+    <preference name="phonegap-version" value="cli-7.1.0" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.2.0" />
@@ -123,4 +120,8 @@
     <engine name="ios" spec="^4.5.5" />
     <engine name="android" spec="^7.1.4" />
     <engine name="browser" spec="^5.0.4" />
+    <plugin name="cordova-plugin-admobpro" spec="^2.37.2">
+        <variable name="PLAY_SERVICES_VERSION" value="16.0.0" />
+        <variable name="ADMOB_APP_ID" value="ca-app-pub-2512504278709047/8783949487" />
+    </plugin>
 </widget>
