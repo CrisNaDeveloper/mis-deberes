@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Mis deberes</title>
+<!-- 	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons.min.css" /> -->
+<!-- 	<link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" /> -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/tema_mis_deberes.min.css" />
+
+<link rel="stylesheet" type="text/css" href="css/scratch.css" />
+
+	<link rel="stylesheet" href="themes/alertify.core.css" />
+	<link rel="stylesheet" href="themes/alertify.default.css" id="toggleCSS" />
+
+	<link rel="stylesheet" href="themes/alertify.core.css" />
+	<link rel="stylesheet" href="themes/alertify.default.css" id="toggleCSS" />
+
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="lib/alertify.min.js"></script>
+	<!--script  src="cordova-2.7.0.js" type="text/javascript"></script-->
+	<!-- Firebase App is always required and must be first -->
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
+	<!-- Add additional services that you want to use -->
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-messaging.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-functions.js"></script>
+
+	<!-- Comment out (or don't include) services that you don't want to use -->
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-storage.js"></script>
+	<script src="js/admob_simple.js"></script>
+<!-- 	<script src="jquery.mobile-1.4.5/jquery-1.10.2.min.js"></script>
+	<script src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/misdeberes.js"></script>
+		<script src="js/scratch.js"></script>
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+</head>
+
+
+<body data-theme="b">
+	<div data-role="page" id="queesmisdeberes">
+		<div data-role="header" data-theme="b">¿Que es Mis deberes?</div>
+		<div data-role="content" data-theme="b">
+
+<p >Ayuda</p>
+
+<ol>
+ <li><a href="#1" target="foo">¿Qué es “Mis deberes”?</a></li>
+ <li><a href="#2" target="foo">¿Qué ofrece de más “Mis deberes”?</a></li>
+ <li><a href="#3" target="foo">¿Cómo se puede entrar a la aplicación?</a></li>
+ <li><a href="#4" target="foo">¿Cómo registrarse?</a</li>
+ <li><a href="#5" target="foo">¿Se me olvido la contraseña?</a></li>
+ <li><a href="#6" target="foo">¿Cómo se crea un test?</a></li>
+ <li><a href="#7" target="foo">¿Cómo se crean las preguntas?</a></li>
+ <li><a href="#8" target="foo">¿Cómo se ven los test?</a></li>
+ <li><a href="#9" target="foo">¿Cómo hacer un test?</a></li>
+ <li><a href="#10" target="foo">¿Cómo se los aciertos que tengo?</a></li>
+ <li><a href="#11" target="foo">¿Cómo se si he aprobado?</a></li>
+</ol>
+
+
+
+<h1><a name="1">¿Qué es “Mis deberes”?</a></h1>
+
+<p >Mis deberes
+una aplicación tanto web como app donde padres, profesores y alumnos puede crear
+testsy compartir entre alumnos, amigos, profesores u
+padres.</p>
+
+<h1><a name="2">¿Qué ofrece de más “Mis deberes”?</a></h1>
+
+<p>1.-Nos
+permite premiar a los alumnos que aprueban el test con un código o frase
+motivadora. Los padres pueden introducir la clave de desbloqueo de algún dispositivo
+(Tablet, móvil, consola).</p>
+
+<p>2.-Se
+pueden crear los test desde la web, lo que supone la ventaja de que es más fácil
+crearlos en ordenador que en un móvil, viéndose en los dos dispositivos.</p>
+
+<p>3.-Permite
+compartir con todos los alumnos de una clase y se permite que se comparta entre
+profesores, padres, amigos , <span class=GramE>etc..</span></p>
+
+<p>4.-Las
+respuestas que se introducen se convierten en botones lo que hace que sea muy rápida
+la contestación de los <span class=SpellE>tests</span></p>
+
+<p>5.-Existe
+un apartado de estadísticas, donde se puede ver cuántos alumnos han aprobado y cuáles
+no, así como la cantidad de aciertos y errores.</p>
+
+<p>6.-También
+hay estadísticas de los test que yo hago.</p>
+
+
+
+<h1><a name="3">¿Cómo se puede entrar a la aplicación?</a></h1>
+
+<p class=MsoNormal style='margin-left:35.4pt'>Para acceder a la aplicación
+primero ha de registrarse.</p>
+
+
+
+<h1><a name="4">¿Cómo registrarse?</a></h1>
+
+<p>Darse de alta es muy sencillo
+solo hay que poner un correo y password<, se valida que
+sea un correo valido, las contraseñas nunca se guardan, la aplicación esta securizada y las contraseñas se guardan en un sistema
+cifrado diseñado por Google, solo tu conocerás tu clave, puedes pedir la clave
+si se te ha olvidado y te la enviará por correo.</p>
+
+<h1><a name="5">¿Se me olvido la contraseña?</a></h1>
+
+<p>No hay problema, vuelve al inicio
+y pincha sobre el enlace “¿Se te ha olvidado la contraseña?”</p>
+
+<h1><a name="6">¿Cómo se crea un test?</a></h1>
+
+<p>Para crear un test tendrás que
+dar al botón de crear y en la pantalla aparecerá:</p>
+
+<p>Nombre
+del  (necesario): Deberás poner un nombre identificativo
+del test</p>
+
+<p>Respuestas correctas necesarias
+para aprobar (opcional): Deberás introducir un nº de las respuestas que han de
+estar bien para aprobar el test, será necesario para que se dé el premio.</p>
+
+<p>Premio: Código o frase
+motivadora, que en el caso de igualar o superar las respuesta correctas
+necesarias</p>
+
+<p>Categoría: Se ha de seleccionar
+una categoría de la listas, para posteriores búsquedas</p>
+
+<p>Edad: Se ha de seleccionar de la
+lista un rango de edades para quien está dirigido el test para posteriores
+búsquedas.</p>
+
+<p ><img border=0 width=353 height=370
+src="img/image002.jpg" v:shapes="_x0000_i1026"></p>
+
+
+<p>Una vez rellenos los campos
+pulsaremos sobre el botón “Crear Test” ,nos aparecerá
+un mensaje en verde informativo donde se nos indica que se ha creado y
+empezaremos a introducir las preguntas con sus posibles respuestas</p>
+
+
+<h1><a name="7">¿Cómo se crean las preguntas?</a></h1>
+
+<p>Se nos muestra una pantalla en la
+que aparece:</p>
+
+<p>Que quieres que le salga de pregunta: Aquí introducirás
+un texto libre de pregunta</p>
+
+<p>Respuesta 1, 2, 3, y 4: Se da la posibilidad de
+introducir hasta 4 respuestas, será un texto libre, este texto libre luego
+cuando el test se visualice se transformará en un botón, pudiendo haber hasta
+4. Cada vez que introducimos una respuesta se ha de dar al botón “guardar
+respuesta”</p>
+
+<p><img border=0 width=346 height=311 src="img/image004.jpg" ></p>
+
+<p>La respuesta correcta se ha de dejar
+marcada con un radio seleccionado que aparece en verde a la izquierda de cada
+respuesta</p>
+
+<p><img border=0 width=351 height=460 src="img/image006.jpg"></p>
+
+<p>Una vez creada la pregunta se nos
+mostrará un mensaje informativo de color verde y aparecerá la siguiente
+pregunta.</p>
+
+<p>Se nos indicará el siguiente número
+de pregunta y aparecerá en blanco para rellenar<</p>
+
+<p><img border=0 width=349 height=479 src="img/image008.jpg" ></p>
+
+
+
+<p>Cuando queramos podemos terminar
+de hacer preguntas dando al botón “Terminar preguntas”, se nos mostrará un
+mensaje en verde indicándonos que se ha terminado el test y nos llevará a la
+pantalla donde se listan los test.</p>
+
+<p><img border=0 width=354 height=319 src="img/image010.jpg" ></p>
+
+<h1><a name="8">¿Cómo se ven los test?</a></h1>
+
+<p>Los test aparecen listados, y
+podremos presionar sobre cada uno de ellos para ver las preguntas pero sin sus
+respuestas</p>
+
+<p><img border=0 width=354 height=319 src="img/image011.jpg"></p>
+
+<p><img border=0 width=354 height=321 src="img/image013.jpg" ></p>
+
+<h1><a name="9">¿Cómo hacer un test?</a></h1>
+
+<p>Hacer un test es tan sencillo
+como selecionarlo de la lista, nos mostrará la
+pantalla con las preguntas del test seleccionado y presinaremos
+en “Hacer Test”</p>
+
+<p><img border=0 width=354 height=319 src="img/image014.jpg" ></p>
+
+<p><img border=0 width=354 height=321 src="img/image013.jpg" ></p>
+
+<p>Al presionar sobre hacer test nos
+aparecerán los botones con las posibles respuestas.</p>
+
+<p><img border=0 width=349 height=315 src="img/image016.jpg" ></p>
+
+<p>Según presionemos sobre la
+respuesta nos aparecerá la siguiente pregunta, se nos informará cuando sea la
+última pregunta, pero podremos terminar el test cuando nosotros deseemos
+presionando sobre “Terminar Preguntas”.</p>
+
+
+
+<h1><a name="10">¿Cómo se los aciertos que tengo?</a></h1>
+
+<p>Se te va informando de los
+aciertos necesarios para aprobar y de los que tienes según vas pasando de
+pregunta</p>
+
+<p><img border=0 width=327 height=295 src="img/image018.jpg"></p>
+
+
+
+
+
+<h1><a name="11">¿Cómo se si he aprobado?</a></h1>
+
+<p>Aparte de indicarte en cada
+pregunta los aciertos que tienes y
+cuantos son necesarios para aprobar, al finalizar aparecerá un texto
+informativo con tu premio en caso de aprobar</p>
+
+<p><img border=0 width=327 height=295 src="img/image019.jpg" ></p>
+
+		</div>
+
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			
+			<a data-rel="back" data-transition="flip">Volver</a>
+		</div>
+
+
+
+	</div>
+	</body>
+	</html>
