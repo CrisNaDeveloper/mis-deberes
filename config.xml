@@ -112,6 +112,13 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+	<allow-intent href="http://code.jquery.com/*" />
+    <allow-intent href="https://code.jquery.com/*" />
+    <allow-intent href="https://www.gstatic.com/*" />
+    <allow-intent href="https://mis-deberes.firebaseio.com/*" />
+    <allow-intent href="https://mis-deberes.appspot.com/*" />
+    <allow-intent href="https://mis-deberes.firebaseapp.com/*" />
+    <allow-intent href="https://github.com/CrisNaDeveloper/mis_deberes/*" />
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
