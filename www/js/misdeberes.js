@@ -1,3 +1,9 @@
+
+$( document ).bind( "mobileinit", function() {
+    // Make your jQuery Mobile framework configuration changes here!
+
+    $.mobile.allowCrossDomainPages = true;
+});
 var config = {
 	apiKey: "AIzaSyDiU2xMrsqPfiT0n4vnIa9OAIOZMjAIVxo",
 	authDomain: "mis-deberes.firebaseapp.com",
