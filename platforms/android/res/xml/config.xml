@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.apperse.misdeberes" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <preference name="loglevel" value="DEBUG" />
+    <feature name="BackgroundPlugin">
+        <param name="android-package" value="org.chromium.BackgroundPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="ChromeStorage">
+        <param name="android-package" value="org.chromium.ChromeStorage" />
+    </feature>
+    <feature name="ChromeAppWindow">
+        <param name="android-package" value="org.chromium.ChromeAppWindow" />
+    </feature>
+    <feature name="ChromeExtensionURLs">
+        <param name="android-package" value="org.chromium.ChromeExtensionURLs" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="ChromeI18n">
+        <param name="android-package" value="org.chromium.ChromeI18n" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="ChromeNavigation">
+        <param name="android-package" value="org.chromium.ChromeNavigation" />
+        <param name="onload" value="true" />
+    </feature>
+    <preference name="webView" value="org.crosswalk.engine.XWalkWebViewEngine" />
+    <preference default="19+" name="xwalkVersion" />
+    <preference default="xwalk_core_library_canary:17+" name="xwalkLiteVersion" />
+    <preference default="--disable-pull-to-refresh-effect" name="xwalkCommandLine" />
+    <preference default="embedded" name="xwalkMode" />
+    <preference default="true" name="xwalkMultipleApk" />
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <icon src="www/assets/icons/icon144.png" />
+    <icon src="www/assets/icons/icon16.png" width="16" />
+    <icon src="www/assets/icons/icon36.png" width="36" />
+    <icon src="www/assets/icons/icon48.png" width="48" />
+    <icon src="www/assets/icons/icon57.png" width="57" />
+    <icon src="www/assets/icons/icon72.png" width="72" />
+    <icon src="www/assets/icons/icon96.png" width="96" />
+    <icon src="www/assets/icons/icon114.png" width="114" />
+    <icon src="www/assets/icons/icon128.png" width="128" />
+    <icon src="www/assets/icons/icon144.png" width="144" />
+    <description>A Sample Chrome App</description>
+    <preference name="KeyboardShrinksView" value="true" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="iosPersistentFileLocation" value="Library" />
+    <preference name="AndroidPersistentFileLocation" value="Internal" />
+    <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
+    <preference name="xwalkMode" value="embedded" />
+    <preference name="xwalkMultipleApk" value="true" />
+    <access launch-external="yes" origin="*" />
+    <allow-intent href="http://code.jquery.com/*" />
+    <allow-intent href="https://code.jquery.com/*" />
+    <allow-intent href="https://www.gstatic.com/*" />
+    <allow-intent href="https://mis-deberes.firebaseio.com/*" />
+    <allow-intent href="https://mis-deberes.appspot.com/*" />
+    <allow-intent href="https://mis-deberes.firebaseapp.com/*" />
+    <allow-intent href="https://github.com/CrisNaDeveloper/mis_deberes/*" />
+    <feature name="AdMob">
+        <param name="android-package" value="com.rjfun.cordova.admob.AdMobPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
+    <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
+    <icon density="hdpi" src="www/res/icon/android/drawable-hdpi-icon.png" />
+    <icon density="xhdpi" src="www/res/icon/android/drawable-xhdpi-icon.png" />
+    <icon density="xxhdpi" src="www/res/icon/android/drawable-xxhdpi-icon.png" />
+    <icon density="xxxhdpi" src="www/res/icon/android/drawable-xxxhdpi-icon.png" />
+    <splash density="land-ldpi" src="www/res/screen/android/drawable-land-ldpi-screen.png" />
+    <splash density="land-mdpi" src="www/res/screen/android/drawable-land-mdpi-screen.png" />
+    <splash density="land-hdpi" src="www/res/screen/android/drawable-land-hdpi-screen.png" />
+    <splash density="land-xhdpi" src="www/res/screen/android/drawable-land-xhdpi-screen.png" />
+    <splash density="land-xxhdpi" src="www/res/screen/android/drawable-land-xxhdpi-screen.png" />
+    <splash density="land-xxxhdpi" src="www/res/screen/android/drawable-land-xxxhdpi-screen.png" />
+    <splash density="port-ldpi" src="www/res/screen/android/drawable-port-ldpi-screen.png" />
+    <splash density="port-mdpi" src="www/res/screen/android/drawable-port-mdpi-screen.png" />
+    <splash density="port-hdpi" src="www/res/screen/android/drawable-port-hdpi-screen.png" />
+    <splash density="port-xhdpi" src="www/res/screen/android/drawable-port-xhdpi-screen.png" />
+    <splash density="port-xxhdpi" src="www/res/screen/android/drawable-port-xxhdpi-screen.png" />
+    <splash density="port-xxxhdpi" src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" />
+    <allow-intent href="market:*" />
+    <name>misdeberes</name>
+    <description>
+        Hello World sample application that responds to the deviceready event.
+    </description>
+    <author email="support@phonegap.com" href="http://phonegap.com">
+        PhoneGap Team
+    </author>
+    <content src="index.html" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="android-build-tool" value="gradle" />
+    <preference name="phonegap-version" value="cli-7.1.0" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+</widget>
