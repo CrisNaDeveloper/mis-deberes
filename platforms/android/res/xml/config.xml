@@ -63,14 +63,13 @@
     <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
     <preference name="xwalkMode" value="embedded" />
     <preference name="xwalkMultipleApk" value="true" />
-    <access launch-external="yes" origin="*" />
-    <allow-intent href="http://code.jquery.com/*" />
-    <allow-intent href="https://code.jquery.com/*" />
-    <allow-intent href="https://www.gstatic.com/*" />
-    <allow-intent href="https://mis-deberes.firebaseio.com/*" />
-    <allow-intent href="https://mis-deberes.appspot.com/*" />
-    <allow-intent href="https://mis-deberes.firebaseapp.com/*" />
-    <allow-intent href="https://github.com/CrisNaDeveloper/mis_deberes/*" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
     <feature name="AdMob">
         <param name="android-package" value="com.rjfun.cordova.admob.AdMobPlugin" />
         <param name="onload" value="true" />
@@ -107,11 +106,5 @@
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="android-build-tool" value="gradle" />
     <preference name="phonegap-version" value="cli-7.1.0" />
-    <access origin="*" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
+
 </widget>
