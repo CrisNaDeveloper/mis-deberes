@@ -21,7 +21,13 @@
 
 <!-- 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
 	<script src="lib/alertify.min.js"></script>
+	
+	<!--NO OLVIDAR PONER-->
 	<script  src="cordova-2.7.0.js" type="text/javascript"></script>
+<script src="js/admob_simple.js"></script> 
+	
+	
+	
 	<!-- Firebase App is always required and must be first -->
 	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
 	<!-- Add additional services that you want to use -->
@@ -45,7 +51,7 @@
 	
 	
 	
-	<script src="js/admob_simple.js"></script>
+	
  	<script src="jquery.mobile-1.4.5/jquery-1.10.2.min.js"></script>
 	<script src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> 
 
@@ -56,15 +62,16 @@
 	<script src="js/scratch.js"></script>
 </head>
 
-
-
 <body data-theme="b">
 
 
-	<div data-role="page" id="login">
 
 
-		<div data-role="header" data-theme="b">LOGIN</div>
+
+<div data-role="page" id="login">
+
+
+		<div data-role="header" data-theme="b">Mis deberes: Login</div>
 		
 
 		<div data-role="content" data-theme="b">
@@ -88,14 +95,57 @@
 			<a href="#registro" data-role="button" data-transition="flip">Registrarse</a>
 			<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
 		</div>
+</div>
+	<!--INICIO-->
+
+	<div data-role="page" id="inicio">
+
+		<div data-role="header" data-theme="b">MIS DEBERES
+		<a  onclick="desconectar()" data-role="button" data-theme="b" data-icon="power" data-iconpos="notext" class="ui-btn-right">Desconectar</a>
+		</div>
+
+		<div data-role="content" data-theme="b">
+			<form>
+				<fieldset data-role="controlgroup">
+					<legend>Mis test:</legend>
+					<!--aquí va la imagen-->
+					<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="a" id="listatests">
+
+						<li data-role="list-divider">Mis tests:</li>
+
+					</ul>
+				</fieldset>
+
+				<fieldset data-role="controlgroup">
+					<legend>Test que me han compartido:</legend>
+
+
+					<div data-role="content" data-theme="b">
+						<!--aquí va la imagen-->
+						<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="a" id="listacompartidos">
+
+							<li data-role="list-divider">Mis tests:</li>
+				</fieldset>
 
 
 
 
 
+				</div>
 
+				<div data-role="footer" data-theme="b" data-position="fixed">
+					<a href="#num_preg" data-role="button" data-transition="flip" onclick="limpiarCrearTest()">Crear Test</a>
+					<a href="#inicio" data-role="button" data-transition="flip">volver</a>
+					<a href="#annadir_alumno" data-role="button" data-transition="flip">añadir alumnos</a>
+					<a href="#resultados" data-role="button" data-transition="flip" onClick="cargarListaAlumnos()">Ver resultados</a>
+						<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
+				</div>
 
+			</form>
 
+		</div>
+
+		<!--FIN INICIO-->
 	<!---preguntas-->
 
 	<div data-role="page" id="preguntas">
@@ -224,56 +274,6 @@
 
 
 
-	<!--INICIO-->
-
-	<div data-role="page" id="inicio">
-
-		<div data-role="header" data-theme="b">MIS DEBERES
-		<a  onclick="desconectar()" data-role="button" data-theme="b" data-icon="power" data-iconpos="notext" class="ui-btn-right">Desconectar</a>
-		</div>
-
-		<div data-role="content" data-theme="b">
-			<form>
-				<fieldset data-role="controlgroup">
-					<legend>Mis test:</legend>
-					<!--aquí va la imagen-->
-					<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="a" id="listatests">
-
-						<li data-role="list-divider">Mis tests:</li>
-
-					</ul>
-				</fieldset>
-
-				<fieldset data-role="controlgroup">
-					<legend>Test que me han compartido:</legend>
-
-
-					<div data-role="content" data-theme="b">
-						<!--aquí va la imagen-->
-						<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="a" id="listacompartidos">
-
-							<li data-role="list-divider">Mis tests:</li>
-				</fieldset>
-
-
-
-
-
-				</div>
-
-				<div data-role="footer" data-theme="b" data-position="fixed">
-					<a href="#num_preg" data-role="button" data-transition="flip" onclick="limpiarCrearTest()">Crear Test</a>
-					<a href="#login" data-role="button" data-transition="flip">volver</a>
-					<a href="#annadir_alumno" data-role="button" data-transition="flip">añadir alumnos</a>
-					<a href="#resultados" data-role="button" data-transition="flip" onClick="cargarListaAlumnos()">Ver resultados</a>
-						<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
-				</div>
-
-			</form>
-
-		</div>
-
-		<!--FIN INICIO-->
 
 
 
@@ -403,7 +403,7 @@
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a data-role="button" data-transition="flip" onClick="aceptar_registro()">Aceptar</a>
-				<a href="#login" data-role="button" data-transition="flip">volver</a>
+				<a href="#inicio" data-role="button" data-transition="flip">volver</a>
 					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
 			</div>
 
@@ -445,31 +445,19 @@
 
 
 
-			<div data-role="page" id="resultexam" ></div>
+		
 
 
 			<!--AREA MENSAJES-->
-			<div id="popupresultado" data-position-to="window" data-role="popup" data-theme="b" data-overlay-theme="b">
-				<a  data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-
-				
-				
-							
-							<div class="container" id="js-container">
-						  <canvas class="canvas" id="js-canvas" width="300" height="300"></canvas>
-						  <form class="form" style="visibility: hidden;">
-						<h1 id="cabepopup"></h1>
-							<h3>El código secreto es:</h3>
-							<h1><code></code></h1>
-
-						  </form>  
-						</div>
 			
+				<div id="popupresultado" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-transition="fade" class="ui-button ui-shadow ui-corner-all ui-button-inline ui-widget ui-button-inherit" role="button" aria-haspopup="true" aria-owns="popupPhoto" aria-expanded="false">
+						<a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right ui-button ui-shadow ui-corner-all ui-widget ui-button-a" role="button"><span class="ui-button-icon ui-icon delete"></span><span class="ui-button-icon-space"> </span>Close</a>
 
-				<div id="textopopup"></div>
+
+				<div id="cabepopup"></div>
 			</div>
 
-		</div>
+		
 		<!--FIN AREA MENSAJES-->
 		<!--FIN RESULTADO EXAMEN-->
 
@@ -502,7 +490,7 @@
 				
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a href="#inicio" data-role="button" data-transition="flip">volver</a>
-					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
+					<a href="ayuda.html" data-rel="external" data-role="button" data-transition="flip">Ayuda</a>
 			</div>
 
 		</div>
