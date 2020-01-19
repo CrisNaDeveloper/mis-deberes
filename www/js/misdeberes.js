@@ -108,6 +108,8 @@ var numrespaprobar = 0;
 var emailadministrador = "c_navarro_martinez@hotmail.com"
 var valorpremio = "";
 
+
+
 function aceptar_registro() {
 
 	email = $('#usuarionuevo').val();
@@ -117,11 +119,6 @@ function aceptar_registro() {
 	firebase.auth().createUserWithEmailAndPassword(email, password)
 		.then(function (autor) {
 			console.log("usuario creado" + email);
-
-
-
-
-
 
 			//pasar a la siguiente pagina
 			$.mobile.changePage("#inicio", {
@@ -873,7 +870,9 @@ function terminar_respuesta() {
 	
 					testpre = doc3.data();
 					valorpremio=testpre.premio;
-					$('#cabepopup').text("Has aprobado tu código secreto es:"+ valorpremio);
+					
+					
+					$('#cabepopup').text(" Enhorabuena : Has aprobado tu código secreto es: "+ valorpremio);
 	
 				});
 			
