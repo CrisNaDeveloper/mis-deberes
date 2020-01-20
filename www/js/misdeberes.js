@@ -1,4 +1,3 @@
-
 $( document ).bind( "mobileinit", function() {
     // Make your jQuery Mobile framework configuration changes here!
 
@@ -125,7 +124,7 @@ function aceptar_registro() {
 				transition: "slide",
 				reverse: true
 			})
-			leer_test();
+			//leer_test();
 
 
 			alertify.success("Usuario Creado");
@@ -156,7 +155,7 @@ function validar_usuario() {
 				transition: "slide",
 				reverse: true
 			});
-			leer_test();
+			leer_test(email);
 
 		})
 		.catch(function (error) {
@@ -530,17 +529,21 @@ function terminar_test() {
 		transition: "slide",
 		reverse: true
 	});
-	leer_test();
+	leer_test(email);
 
 }
 
 
 
 
+$(document).on("pageinit","#inicio",function(){
+      
+		leer_test(email);
+        }); 
+		
+		
+function leer_test(email) {
 
-
-
-function leer_test() {
 	// db.collection("tests").get().then((querySnapshot) => {
 
 	let test = "";
@@ -921,7 +924,7 @@ function terminar_respuesta() {
 		transition: "slide",
 		reverse: true
 	});
-	leer_test();
+	leer_test(email);
 	alertify.success("Ha decidido finalizar el test, se guardaran los resultados");
 }
 
@@ -1119,7 +1122,7 @@ function borrarTest(id_test) {
 				console.error("Error borrando los resultados del alumno: ", error);
 			});
 	}
-	leer_test();
+	leer_test(email);
 }
 
 
@@ -1273,7 +1276,11 @@ $('#closeresult').on('click', function () {
 
 function cargarListaAlumnos() {
 
-
+	$.mobile.changePage("#resultados", {
+				transition: "slide",
+				reverse: true
+			})
+			alert("paso"+email);
 	let alumno = "";
 
 	$("#listaalumnos").empty();
@@ -1375,4 +1382,3 @@ function guardoRespuesta(opcion) {
 
 
 }
-
