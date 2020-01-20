@@ -78,10 +78,10 @@
 
 
 
-			<label for="usuario"> Usuario (correo): </label>
+			<label for="usuario" data-icon="user">Usuario (correo): </label>
 			<input data-theme="b" type="text" name="usuario" id="usuario" />
 
-			<label for="password">Password: </label>
+			<label for="password" data-icon="lock">Password: </label>
 			<input data-theme="b" name="password" id="password" type="password" value="" autocomplete="off" data-clear-btn="true">
 
 					<a id="olvido" onclick="recuperacontrasenna($('#usuario').val())">¿Se te ha olvidado la contraseña?</a>
@@ -91,9 +91,9 @@
 		</div>
 
 		<div data-role="footer" data-theme="b" data-position="fixed">
-			<a data-role="button" data-transition="flip" id="aceptar" onClick="validar_usuario()">Aceptar</a>
-			<a href="#registro" data-role="button" data-transition="flip">Registrarse</a>
-			<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
+			<a data-role="button" data-transition="flip" id="aceptar" onClick="validar_usuario()" data-icon="check">Aceptar</a>
+			<a href="#registro" data-role="button" data-transition="flip" data-icon="lock">Registrarse</a>
+			<a href="ayuda.html" rel="external" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 		</div>
 </div>
 	<!--INICIO-->
@@ -134,11 +134,11 @@
 				</div>
 
 				<div data-role="footer" data-theme="b" data-position="fixed">
-					<a href="#num_preg" data-role="button" data-transition="flip" onclick="limpiarCrearTest()">Crear Test</a>
-					<a href="#inicio" data-role="button" data-transition="flip">volver</a>
-					<a href="#annadir_alumno" data-role="button" data-transition="flip">añadir alumnos</a>
-					<a href="#resultados" data-role="button" data-transition="flip" onClick="cargarListaAlumnos()">Ver resultados</a>
-						<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
+					<a href="#num_preg" data-role="button"  data-transition="flip" onclick="limpiarCrearTest()" data-icon="bullets">Crear Test</a>
+					<a href="#inicio" data-role="button" data-transition="flip" data-icon="back">volver</a>
+					<a href="#annadir_alumno" data-role="button" data-transition="flip" data-icon="user">añadir alumnos</a>
+					<a href="#resultados" data-role="button" data-transition="flip" onClick="cargarListaAlumnos()" data-icon="bullets">Ver resultados</a>
+						<a href="ayuda.html" rel="external" data-role="button" data-transition="flip" data-icon="info">Ayuda</a>
 				</div>
 
 			</form>
@@ -201,10 +201,10 @@
 
 		<div id="divNivel" data-role="footer" data-theme="b"> </div>
 		<div data-role="footer" data-theme="b" data-position="fixed">
-			<a href="#pregunta" id="sigpreg" data-role="button" data-transition="flip" onClick="crear_pregunta()">Siguiente pregunta</a>
-			<a href="#num_preg" data-role="button" data-transition="flip">volver</a>
-			<a data-role="button" data-transition="flip" onclick="terminar_test()">Terminar Preguntas</a>
-				<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
+			<a href="#pregunta" id="sigpreg" data-role="button" data-transition="flip" onClick="crear_pregunta()" data-icon="arror-r">Siguiente pregunta</a>
+			<a href="#num_preg" data-role="button" data-transition="flip" data-icon="back">volver</a>
+			<a data-role="button" data-transition="flip" onclick="terminar_test()" data-icon="home">Terminar Preguntas</a>
+				<a href="ayuda.html" rel="external" data-role="button" data-transition="flip" data-icon="info">Ayuda</a>
 		</div>
 	</div>
 
@@ -229,9 +229,9 @@
 		<div id="piepregunta" data-role="footer" data-theme="b"> </div>
 		<div data-role="footer" data-theme="b" data-position="fixed">
 			<a href="#realizartest" data-role="button" data-transition="flip" onClick="crear_respuesta()">Siguiente pregunta</a>
-			<a href="#inicio" data-role="button" data-transition="flip">volver</a>
+			<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
 			<a data-role="button" data-transition="flip" onclick="terminar_respuesta()">Terminar Preguntas</a>
-				<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
+				<a href="ayuda.html" rel="external" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 		</div>
 	</div>
 
@@ -256,11 +256,11 @@
 
 		<div data-role="footer" data-theme="b" data-position="fixed">
 
-			<a href="#inicio" data-role="button" data-transition="flip">volver</a>
+			<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
 			<a href="#amigos" onclick="cargarListaAmigos()" data-role="button" data-transition="flip">compartir</a>
-			<a href="#inicio" data-role="button" data-transition="flip" id="botonborrar" onclick="borrarTest(id_test)">Borrar este test</a>
-			<a data-role="button" data-transition="flip" onclick="hacerTest(numpregcuestion,id_test,nombre,numrespaprobar)" ;>Hacer test</a>
-				<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
+			<a href="#inicio" data-role="button" data-transition="flip" id="botonborrar" onclick="borrarTest(id_test)" data-icon="delete">Borrar este test</a>
+			<a data-role="button" data-transition="flip" onclick="hacerTest(numpregcuestion,id_test,nombre,numrespaprobar)" data-icon="comment">Contestar test</a>
+				<a href="ayuda.html" rel="external" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 		</div>
 
 	</div>
@@ -311,9 +311,9 @@
 			</div>
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
-				<a data-role="button" data-transition="flip" onClick="crear_test()">Crear Test</a>
-				<a href="#inicio" data-role="button" data-transition="flip">volver</a>
-					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
+				<a data-role="button" data-transition="flip" onClick="crear_test()"data-icon="bullets">Crear Test</a>
+				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
+					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 			</div>
 
 		</div>
@@ -341,7 +341,7 @@
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a href="#amigos" data-role="button" data-transition="flip">SI</a>
 				<a href="#inicio" data-role="button" data-transition="flip">NO</a>
-					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
+					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 			</div>
 
 		</div>
@@ -364,8 +364,8 @@
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a data-role="button" data-transition="flip" onClick="compartirTest()">compartir</a>
-				<a href="#inicio" data-role="button" data-transition="flip">volver</a>
-					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
+				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
+					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 			</div>
 
 		</div>
@@ -403,8 +403,8 @@
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a data-role="button" data-transition="flip" onClick="aceptar_registro()">Aceptar</a>
-				<a href="#inicio" data-role="button" data-transition="flip">volver</a>
-					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
+				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
+					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 			</div>
 
 		</div>
@@ -433,8 +433,8 @@
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a data-role="button" data-transition="flip" onClick="annadirAlumno()">Aceptar</a>
-				<a href="#inicio" data-role="button" data-transition="flip">volver</a>
-					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip">Ayuda</a>
+				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
+					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 			</div>
 
 			<!--RESULTADO EXAMEN-->
@@ -489,7 +489,7 @@
 					
 				
 			<div data-role="footer" data-theme="b" data-position="fixed">
-				<a href="#inicio" data-role="button" data-transition="flip">volver</a>
+				<a href="#inicio" data-role="button" data-transition="flip" data-icon="back">volver</a>
 					<a href="ayuda.html" data-rel="external" data-role="button" data-transition="flip">Ayuda</a>
 			</div>
 
@@ -497,9 +497,6 @@
 
 
 		<!--FIN resultados estadistidas-->
-
-
-
 
 
 </body>
