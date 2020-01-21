@@ -1280,7 +1280,7 @@ function cargarListaAlumnos() {
 				transition: "slide",
 				reverse: true
 			})
-			alert("paso"+email);
+			
 	let alumno = "";
 
 	$("#listaalumnos").empty();
@@ -1304,6 +1304,7 @@ function cargarListaAlumnos() {
 
 			});
 		});
+		$("#listaalumnos").select('refresh');
 }
 
 
