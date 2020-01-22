@@ -27,7 +27,6 @@
 <script src="js/admob_simple.js"></script> 
 	
 	
-	
 	<!-- Firebase App is always required and must be first -->
 	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
 	<!-- Add additional services that you want to use -->
@@ -68,24 +67,34 @@
      // Listening for auth state changes. 
      // [START authstatelistener] 
       firebase.auth().onAuthStateChanged(function(user) { 
-        // [START_EXCLUDE silent] 
-      //   document.getElementById('quickstart-verify-email').disabled = true; 
-        // [END_EXCLUDE] 
+			
          if (user) { 
           email = user.email;       
-     
+		  alert("ident"+email);
+		
         		$.mobile.changePage("#inicio", {
 				transition: "slide",
 				reverse: true
 			});
-			
-         }  
+				leer_test(email);
+         }  else{
+		 
+		  alert(" noident"+email);
+		 		$.mobile.changePage("#login", {
+				transition: "slide",
+				reverse: true
+			});
+		 
+		 
+		 }
+		 		 
        }); 
      } 
 
  
     window.onload = function() { 
       initApp(); 
+
     }; 
 
 	
@@ -96,41 +105,27 @@
 
 <body data-theme="b">
 
-
-
-
-
+	<!--INICIO-->
 <div data-role="page" id="login">
-
-
 		<div data-role="header" data-theme="b">Mis deberes: Login</div>
-		
-
+	
 		<div data-role="content" data-theme="b">
-
-
 
 			<label for="usuario" data-icon="user">Usuario (correo): </label>
 			<input data-theme="b" type="text" name="usuario" id="usuario" />
 
 			<label for="password" data-icon="lock">Password: </label>
 			<input data-theme="b" name="password" id="password" type="password" value="" autocomplete="off" data-clear-btn="true">
-
 					<a id="olvido" onclick="recuperacontrasenna($('#usuario').val())">¿Se te ha olvidado la contraseña?</a>
-
-
-
 		</div>
 
 		<div data-role="footer" data-theme="b" data-position="fixed">
 			<a data-role="button" data-transition="flip" id="aceptar" onClick="validar_usuario()" data-icon="check">Aceptar</a>
 			<a href="#registro" data-role="button" data-transition="flip" data-icon="lock">Registrarse</a>
-			<a href="ayuda.html" rel="external" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+			<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 		</div>
 </div>
-	<!--INICIO-->
-
-	<div data-role="page" id="inicio" onLoad="leer_test()">
+	<div data-role="page" id="inicio" >
 
 		<div data-role="header" data-theme="b">MIS DEBERES
 		<a  onclick="desconectar()" data-role="button" data-theme="b" data-icon="power" data-iconpos="notext" class="ui-btn-right">Desconectar</a>
@@ -170,7 +165,7 @@
 					<a href="#inicio" data-role="button" data-transition="flip" data-icon="back">volver</a>
 					<a href="#annadir_alumno" data-role="button" data-transition="flip" data-icon="user">añadir alumnos</a>
 					<a href="#resultados" data-role="button" data-transition="flip" onClick="cargarListaAlumnos()" data-icon="bullets">Ver resultados</a>
-						<a href="ayuda.html" rel="external" data-role="button" data-transition="flip" data-icon="info">Ayuda</a>
+						<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="info">Ayuda</a>
 				</div>
 
 			</form>
@@ -236,7 +231,7 @@
 			<a href="#pregunta" id="sigpreg" data-role="button" data-transition="flip" onClick="crear_pregunta()" data-icon="arror-r">Siguiente pregunta</a>
 			<a href="#num_preg" data-role="button" data-transition="flip" data-icon="back">volver</a>
 			<a data-role="button" data-transition="flip" onclick="terminar_test()" data-icon="home">Terminar Preguntas</a>
-				<a href="ayuda.html" rel="external" data-role="button" data-transition="flip" data-icon="info">Ayuda</a>
+				<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="info">Ayuda</a>
 		</div>
 	</div>
 
@@ -263,7 +258,7 @@
 			<a href="#realizartest" data-role="button" data-transition="flip" onClick="crear_respuesta()">Siguiente pregunta</a>
 			<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
 			<a data-role="button" data-transition="flip" onclick="terminar_respuesta()">Terminar Preguntas</a>
-				<a href="ayuda.html" rel="external" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+				<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 		</div>
 	</div>
 
@@ -292,7 +287,7 @@
 			<a href="#amigos" onclick="cargarListaAmigos()" data-role="button" data-transition="flip">compartir</a>
 			<a href="#inicio" data-role="button" data-transition="flip" id="botonborrar" onclick="borrarTest(id_test)" data-icon="delete">Borrar este test</a>
 			<a data-role="button" data-transition="flip" onclick="hacerTest(numpregcuestion,id_test,nombre,numrespaprobar)" data-icon="comment">Contestar test</a>
-				<a href="ayuda.html" rel="external" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+				<a href="#ayuda" data-role="button" data-transition="flip" data-icon="info">Ayuda</a>
 		</div>
 
 	</div>
@@ -345,7 +340,7 @@
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a data-role="button" data-transition="flip" onClick="crear_test()"data-icon="bullets">Crear Test</a>
 				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
-					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+					<a href="#ayuda"  data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 			</div>
 
 		</div>
@@ -373,7 +368,7 @@
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a href="#amigos" data-role="button" data-transition="flip">SI</a>
 				<a href="#inicio" data-role="button" data-transition="flip">NO</a>
-					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+					<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 			</div>
 
 		</div>
@@ -397,7 +392,7 @@
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a data-role="button" data-transition="flip" onClick="compartirTest()">compartir</a>
 				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
-					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+					<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 			</div>
 
 		</div>
@@ -435,8 +430,8 @@
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a data-role="button" data-transition="flip" onClick="aceptar_registro()">Aceptar</a>
-				<a href="#login" data-role="button" data-transition="flip"data-icon="back">volver</a>
-					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+				<a href="#login" data-role="button" data-transition="flip" data-icon="back">volver</a>
+					<a href="#ayuda"  data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 			</div>
 
 		</div>
@@ -466,9 +461,9 @@
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a data-role="button" data-transition="flip" onClick="annadirAlumno()">Aceptar</a>
 				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
-					<a href="ayuda.html" rel="external" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+					<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 			</div>
-
+</div>
 			<!--RESULTADO EXAMEN-->
 			<!--popup-->
 
@@ -501,7 +496,7 @@
 			<div data-role="header" data-theme="b">Mis deberes: Resultados de los tests</div>
 
 			
-			<select name="listaalumnos" id="listaalumnos" data-theme="b" onChange="cargarListaAlumnos()" >
+			<select name="listaalumnos" id="listaalumnos" data-theme="b"  onChange="cargarTestAlumno()"  >
 			</select>
 
 			<table data-role="table" data-theme="b" id="tablaresultados" data-mode="columntoggle"  class="ui-responsive ui-body-d table-stripe" data-column-btn-text="Selecione Filtro" data-column-btn-theme="b" >
@@ -522,14 +517,333 @@
 				
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a href="#inicio" data-role="button" data-transition="flip" data-icon="back">volver</a>
-					<a href="ayuda.html" data-rel="external" data-role="button" data-transition="flip">Ayuda</a>
+					<a href="#ayuda" data-role="button" data-transition="flip">Ayuda</a>
 			</div>
 
 		</div>
 
 
+
 		<!--FIN resultados estadistidas-->
 
+<!--AYUDA-->
+<body data-theme="b">
+	<div data-role="page" id="ayuda" data-theme="b">
+		<div data-role="header" data-theme="b">Ayuda</div>
+		<div data-role="content" data-theme="b">
 
+
+<ul data-role="listview" data-split-icon="plus"  data-split-theme="b" data-inset="true">
+ <li><a href="#uno">¿Qué es “Mis deberes”?</a></li>
+ <li><a href="#dos" >¿Qué ofrece de más “Mis deberes”?</a></li>
+ <li><a href="#tres" >¿Cómo se puede entrar a la aplicación?</a></li>
+ <li><a href="#cuatro" >¿Cómo registrarse?</a</li>
+ <li><a href="#cinco" >¿Se me olvido la contraseña?</a></li>
+ <li><a href="#seis" >¿Cómo se crea un test?</a></li>
+ <li><a href="#siete" >¿Cómo se crean las preguntas?</a></li>
+ <li><a href="#ocho" >¿Cómo se ven los test?</a></li>
+ <li><a href="#nueve" >¿Cómo hacer un test?</a></li>
+ <li><a href="#diez" >¿Cómo se los aciertos que tengo?</a></li>
+ <li><a href="#once" >¿Cómo se si he aprobado?</a></li>
+</ul>
+
+
+	<div data-role="footer" data-theme="b" data-position="fixed">
+			
+			<a href="#inicio" data-role="button" data-rel="external" data-transition="flip" data-icon="back">Volver</a>
+		</div>
+		</div>
+</div>
+
+
+	<div data-role="page" id="uno" data-theme="b">
+		<div data-role="header" data-theme="b">¿Qué es “Mis deberes”?</div>
+		<div data-role="content" data-theme="b">
+
+<p >Mis deberes
+una aplicación tanto web como app donde padres, profesores y alumnos puede crear
+testsy compartir entre alumnos, amigos, profesores u
+padres.</p>
+			<div data-role="footer" data-theme="b" data-position="fixed">
+			
+					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+			</div>
+</div>
+</div>
+
+	<div data-role="page" id="dos" data-theme="b">
+		<div data-role="header" data-theme="b">¿Qué ofrece de más “Mis deberes”?</div>
+		<div data-role="content" data-theme="b">
+
+
+<p>1.-Nos
+permite premiar a los alumnos que aprueban el test con un código o frase
+motivadora. Los padres pueden introducir la clave de desbloqueo de algún dispositivo
+(Tablet, móvil, consola).</p>
+
+<p>2.-Se
+pueden crear los test desde la web, lo que supone la ventaja de que es más fácil
+crearlos en ordenador que en un móvil, viéndose en los dos dispositivos.</p>
+
+<p>3.-Permite
+compartir con todos los alumnos de una clase y se permite que se comparta entre
+profesores, padres, amigos , <span class=GramE>etc..</span></p>
+
+<p>4.-Las
+respuestas que se introducen se convierten en botones lo que hace que sea muy rápida
+la contestación de los <span class=SpellE>tests</span></p>
+
+<p>5.-Existe
+un apartado de estadísticas, donde se puede ver cuántos alumnos han aprobado y cuáles
+no, así como la cantidad de aciertos y errores.</p>
+
+<p>6.-También
+hay estadísticas de los test que yo hago.</p>
+
+			<div data-role="footer" data-theme="b" data-position="fixed">
+			
+					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+			</div>
+</div>
+</div>
+
+	<div data-role="page" id="tres" data-theme="b">
+		<div data-role="header" data-theme="b">¿Cómo se puede entrar a la aplicación?</div>
+		<div data-role="content" data-theme="b">
+
+
+<p>Para acceder a la aplicación
+primero ha de registrarse.</p>
+
+			<div data-role="footer" data-theme="b" data-position="fixed">
+			
+					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+			</div>
+</div>
+</div>
+
+	<div data-role="page" id="cuatro" data-theme="b">
+		<div data-role="header" data-theme="b">¿Cómo registrarse?</div>
+		<div data-role="content" data-theme="b">
+<p>Darse de alta es muy sencillo
+solo hay que poner un correo y password<, se valida que
+sea un correo valido, las contraseñas nunca se guardan, la aplicación esta securizada y las contraseñas se guardan en un sistema
+cifrado diseñado por Google, solo tu conocerás tu clave, puedes pedir la clave
+si se te ha olvidado y te la enviará por correo.</p>
+
+			<div data-role="footer" data-theme="b" data-position="fixed">
+			
+					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+			</div>
+</div>
+</div>
+	<div data-role="page" id="cinco" data-theme="b">
+		<div data-role="header" data-theme="b">¿Se me olvido la contraseña?</div>
+		<div data-role="content" data-theme="b">
+
+
+<p>No hay problema, vuelve al inicio
+y pincha sobre el enlace “¿Se te ha olvidado la contraseña?”</p>
+			<div data-role="footer" data-theme="b" data-position="fixed">
+			
+					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+			</div>
+</div>
+</div>
+
+	<div data-role="page" id="seis" data-theme="b">
+		<div data-role="header" data-theme="b">¿Cómo se crea un test?</div>
+		<div data-role="content" data-theme="b">
+
+
+<p>Para crear un test tendrás que
+dar al botón de crear y en la pantalla aparecerá:</p>
+
+<p>Nombre
+del  (necesario): Deberás poner un nombre identificativo
+del test</p>
+
+<p>Respuestas correctas necesarias
+para aprobar (opcional): Deberás introducir un nº de las respuestas que han de
+estar bien para aprobar el test, será necesario para que se dé el premio.</p>
+
+<p>Premio(Obligatorio): Código o frase
+motivadora, que en el caso de igualar o superar las respuesta correctas
+necesarias</p>
+
+<p>Categoría: Se ha de seleccionar
+una categoría de la listas, para posteriores búsquedas</p>
+
+<p>Edad: Se ha de seleccionar de la
+lista un rango de edades para quien está dirigido el test para posteriores
+búsquedas.</p>
+
+<p ><img border=0 width=353 height=370 src="img/image002.jpg" v:shapes="_x0000_i1026"></p>
+
+
+<p>Una vez rellenos los campos
+pulsaremos sobre el botón “Crear Test” ,nos aparecerá
+un mensaje en verde informativo donde se nos indica que se ha creado y
+empezaremos a introducir las preguntas con sus posibles respuestas</p>
+			<div data-role="footer" data-theme="b" data-position="fixed">
+			
+					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+			</div>
+</div>
+</div>
+
+
+	<div data-role="page" id="siete" data-theme="b">
+		<div data-role="header" data-theme="b">¿Cómo se crean las preguntas?</div>
+		<div data-role="content" data-theme="b">
+
+
+
+
+<p>Se nos muestra una pantalla en la
+que aparece:</p>
+
+<p>Que quieres que le salga de pregunta: Aquí introducirás
+un texto libre de pregunta</p>
+
+<p>Respuesta 1, 2, 3, y 4: Se da la posibilidad de
+introducir hasta 4 respuestas, será un texto libre, este texto libre luego
+cuando el test se visualice se transformará en un botón, pudiendo haber hasta
+4. Cada vez que introducimos una respuesta se ha de dar al botón “guardar
+respuesta”</p>
+
+<p><img border=0 width=346 height=311 src="img/image004.jpg" ></p>
+
+<p>La respuesta correcta se ha de dejar
+marcada con un radio seleccionado que aparece en verde a la izquierda de cada
+respuesta</p>
+
+<p><img border=0 width=351 height=460 src="img/image006.jpg"></p>
+
+<p>Una vez creada la pregunta se nos
+mostrará un mensaje informativo de color verde y aparecerá la siguiente
+pregunta.</p>
+
+<p>Se nos indicará el siguiente número
+de pregunta y aparecerá en blanco para rellenar<</p>
+
+<p><img border=0 width=349 height=479 src="img/image008.jpg" ></p>
+
+
+
+<p>Cuando queramos podemos terminar
+de hacer preguntas dando al botón “Terminar preguntas”, se nos mostrará un
+mensaje en verde indicándonos que se ha terminado el test y nos llevará a la
+pantalla donde se listan los test.</p>
+
+<p><img border=0 width=354 height=319 src="img/image010.jpg" ></p>
+			<div data-role="footer" data-theme="b" data-position="fixed">
+			
+					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+			</div>
+</div>
+</div>
+
+	<div data-role="page" id="ocho" data-theme="b">
+		<div data-role="header" data-theme="b">¿Cómo se ven los test?</div>
+		<div data-role="content" data-theme="b">
+
+
+<p>Los test aparecen listados, y
+podremos presionar sobre cada uno de ellos para ver las preguntas pero sin sus
+respuestas</p>
+
+<p><img border=0 width=354 height=319 src="img/image011.jpg"></p>
+
+<p><img border=0 width=354 height=321 src="img/image013.jpg" ></p>
+			<div data-role="footer" data-theme="b" data-position="fixed">
+			
+					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+			</div>
+</div>
+</div>
+
+
+
+
+	<div data-role="page" id="nueve" data-theme="b">
+		<div data-role="header" data-theme="b">¿Cómo hacer un test?</div>
+		<div data-role="content" data-theme="b">
+
+
+<p>Hacer un test es tan sencillo
+como selecionarlo de la lista, nos mostrará la
+pantalla con las preguntas del test seleccionado y presinaremos
+en “Hacer Test”</p>
+
+<p><img border=0 width=354 height=319 src="img/image014.jpg" ></p>
+
+<p><img border=0 width=354 height=321 src="img/image013.jpg" ></p>
+
+<p>Al presionar sobre hacer test nos
+aparecerán los botones con las posibles respuestas.</p>
+
+<p><img border=0 width=349 height=315 src="img/image016.jpg" ></p>
+
+<p>Según presionemos sobre la
+respuesta nos aparecerá la siguiente pregunta, se nos informará cuando sea la
+última pregunta, pero podremos terminar el test cuando nosotros deseemos
+presionando sobre “Terminar Preguntas”.</p>
+			<div data-role="footer" data-theme="b" data-position="fixed">
+			
+					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+			</div>
+</div>
+</div>
+
+
+
+
+
+	<div data-role="page" id="diez" data-theme="b">
+		<div data-role="header" data-theme="b">¿Cómo se los aciertos que tengo?</div>
+		<div data-role="content" data-theme="b">
+
+
+<p>Se te va informando de los
+aciertos necesarios para aprobar y de los que tienes según vas pasando de
+pregunta</p>
+
+<p><img border=0 width=327 height=295 src="img/image018.jpg"></p>
+			<div data-role="footer" data-theme="b" data-position="fixed">
+			
+					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+			</div>
+</div>
+</div>
+
+
+	<div data-role="page" id="once" data-theme="b">
+		<div data-role="header" data-theme="b">¿Cómo se si he aprobado?</div>
+		<div data-role="content" data-theme="b">
+
+
+
+<p>Aparte de indicarte en cada
+pregunta los aciertos que tienes y
+cuantos son necesarios para aprobar, al finalizar aparecerá un texto
+informativo con tu premio en caso de aprobar</p>
+
+<p><img border=0 width=327 height=295 src="img/image019.jpg" ></p>
+
+			
+			<div data-role="footer" data-theme="b" data-position="fixed">
+			
+					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+			</div>
+</div>
+</div>
+<!--FIN AYUDA-->
+		
+		
+		
+		
+		
+		
 </body>
 </html>
