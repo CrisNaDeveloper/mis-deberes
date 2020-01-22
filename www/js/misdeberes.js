@@ -124,7 +124,7 @@ function aceptar_registro() {
 				transition: "slide",
 				reverse: true
 			})
-			//leer_test();
+			leer_test(email);
 
 
 			alertify.success("Usuario Creado");
@@ -150,12 +150,12 @@ function validar_usuario() {
 
 	firebase.auth().signInWithEmailAndPassword(email, password)
 		.then(function () {
-
+		
 			$.mobile.changePage("#inicio", {
 				transition: "slide",
 				reverse: true
 			});
-			leer_test(email);
+				leer_test(email);
 
 		})
 		.catch(function (error) {
@@ -529,17 +529,14 @@ function terminar_test() {
 		transition: "slide",
 		reverse: true
 	});
-	leer_test(email);
+
 
 }
 
 
 
 
-$(document).on("pageinit","#inicio",function(){
-      
-		leer_test(email);
-        }); 
+
 		
 		
 function leer_test(email) {
@@ -918,7 +915,7 @@ function terminar_respuesta() {
 	$('#popupresultado').popup();
 
 	
-	setTimeout(function () { $('#popupresultado').popup('open') }, 100);
+	setTimeout(function () { $('#popupresultado').popup('open') }, 1000);
 
 	$.mobile.changePage("#inicio", {
 		transition: "slide",
@@ -1287,8 +1284,9 @@ function cargarListaAlumnos() {
 	$("#listaalumnos").select('refresh');
 
 
-	$("#listaalumnos").append("<option value='--' >Seleccione un Alumno...</option>");
-	$("#listaalumnos").append("<option select value='" + email + "' >Mis estadísticas</option>");
+	$("#listaalumnos").append("<option selected='true' value='--' >Seleccione un Alumno...</option>");
+	$("#listaalumnos").select('refresh');
+	$("#listaalumnos").append("<option value='" + email + "' >Mis estadísticas</option>");
 	db.collection("usuarios_alumnos").where("usuario_creador", "==", email)
 		.get()
 		.then((querySnapshot) => {
@@ -1298,13 +1296,16 @@ function cargarListaAlumnos() {
 
 				alumno = doc.data();
 
-				$("#listaalumnos").append(" <option select value='" + alumno.usuario_comparte + "' >" + alumno.apodo + "</option>")
+				$("#listaalumnos").append(" <option  value='" + alumno.usuario_comparte + "' >" + alumno.apodo + "</option>")
 
 
 
 			});
 		});
+		
+		
 		$("#listaalumnos").select('refresh');
+	
 }
 
 
