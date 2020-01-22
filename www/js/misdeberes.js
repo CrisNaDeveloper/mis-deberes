@@ -1284,8 +1284,8 @@ function cargarListaAlumnos() {
 	$("#listaalumnos").select('refresh');
 
 
-	$("#listaalumnos").append("<option selected='true' value='--' >Seleccione un Alumno...</option>");
-	$("#listaalumnos").select('refresh');
+
+
 	$("#listaalumnos").append("<option value='" + email + "' >Mis estadísticas</option>");
 	db.collection("usuarios_alumnos").where("usuario_creador", "==", email)
 		.get()
