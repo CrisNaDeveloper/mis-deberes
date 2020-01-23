@@ -124,7 +124,7 @@ function aceptar_registro() {
 				transition: "slide",
 				reverse: true
 			})
-			leer_test(email);
+			//leer_test(email);
 
 
 			alertify.success("Usuario Creado");
@@ -302,6 +302,7 @@ function crear_test() {
 			}
 		}
 	}
+	leer_test(email);
 }
 
 
@@ -529,7 +530,7 @@ function terminar_test() {
 		transition: "slide",
 		reverse: true
 	});
-
+leer_test(email);
 
 }
 
