@@ -124,7 +124,7 @@ function aceptar_registro() {
 				transition: "slide",
 				reverse: true
 			})
-			//leer_test(email);
+			leer_test(email);
 
 
 			alertify.success("Usuario Creado");
@@ -1272,22 +1272,29 @@ $('#closeresult').on('click', function () {
 
 });
 
+function cargarResultados(){
+$.mobile.changePage("#resultados", {
+	transition: "slide",
+	reverse: true
+});
+cargarListaAlumnos() ;
+}
 function cargarListaAlumnos() {
 
-	$.mobile.changePage("#resultados", {
-				transition: "slide",
-				reverse: true
-			})
+
 			
 	let alumno = "";
 
 	$("#listaalumnos").empty();
 	$("#listaalumnos").select('refresh');
 
+	$("#listaalumnos").append("<option selected='selected' value='--' >Seleccione un Alumno...</option>");
 
 
+	$("#listaalumnos").append("<option value='" + email + "' ' >Mis estadísticas</option>");
+		
 
-	$("#listaalumnos").append("<option value='" + email + "' >Mis estadísticas</option>");
+
 	db.collection("usuarios_alumnos").where("usuario_creador", "==", email)
 		.get()
 		.then((querySnapshot) => {
@@ -1307,6 +1314,7 @@ function cargarListaAlumnos() {
 		
 		$("#listaalumnos").select('refresh');
 	
+	
 }
 
 
@@ -1322,7 +1330,7 @@ function cargarTestAlumno() {
 	var contpri = 1;
 	var textoalumno = $("#listaalumnos option:selected").text();
 	var valoralumno = $("#listaalumnos").val();
-
+alert(valoralumno);
 	db.collection("resultado_alumno").where("id_alumno", "==", valoralumno).get()
 		.then((querySnapshot) => {
 
@@ -1380,7 +1388,7 @@ function guardoRespuesta(opcion) {
 
 
 	//$("#" + idradio).attr("checked", "checked");
-	$("#" + idradio).checkboxradio("refresh")
+	$("#" + idradio).checkboxradio("refresh");
 	$("#respuesta").checkboxradio("refresh");
 
 
