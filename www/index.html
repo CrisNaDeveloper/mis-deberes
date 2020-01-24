@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta charset="utf-8" />
 		<meta http-equiv="Access-Control-Allow-Origin" content="*">
@@ -127,7 +126,8 @@
 	<div data-role="page" id="inicio" >
 
 		<div data-role="header" data-theme="b">MIS DEBERES
-		<a  onclick="desconectar()" data-role="button" data-theme="b" data-icon="power" data-iconpos="notext" class="ui-btn-right">Desconectar</a>
+		<a  onclick="desconectar()" data-role="button" data-theme="b" data-icon="power" data-iconpos="notext" class="ui-btn-right">	</a>
+		<label for='usuario' id='usu' > </label>
 		</div>
 
 		<div data-role="content" data-theme="b">
@@ -180,7 +180,7 @@
 		<div data-role="content" data-theme="b">
 
 
-		<form id="formupreg" method="get">
+
 
 			<label for="pregunta">Que quieres que le salga de pregunta:</label>
 			<textarea name="pregunta" id="pregunta"></textarea>
@@ -217,7 +217,7 @@
 			<input type='radio' name='respuesta'  id='radio4'  value="4" style="visibility:hidden"></input>
 			<a data-role="button" data-transition="flip"  id="guardar4" onclick="guardoRespuesta(4)">Guardar Respuesta 4</a>
 			<div id="selrespu"></div>
-		</form>
+
 
 			
 		</div>
@@ -839,11 +839,6 @@ informativo con tu premio en caso de aprobar</p>
 </div>
 </div>
 <!--FIN AYUDA-->
-		
-		
-		
-		
-		
 		
 </body>
 </html>
