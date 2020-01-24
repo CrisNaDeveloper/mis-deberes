@@ -543,10 +543,10 @@ leer_test(email);
 function leer_test(email) {
 
 	// db.collection("tests").get().then((querySnapshot) => {
-
+	
 	let test = "";
 	let testcompartidos = "";
-
+	$("#usu").append(""+email+"");
 	$("#listatests").empty();
 	$("#listatests").listview('refresh');
 
