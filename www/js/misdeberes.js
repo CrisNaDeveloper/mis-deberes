@@ -124,6 +124,7 @@ function aceptar_registro() {
 				transition: "slide",
 				reverse: true
 			})
+					$("#usu").empty();
 			leer_test(email);
 
 
@@ -232,74 +233,76 @@ function crear_test() {
 	} else {
 		if (valorcategoria == "--") {
 			alertify.error("Ha de seleccionar la categoria");
-		}
+		}else{
 
 
 
-		if ((isNaN(numrespaprobar)) || numrespaprobar == "" || numrespaprobar == 0) {
-			alertify.error("Ha de poner un número de respuestas para aprobar");
+				if ((isNaN(numrespaprobar)) || numrespaprobar == "" || numrespaprobar == 0) {
+					alertify.error("Ha de poner un número de respuestas para aprobar");
 
-		} else {
+				} else {
 
-			if (nom != "") {
+					if (nom != "") {
 
-				db.collection("tests").add({
-					nombre: nom,
-					numrespaprobar: numrespaprobar,
+						db.collection("tests").add({
+							nombre: nom,
+							numrespaprobar: numrespaprobar,
 
-					premio: valorpremio,
+							premio: valorpremio,
 
-					usuario_creador: usu,
-					timestamp: timestamp,
-					id_categoria: valorcategoria,
-					id_edad: valoredad
+							usuario_creador: usu,
+							timestamp: timestamp,
+							id_categoria: valorcategoria,
+							id_edad: valoredad
 
-				})
-					.then(function (docRef) {
-
-
+						})
+							.then(function (docRef) {
 
 
-						$.mobile.changePage("#preguntas", {
-							transition: "slide",
-							reverse: true
-						});
-						for (var i = 1; i < 5; i++) {
 
 
-							var valboton = "guardar" + i;
-							var valradio = "radio" + i;
-							var valimput = "opcion" + i;
+								$.mobile.changePage("#preguntas", {
+									transition: "slide",
+									reverse: true
+								});
+								for (var i = 1; i < 5; i++) {
 
 
-							$("#" + valimput).show();
-							$("#" + valboton).removeClass("ui-disabled");
-							$('label[for="' + valradio + '"]').hide();
-							$('label[for="' + valimput + '"]').show();
-
-							document.getElementById(valradio).style.visibility = 'hidden';
-							$("#" + valboton).text("Guardar Respuesta" + i);
-							$("#" + valimput).val("");
-
-						}
-						alertify.success("Test creado");
-						console.log("Teste creado ", docRef.id);
-						id_test = docRef.id;
-						$('#divNivel').empty();
-
-						$('#divNivel').append("PREGUNTA: " + numpreguntas + " ACIERTOS PARA APROBAR: " + numrespaprobar);
-
-						$('#cabpreguntas').append(" PREGUNTAS DEL TEST: " + nom);
+									var valboton = "guardar" + i;
+									var valradio = "radio" + i;
+									var valimput = "opcion" + i;
 
 
-					})
-					.catch(function (error) {
+									$("#" + valimput).show();
+									$("#" + valboton).removeClass("ui-disabled");
+									$('label[for="' + valradio + '"]').hide();
+									$('label[for="' + valimput + '"]').show();
 
-						console.error("Error adding document: ", error);
-					});
-			} else {
-				alertify.error("Ha de poner un nombre");
-			}
+									document.getElementById(valradio).style.visibility = 'hidden';
+									$("#" + valboton).text("Guardar Respuesta" + i);
+									$("#" + valimput).val("");
+
+								}
+								alertify.success("Test creado");
+								console.log("Teste creado ", docRef.id);
+								id_test = docRef.id;
+								$('#divNivel').empty();
+
+								$('#divNivel').append("PREGUNTA: " + numpreguntas + " ACIERTOS PARA APROBAR: " + numrespaprobar);
+
+								$('#cabpreguntas').append(" PREGUNTAS DEL TEST: " + nom);
+
+
+							})
+							.catch(function (error) {
+
+								console.error("Error adding document: ", error);
+							});
+					} else {
+						alertify.error("Ha de poner un nombre");
+					}
+					
+				}
 		}
 	}
 	leer_test(email);
@@ -329,7 +332,7 @@ function crear_pregunta() {
 
 	}
 
-
+alert("res"+res+"preg"+preg);
 
 	//if con else de david
 	if (respuestas.length == 0 && (res == "" || res == null || res == undefined)) {
@@ -546,6 +549,7 @@ function leer_test(email) {
 	
 	let test = "";
 	let testcompartidos = "";
+		$("#usu").empty();
 	$("#usu").append(""+email+"");
 	$("#listatests").empty();
 	$("#listatests").listview('refresh');
@@ -599,17 +603,32 @@ function leer_test(email) {
 
 }
 
+function limpiarCrearTest() {
+	$('#nomtest').val('');
+	$('#aciertos').val('');
+	$('#premio').val('');
+	numpreguntas = 1;
+	numrespaprobar = 0;
+$("#listacategorias").empty();
+	$("#listacategorias").select('refresh');
+	$("#listacategorias").append("<option value='--' selected >Seleccione una categoría...</option>");
+	cargarcategorias();
+			
+	$("#listaedades").empty();
+	$("#listaedades").select('refresh');
+	$("#listaedades").append("<option value='--'  selected >Seleccione una edad...</option>");
+	cargaredades();
 
+}
 
 function cargarcategorias() {
 	// db.collection("tests").get().then((querySnapshot) => {
 
 	let categoria = "";
 
+
 	$("#listacategorias").empty();
 	$("#listacategorias").select('refresh');
-
-
 	$("#listacategorias").append("<option value='--' selected >Seleccione una categoría...</option>");
 	db.collection("categorias").get()
 		.then((querySnapshot) => {
@@ -619,24 +638,22 @@ function cargarcategorias() {
 
 				categoria = doc.data();
 
-				$("#listacategorias").append(" <option select value='" + categoria.id_categoria + "'>" + categoria.nombre + "</option>")
+				$("#listacategorias").append(" <option value='" + categoria.id_categoria + "'>" + categoria.nombre + "</option>")
 
 
 
 			});
 		});
+			
 }
 
 function cargaredades() {
 	// db.collection("tests").get().then((querySnapshot) => {
 
 	let edad = "";
-
 	$("#listaedades").empty();
 	$("#listaedades").select('refresh');
-
-
-	$("#listaedades").append("<option select value='--'  selected>Seleccione una edad...</option>");
+	$("#listaedades").append("<option value='--'  selected >Seleccione una edad...</option>");
 
 	db.collection("edades").get()
 		.then((querySnapshot) => {
@@ -652,6 +669,7 @@ function cargaredades() {
 
 			});
 		});
+
 }
 
 
@@ -1124,14 +1142,7 @@ function borrarTest(id_test) {
 }
 
 
-function limpiarCrearTest() {
-	$('#nomtest').val('');
-	$('#aciertos').val('');
-	numpreguntas = 1;
-	numrespaprobar = 0;
-	cargarcategorias();
-	cargaredades();
-}
+
 
 function compartirTest() {
 
@@ -1273,11 +1284,18 @@ $('#closeresult').on('click', function () {
 });
 
 function cargarResultados(){
+
 $.mobile.changePage("#resultados", {
 	transition: "slide",
 	reverse: true
 });
-cargarListaAlumnos() ;
+	$("#listaalumnos").empty();
+	$("#listaalumnos").select('refresh');
+
+
+
+cargarListaAlumnos();
+cargarTestAlumno() ;
 }
 function cargarListaAlumnos() {
 
@@ -1285,15 +1303,13 @@ function cargarListaAlumnos() {
 			
 	let alumno = "";
 
-	$("#listaalumnos").empty();
-	$("#listaalumnos").select('refresh');
-
-	$("#listaalumnos").append("<option selected='selected' value='--' >Seleccione un Alumno...</option>");
 
 
-	$("#listaalumnos").append("<option value='" + email + "' ' >Mis estadísticas</option>");
-		
+	$("#listaalumnos").append("<option value='--' selected='selected' >Seleccione un Alumno...</option>");
 
+
+	$("#listaalumnos").append("<option value='" + email + "' >Mis estadísticas</option>");
+$("#listaalumnos").selectmenu('refresh')
 
 	db.collection("usuarios_alumnos").where("usuario_creador", "==", email)
 		.get()
@@ -1312,7 +1328,6 @@ function cargarListaAlumnos() {
 		});
 		
 		
-		$("#listaalumnos").select('refresh');
 	
 	
 }
@@ -1330,7 +1345,7 @@ function cargarTestAlumno() {
 	var contpri = 1;
 	var textoalumno = $("#listaalumnos option:selected").text();
 	var valoralumno = $("#listaalumnos").val();
-alert(valoralumno);
+
 	db.collection("resultado_alumno").where("id_alumno", "==", valoralumno).get()
 		.then((querySnapshot) => {
 
