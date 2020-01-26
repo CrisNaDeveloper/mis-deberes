@@ -160,10 +160,10 @@
 				</div>
 
 				<div data-role="footer" data-theme="b" data-position="fixed">
-					<a href="#num_preg" data-role="button"  data-transition="flip" onclick="limpiarCrearTest()" data-icon="bullets">Crear Test</a>
+					<a href="#num_preg" data-role="button"  data-transition="flip" data-icon="bullets" onClick="limpiarCrearTest()">Crear Test</a>
 					<a href="#inicio" data-role="button" data-transition="flip" data-icon="back">volver</a>
 					<a href="#annadir_alumno" data-role="button" data-transition="flip" data-icon="user">añadir alumnos</a>
-					<a href="#resultados" data-role="button" data-transition="flip" onClick="cargarListaAlumnos()" data-icon="bullets">Ver resultados</a>
+					<a href="#resultados" data-role="button" data-transition="flip" onClick="cargarResultados()" data-icon="bullets">Ver resultados</a>
 						<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="info">Ayuda</a>
 				</div>
 
@@ -324,13 +324,14 @@
 
 					<label for="listacategorias">Selecciona la categoría:</label>
 			
-				<select name="listacategorias" id="listacategorias" data-theme="b" onload="cargarcategorias()">
-				
+				<select name="listacategorias" id="listacategorias" data-theme="b" >
+						<option value='--' selected >Seleccione una categoría...</option>
 				</select>
 				
 				
 					<label for="listaedades">Selecciona la edad:</label>
-					<select name="listaedades" id="listaedades" data-theme="b" onload="cargaredades()">
+					<select name="listaedades" id="listaedades" data-theme="b" >
+			<option value='--'  selected >Seleccione una edad...</option>
 					
 				</select>
 				
@@ -495,8 +496,8 @@
 			<div data-role="header" data-theme="b">Mis deberes: Resultados de los tests</div>
 
 			
-			<select name="listaalumnos" id="listaalumnos" data-theme="b"  onChange="cargarListaAlumnos()"  >
-	
+			<select name="listaalumnos" id="listaalumnos" data-theme="b"  onChange="cargarTestAlumno()"  >
+				<option  value='--' >Seleccione un Alumno...</option>
 			</select>
 
 			<table data-role="table" data-theme="b" id="tablaresultados" data-mode="columntoggle"  class="ui-responsive ui-body-d table-stripe" data-column-btn-text="Selecione Filtro" data-column-btn-theme="b" >
