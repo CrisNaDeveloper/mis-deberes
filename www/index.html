@@ -3,7 +3,8 @@
 <head>
 	<meta charset="utf-8" />
 		<meta http-equiv="Access-Control-Allow-Origin" content="*">
-	<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+	<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline';  media-src *;img-src * 'self' data: https:;" />
+	
 
 	<title>Mis deberes</title>
 	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons.min.css" /> 
@@ -11,8 +12,10 @@
 	<!--link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /-->
 		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" >
 	<link rel="stylesheet" type="text/css" href="css/tema_mis_deberes.min.css" />
+<link rel="stylesheet" type="text/css" href="css/images/icons-png/icons.css" />
+<link rel="stylesheet" type="text/css" href="css/images/icon-pack-custom.css" />
+	
 
-<link rel="stylesheet" type="text/css" href="css/scratch.css" />
 
 
 	<link rel="stylesheet" href="themes/alertify.core.css" />
@@ -118,11 +121,14 @@
 		</div>
 
 		<div data-role="footer" data-theme="b" data-position="fixed">
-			<a data-role="button" data-transition="flip" id="aceptar" onClick="validar_usuario()" data-icon="check">Aceptar</a>
+			<a data-role="button" data-transition="flip" id="aceptar" onClick="validar_usuario()" data-icon="check-square-o">Aceptar</a>
 			<a href="#registro" data-role="button" data-transition="flip" data-icon="lock">Registrarse</a>
 			<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 		</div>
 </div>
+
+
+<!-- PAGINA INICIO-->
 	<div data-role="page" id="inicio" >
 
 		<div data-role="header" data-theme="b">MIS DEBERES
@@ -134,40 +140,43 @@
 			<form>
 				<fieldset data-role="controlgroup">
 					<legend>Mis test:</legend>
+				
 					<!--aquí va la imagen-->
 					<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="a" id="listatests">
 
 						<li data-role="list-divider">Mis tests:</li>
 
 					</ul>
-				</fieldset>
-
-				<fieldset data-role="controlgroup">
+					
+							<fieldset data-role="controlgroup">
 					<legend>Test que me han compartido:</legend>
 
 
-					<div data-role="content" data-theme="b">
+				
 						<!--aquí va la imagen-->
 						<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="a" id="listacompartidos">
 
 							<li data-role="list-divider">Mis tests:</li>
-				</fieldset>
+					</fieldset>
 
 
+</form>
+</div>
 
 
-
-				</div>
+				
 
 				<div data-role="footer" data-theme="b" data-position="fixed">
-					<a href="#num_preg" data-role="button"  data-transition="flip" data-icon="bullets" onClick="limpiarCrearTest()">Crear Test</a>
-					<a href="#inicio" data-role="button" data-transition="flip" data-icon="back">volver</a>
-					<a href="#annadir_alumno" data-role="button" data-transition="flip" data-icon="user">añadir alumnos</a>
-					<a href="#resultados" data-role="button" data-transition="flip" onClick="cargarResultados()" data-icon="bullets">Ver resultados</a>
-						<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="info">Ayuda</a>
+				
+					<a href="#num_preg" data-role="button"  data-transition="flip" data-icon="edit" onClick="limpiarCrearTest()">Crear</a>
+					
+					<a href="#annadir_alumno" data-role="button" data-transition="flip" data-icon="group">añadir</a>
+					<a href="#resultados" data-role="button" data-transition="flip" onClick="cargarResultados()" data-icon="bar-chart-o">resultados</a>
+					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="info">Ayuda</a>
+
 				</div>
 
-			</form>
+			
 
 		</div>
 
@@ -338,7 +347,7 @@
 			</div>
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
-				<a data-role="button" data-transition="flip" onClick="crear_test()"data-icon="bullets">Crear Test</a>
+				<a data-role="button" data-transition="flip" onClick="crear_test()"data-icon="save">Crear</a>
 				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
 					<a href="#ayuda"  data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 			</div>
@@ -429,7 +438,7 @@
 			</div>
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
-				<a data-role="button" data-transition="flip" onClick="aceptar_registro()">Aceptar</a>
+				<a data-role="button" data-transition="flip" onClick="aceptar_registro()" data-icon="check-square-o">Aceptar</a>
 				<a href="#login" data-role="button" data-transition="flip" data-icon="back">volver</a>
 					<a href="#ayuda"  data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 			</div>
@@ -459,7 +468,7 @@
 			</div>
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
-				<a data-role="button" data-transition="flip" onClick="annadirAlumno()">Aceptar</a>
+				<a data-role="button" data-transition="flip" onClick="annadirAlumno()" data-icon="check-square-o">Aceptar</a>
 				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
 					<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 			</div>
@@ -467,17 +476,9 @@
 			<!--RESULTADO EXAMEN-->
 			<!--popup-->
 
-
-
-
-
-
-		
-
-
 			<!--AREA MENSAJES-->
 			
-				<div id="popupresultado" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-transition="fade" class="ui-button ui-shadow ui-corner-all ui-button-inline ui-widget ui-button-inherit" role="button" aria-haspopup="true" aria-owns="popupPhoto" aria-expanded="false">
+				<div id="popupresultado" style="display: none" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-transition="fade" class="ui-button ui-shadow ui-corner-all ui-button-inline ui-widget ui-button-inherit" role="button" aria-haspopup="true" aria-owns="popupPhoto" aria-expanded="false" visible="false">
 						<a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right ui-button ui-shadow ui-corner-all ui-widget ui-button-a" role="button"></a>
 
 
