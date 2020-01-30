@@ -279,7 +279,7 @@ function crear_test() {
 									$('label[for="' + valimput + '"]').show();
 
 									document.getElementById(valradio).style.visibility = 'hidden';
-									$("#" + valboton).text("Guardar Respuesta" + i);
+									$("#" + valboton).text("Opción " + i);
 									$("#" + valimput).val("");
 
 								}
@@ -402,7 +402,7 @@ function crear_pregunta() {
 
 									document.getElementById(valradio).style.visibility = 'hidden';
 
-									$("#" + valboton).text("Guardar Respuesta" + i);
+									$("#" + valboton).text("Opción " + i);
 									$("#" + valimput).val("");
 									$("label[for='radio" + i + "']").text("");
 
@@ -506,7 +506,7 @@ function terminar_test() {
 					$('label[for="' + valimput + '"]').show();
 
 					document.getElementById(valradio).style.visibility = 'hidden';
-					$("#" + valboton).text("Guardar Respuesta" + i);
+					$("#" + valboton).text("Opción" + i);
 					$("#" + valimput).val("");
 					$("label[for='radio" + i + "']").text("");
 
@@ -1084,6 +1084,8 @@ function borrarTest(id_test) {
 		.then(function (doc) {
 
 			let registro1 = doc.data();
+			
+			
 			usuariocrea = registro1.usuario_creador;
 				
 
@@ -1159,7 +1161,7 @@ if (usuariocrea == email) {
 			
 				
 	
-	
+
 
 	
 }else{
@@ -1172,13 +1174,12 @@ if (usuariocrea == email) {
 		});
 
 
+		$.mobile.changePage("#inicio", {
+					transition: "slide",
+					reverse: true
+				});
 
-	$.mobile.changePage("#inicio", {
-		transition: "slide",
-		reverse: true
-		})
-	leer_test();
-
+leer_test(email);
 }
 
 
