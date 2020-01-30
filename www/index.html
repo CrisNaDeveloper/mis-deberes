@@ -247,9 +247,9 @@
 		
 			<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
 				<ul class="ui-grid-d">
-						<li class="ui-block-a"><a href="#pregunta" id="sigpreg" data-role="button" data-transition="flip" onClick="crear_pregunta()" data-icon="arrow-circle-right">Siguiente pregunta</a></li>
+						<li class="ui-block-a"><a href="#pregunta" id="sigpreg" data-role="button" data-transition="flip" onClick="crear_pregunta()" data-icon="arrow-circle-right">Siguiente</a></li>
 			<li class="ui-block-b"><a href="#num_preg" data-role="button" data-transition="flip" data-icon="back">Volver</a></li>
-			<li class="ui-block-c"><a data-role="button" data-transition="flip" onclick="terminar_test()" data-icon="home">Terminar Preguntas</a></li>
+			<li class="ui-block-c"><a data-role="button" data-transition="flip" onclick="terminar_test()" data-icon="home">Terminar</a></li>
 				<li class="ui-block-d"><a href="#ayuda"  data-role="button" data-transition="flip" data-icon="info">Ayuda</a></li>
 				</ul>
 				</div>
@@ -426,9 +426,14 @@
 
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
-				<a data-role="button" data-transition="flip" onClick="compartirTest()">compartir</a>
-				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">Volver</a>
-					<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+		<ul class="ui-grid-d">
+					
+				<li class="ui-block-a">	<a data-role="button" data-transition="flip" onClick="compartirTest()" data-icon="share-square-o">compartir</a></li>
+				<li class="ui-block-b">	<a href="#inicio" data-role="button" data-transition="flip" data-icon="back">Volver</a></li>
+				<li class="ui-block-c">	<a href="#ayuda" data-role="button" data-transition="flip" data-icon="info">Ayuda</a></li>
+		</ul>
+		</div>
 			</div>
 
 		</div>
@@ -495,9 +500,17 @@
 			</div>
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
-				<a data-role="button" data-transition="flip" onClick="annadirAlumno()" data-icon="check-square-o">Aceptar</a>
-				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">Volver</a>
-					<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+					<ul class="ui-grid-d">					
+						<li class="ui-block-a"><a data-role="button" data-transition="flip" onClick="annadirAlumno()" data-icon="check-square-o">Aceptar</a></li>
+						<li class="ui-block-b"><a href="#inicio" data-role="button" data-transition="flip"data-icon="back">Volver</a></li>
+						<li class="ui-block-c"><a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a></li>
+					</ul>
+				</div>	
+					
+					
+					
 			</div>
 </div>
 			<!--RESULTADO EXAMEN-->
