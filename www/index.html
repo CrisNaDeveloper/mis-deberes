@@ -111,7 +111,7 @@
 		<div data-role="header" data-theme="b">Mis deberes: Login</div>
 	
 		<div data-role="content" data-theme="b">
-
+<p>
 			<label for="usuario" data-icon="user">Usuario (correo): </label>
 			<input data-theme="b" type="text" name="usuario" id="usuario" />
 
@@ -121,9 +121,15 @@
 		</div>
 
 		<div data-role="footer" data-theme="b" data-position="fixed">
-			<a data-role="button" data-transition="flip" id="aceptar" onClick="validar_usuario()" data-icon="check-square-o">Aceptar</a>
-			<a href="#registro" data-role="button" data-transition="flip" data-icon="lock">Registrarse</a>
-			<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+		<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+					<li class="ui-block-a"><a data-role="button" data-transition="flip" id="aceptar" onClick="validar_usuario()" data-icon="check-square-o">Aceptar</a></li>
+					<li class="ui-block-b"><a href="#registro" data-role="button" data-transition="flip" data-icon="login">Registrarse</a></li>
+					<li class="ui-block-c"><a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a></li>
+
+				</ul>
+			</div>
+		
 		</div>
 </div>
 
@@ -167,13 +173,15 @@
 				
 
 				<div data-role="footer" data-theme="b" data-position="fixed">
-				
-					<a href="#num_preg" data-role="button"  data-transition="flip" data-icon="edit" onClick="limpiarCrearTest()">Crear</a>
+						<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a"><a href="#num_preg" data-role="button"  data-transition="flip" data-icon="edit" onClick="limpiarCrearTest()">Crear</a></li>
 					
-					<a href="#annadir_alumno" data-role="button" data-transition="flip" data-icon="group">añadir</a>
-					<a href="#resultados" data-role="button" data-transition="flip" onClick="cargarResultados()" data-icon="bar-chart-o">resultados</a>
-					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="info">Ayuda</a>
-
+						<li class="ui-block-b"><a href="#annadir_alumno" data-role="button" data-transition="flip" data-icon="group">añadir</a></li>
+						<li class="ui-block-c"><a href="#resultados" data-role="button" data-transition="flip" onClick="cargarResultados()" data-icon="bar-chart-o">resultados</a></li>
+						<li class="ui-block-d"><a href="#ayuda"  data-role="button" data-transition="flip" data-icon="info">Ayuda</a></li>
+</ul>
+</div>
 				</div>
 
 			
@@ -236,10 +244,15 @@
 
 		<div id="divNivel" data-role="footer" data-theme="b"> </div>
 		<div data-role="footer" data-theme="b" data-position="fixed">
-			<a href="#pregunta" id="sigpreg" data-role="button" data-transition="flip" onClick="crear_pregunta()" data-icon="arror-r">Siguiente pregunta</a>
-			<a href="#num_preg" data-role="button" data-transition="flip" data-icon="back">volver</a>
-			<a data-role="button" data-transition="flip" onclick="terminar_test()" data-icon="home">Terminar Preguntas</a>
-				<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="info">Ayuda</a>
+		
+			<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a"><a href="#pregunta" id="sigpreg" data-role="button" data-transition="flip" onClick="crear_pregunta()" data-icon="arrow-circle-right">Siguiente pregunta</a></li>
+			<li class="ui-block-b"><a href="#num_preg" data-role="button" data-transition="flip" data-icon="back">Volver</a></li>
+			<li class="ui-block-c"><a data-role="button" data-transition="flip" onclick="terminar_test()" data-icon="home">Terminar Preguntas</a></li>
+				<li class="ui-block-d"><a href="#ayuda"  data-role="button" data-transition="flip" data-icon="info">Ayuda</a></li>
+				</ul>
+				</div>
 		</div>
 	</div>
 
@@ -263,10 +276,14 @@
 
 		<div id="piepregunta" data-role="footer" data-theme="b"> </div>
 		<div data-role="footer" data-theme="b" data-position="fixed">
-			<a href="#realizartest" data-role="button" data-transition="flip" onClick="crear_respuesta()">Siguiente pregunta</a>
-			<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
-			<a data-role="button" data-transition="flip" onclick="terminar_respuesta()">Terminar Preguntas</a>
-				<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+		<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+		<ul class="ui-grid-d">
+						<li class="ui-block-a">	<a href="#realizartest" data-role="button" data-transition="flip" onClick="crear_respuesta()">Siguiente pregunta</a></li>
+			<li class="ui-block-b">	<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">Volver</a></li>
+			<li class="ui-block-c">	<a data-role="button" data-transition="flip" onclick="terminar_respuesta()">Terminar Preguntas</a></li>
+				<li class="ui-block-d">	<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a></li>
+				</ul>
+				</div>
 		</div>
 	</div>
 
@@ -290,12 +307,16 @@
 		</div>
 
 		<div data-role="footer" data-theme="b" data-position="fixed">
-
-			<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
-			<a href="#amigos" onclick="cargarListaAmigos()" data-role="button" data-transition="flip">compartir</a>
-			<a href="#inicio" data-role="button" data-transition="flip" id="botonborrar" onclick="borrarTest(id_test)" data-icon="delete">Borrar este test</a>
-			<a data-role="button" data-transition="flip" onclick="hacerTest(numpregcuestion,id_test,nombre,numrespaprobar)" data-icon="comment">Contestar test</a>
-				<a href="#ayuda" data-role="button" data-transition="flip" data-icon="info">Ayuda</a>
+	<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+		<ul class="ui-grid-d">
+					
+				<li class="ui-block-a"><a href="#inicio" data-role="button" data-transition="flip" data-icon="back">Volver</a></li>
+				<li class="ui-block-b"><a href="#amigos" onclick="cargarListaAmigos()" data-role="button" data-transition="flip" data-icon="share-square-o">compartir</a></li>
+				<li class="ui-block-c"><a href="#inicio" data-role="button" data-transition="flip" id="botonborrar" onclick="borrarTest(id_test)" data-icon="trash-o">Borrar este test</a></li>
+				<li class="ui-block-d"><a data-role="button" data-transition="flip" onclick="hacerTest(numpregcuestion,id_test,nombre,numrespaprobar)" data-icon="comments-o">Contestar test</a></li>
+				<li class="ui-block-e"><a href="#ayuda" data-role="button" data-transition="flip" data-icon="info">Ayuda</a></li>
+				</ul>
+				</div>
 		</div>
 
 	</div>
@@ -347,9 +368,15 @@
 			</div>
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
-				<a data-role="button" data-transition="flip" onClick="crear_test()"data-icon="save">Crear</a>
-				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
-					<a href="#ayuda"  data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a"><a data-role="button" data-transition="flip" onClick="crear_test()"data-icon="check-square-o">Crear</a></li>
+				<li class="ui-block-b"><a href="#inicio" data-role="button" data-transition="flip"data-icon="back">Volver</a></li>
+					<li class="ui-block-c"><a href="#ayuda"  data-role="button" data-transition="flip"data-icon="info">Ayuda</a></li>
+					
+					</ul>
+					</div>
 			</div>
 
 		</div>
@@ -400,7 +427,7 @@
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a data-role="button" data-transition="flip" onClick="compartirTest()">compartir</a>
-				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
+				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">Volver</a>
 					<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 			</div>
 
@@ -439,7 +466,7 @@
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a data-role="button" data-transition="flip" onClick="aceptar_registro()" data-icon="check-square-o">Aceptar</a>
-				<a href="#login" data-role="button" data-transition="flip" data-icon="back">volver</a>
+				<a href="#login" data-role="button" data-transition="flip" data-icon="back">Volver</a>
 					<a href="#ayuda"  data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 			</div>
 
@@ -469,7 +496,7 @@
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
 				<a data-role="button" data-transition="flip" onClick="annadirAlumno()" data-icon="check-square-o">Aceptar</a>
-				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
+				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">Volver</a>
 					<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
 			</div>
 </div>
@@ -518,7 +545,7 @@
 					
 				
 			<div data-role="footer" data-theme="b" data-position="fixed">
-				<a href="#inicio" data-role="button" data-transition="flip" data-icon="back">volver</a>
+				<a href="#inicio" data-role="button" data-transition="flip" data-icon="back">Volver</a>
 					<a href="#ayuda" data-role="button" data-transition="flip">Ayuda</a>
 			</div>
 
