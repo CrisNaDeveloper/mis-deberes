@@ -109,23 +109,31 @@
 	<!--INICIO-->
 <div data-role="page" id="login">
 		<div data-role="header" data-theme="b">Mis deberes: Login</div>
-	
-		<div data-role="content" data-theme="b">
-<p>
-			<label for="usuario" data-icon="user">Usuario (correo): </label>
-			<input data-theme="b" type="text" name="usuario" id="usuario" />
+			<div data-role="content" data-theme="b">
+			<input data-theme="b" type="text" name="usuario" id="usuario" placeholder="Usuario (correo)"/>
 
-			<label for="password" data-icon="lock">Password: </label>
-			<input data-theme="b" name="password" id="password" type="password" value="" autocomplete="off" data-clear-btn="true">
+			<input data-theme="b" name="password" id="password" type="password" value="" autocomplete="off" data-clear-btn="true" placeholder="Password">
 					<a id="olvido" onclick="recuperacontrasenna($('#usuario').val())">¿Se te ha olvidado la contraseña?</a>
+	
+				<ul data-role="listview" data-split-icon="plus" data-split-theme="b" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+					<li class="ui-block-a"><a href="#" data-role="button" data-icon="edit">Puedes Crear Test para preguntar la lección</a></li>
+						<li class="ui-block-a"><a href="#" data-role="button" data-icon="comments-o">Puedes Contestar los test</a></li>
+							<li class="ui-block-a"><a href="#" data-role="button" data-icon="bar-chart-o">Puedes ver tus resultados y los de tus amigos/alumnos</a></li>
+							<li class="ui-block-a"><a href="#" data-role="button" data-icon="group">Puedes añadir amigos/alumnos</a></li>
+							<li class="ui-block-a"><a href="#" data-role="button" data-icon="external-link3">Si apruebas verás el premio o código de desbloqueo</a></li>
+							</ul>
+					
+			
+		
+	
 		</div>
 
 		<div data-role="footer" data-theme="b" data-position="fixed">
 		<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
 				<ul class="ui-grid-d">
 					<li class="ui-block-a"><a data-role="button" data-transition="flip" id="aceptar" onClick="validar_usuario()" data-icon="check-square-o">Aceptar</a></li>
-					<li class="ui-block-b"><a href="#registro" data-role="button" data-transition="flip" data-icon="login">Registrarse</a></li>
-					<li class="ui-block-c"><a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a></li>
+					<li class="ui-block-b"><a href="#registro" data-role="button" data-transition="flip" data-icon="user">Registrarse</a></li>
+			
 
 				</ul>
 			</div>
@@ -204,35 +212,35 @@
 
 
 
-			<label for="opcion1">Respuesta 1:</label>
-			<input type="text" id="opcion1" required>
+	
+			<input type="text" id="opcion1" placeholder="Texto de la Opción 1" required>
 
 			<label for="radio1" style="display:none"></label>
 
 			<input type='radio' name='respuesta' id='radio1'  value="1" style="visibility:hidden" >
-			<a data-role="button" data-transition="flip"  id="guardar1" onclick="guardoRespuesta(1)" >Guardar Respuesta 1</a>
+			<a data-role="button" data-transition="flip"  id="guardar1" onclick="guardoRespuesta(1)"  data-icon="save" ></a>
 		</input>
-			<label for="opcion2">Respuesta 2:</label>
-			<input type="text" id="opcion2">
+			
+			<input type="text" id="opcion2" placeholder="Texto de la Opción 2">
 
 			<label for="radio2" style="display:none"></label>
 
 			<input type='radio' name='respuesta'  id='radio2' value="2" style="visibility:hidden"></input>
-			<a data-role="button" data-transition="flip"  id="guardar2" onclick="guardoRespuesta(2)">Guardar Respuesta 2</a>
-			<label for="opcion3">Respuesta 3:</label>
-			<input type="text" id="opcion3">
+			<a data-role="button" data-transition="flip"  id="guardar2" onclick="guardoRespuesta(2)" data-icon="save"></a>
+		
+			<input type="text" id="opcion3" placeholder="Texto de la Opción 3">
 
 			<label for="radio3" style="display:none" style="visibility:hidden"></label>
 
 			<input type='radio' name='respuesta'  id='radio3'  value="3" style="visibility:hidden"></input>
-			<a data-role="button" data-transition="flip"  id="guardar3" onclick="guardoRespuesta(3)">Guardar Respuesta 3</a>
-			<label for="opcion4">Respuesta 4:</label>
-			<input type="text" id="opcion4">
+			<a data-role="button" data-transition="flip"  id="guardar3" onclick="guardoRespuesta(3)" data-icon="save"></a>
+		
+			<input type="text" id="opcion4" placeholder="Texto de la Opción 4">
 
 			<label for="radio4" style="display:none"></label>
 
 			<input type='radio' name='respuesta'  id='radio4'  value="4" style="visibility:hidden"></input>
-			<a data-role="button" data-transition="flip"  id="guardar4" onclick="guardoRespuesta(4)">Guardar Respuesta 4</a>
+			<a data-role="button" data-transition="flip"  id="guardar4" onclick="guardoRespuesta(4)" data-icon="save"></a>
 			<div id="selrespu"></div>
 
 
@@ -271,17 +279,14 @@
 
 
 
-
-
-
 		<div id="piepregunta" data-role="footer" data-theme="b"> </div>
 		<div data-role="footer" data-theme="b" data-position="fixed">
 		<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
 		<ul class="ui-grid-d">
-						<li class="ui-block-a">	<a href="#realizartest" data-role="button" data-transition="flip" onClick="crear_respuesta()">Siguiente pregunta</a></li>
-			<li class="ui-block-b">	<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">Volver</a></li>
-			<li class="ui-block-c">	<a data-role="button" data-transition="flip" onclick="terminar_respuesta()">Terminar Preguntas</a></li>
-				<li class="ui-block-d">	<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a></li>
+						<li class="ui-block-a">	<a href="#realizartest" data-role="button" data-transition="flip" onClick="crear_respuesta()" data-icon="arrow-circle-right">Siguiente</a></li>
+			<li class="ui-block-b">	<a href="#inicio" data-role="button" data-transition="flip" data-icon="back">Volver</a></li>
+			<li class="ui-block-c">	<a data-role="button" data-transition="flip" onclick="terminar_respuesta()" data-icon="home">Terminar</a></li>
+				<li class="ui-block-d">	<a href="#ayuda" data-role="button" data-transition="flip" data-icon="info">Ayuda</a></li>
 				</ul>
 				</div>
 		</div>
@@ -558,8 +563,13 @@
 					
 				
 			<div data-role="footer" data-theme="b" data-position="fixed">
-				<a href="#inicio" data-role="button" data-transition="flip" data-icon="back">Volver</a>
-					<a href="#ayuda" data-role="button" data-transition="flip">Ayuda</a>
+			
+					<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a"><a href="#inicio" data-role="button" data-transition="flip" data-icon="back">Volver</a></li>
+					<li class="ui-block-b"><a href="#ayuda" data-role="button" data-icon="info" data-transition="flip">Ayuda</a></li>
+					</ul>
+					</div>
 			</div>
 
 		</div>
