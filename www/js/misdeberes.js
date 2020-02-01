@@ -1454,7 +1454,7 @@ function guardoRespuesta(opcion) {
 function darPremio(promoCode) {
 $('#contenedorPromo').empty();
 $('#contenedorPromo').append($('<div id="promo" class="scratchpad"></div>'));
-$('#promo').append($('<button type="button" onClick="javascript:cerrarPremio()">Cerrar</button>'));
+$('#promo').append($('<div style="position:absolute; z-index:100"><button type="button" onClick="javascript:cerrarPremio()">Cerrar</button> Rasca con el dedo</div>'));
 $('#promo').wScratchPad({
     // the size of the eraser
     size        : 70,    
