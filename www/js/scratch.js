@@ -30,6 +30,11 @@
       }
 
       this.$img = $('<img src=""/>').attr('crossOrigin', '').css({position: 'absolute', width: '100%', height: '100%'});
+	  this.$div=$('<div />').css({position: 'absolute', width: '100%', height: '100%'});
+	  this.$div.append(this.$img);
+	  if(this.options.divBg){
+		this.$div.append($(this.options.divBg));
+	  }
 
       // Make sure we sett style width height here for elastic stretch
       // and better support for mobile if we are resizing the scratch pad.
@@ -68,7 +73,8 @@
       this._setOptions();
 
       // Apepnd items
-      this.$el.append(this.$img).append(this.$scratchpad);
+      // this.$el.append(this.$img).append(this.$scratchpad);
+	  this.$el.append(this.$div).append(this.$scratchpad);
 
       // Initialize and reset
       this.init = true;
@@ -95,12 +101,14 @@
       this.pixels = width * devicePixelRatio * height * devicePixelRatio;
 
       // Default to image hidden in case no bg or color is set.
-      this.$img.hide();
+      //this.$img.hide();
+	  this.$div.hide();
 
       // Set bg.
       if (this.options.bg) {
         if (this.options.bg.charAt(0) === '#') {
           this.$el.css('backgroundColor', this.options.bg);
+		  this.$img.remove();
         }
         else {
           this.$el.css('backgroundColor', '');
@@ -115,7 +123,19 @@
           this.ctx.beginPath();
           this.ctx.rect(0, 0, width, height);
           this.ctx.fill();
-          this.$img.show();
+		  if(this.options.textoFg){
+			  if(this.options.textoFg.fuente){
+				  this.ctx.font=this.options.textoFg.fuente;
+			  }
+			  if(this.options.textoFg.color){
+				this.ctx.fillStyle = this.options.textoFg.color;
+			  }else{
+				this.ctx.fillStyle = '#000000';
+			  }
+			  this.ctx.fillText(this.options.textoFg.valor, this.options.textoFg.x, this.options.textoFg.y);
+		  }
+          //this.$img.show();
+		  this.$div.show();
         }
         else {
           // Have to load image before we can use it.
@@ -123,7 +143,19 @@
           .attr('src', this.options.fg)
           .load(function () {
             _this.ctx.drawImage(this, 0, 0, width, height);
-            _this.$img.show();
+			  if(_this.options.texto){
+				  if(_this.options.textoFg.fuente){
+					  _this.ctx.font=_this.options.textoFg.fuente;
+				  }
+				  if(_this.options.textoFg.color){
+					_this.ctx.fillStyle = _this.options.textoFg.color;
+				  }else{
+					_this.ctx.fillStyle = '#000000';
+				  }
+				  _this.ctx.fillText(_this.options.textoFg.valor, _this.options.textoFg.x, _this.options.textoFg.y);
+			  }
+            //_this.$img.show();
+			_this.$div.show();
           });
         }
       }
