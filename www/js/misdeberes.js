@@ -106,6 +106,7 @@ var acertada = 0;
 var numrespaprobar = 0;
 var emailadministrador = "c_navarro_martinez@hotmail.com"
 var valorpremio = "";
+var textoPremio=""
 
 
 
@@ -882,8 +883,9 @@ function terminar_respuesta() {
 
 	var aprobado = 0;
 
+
 	if (aciertos >= numrespaprobar) {
-		$('#cabepopup').empty();
+		//$('#cabepopup').empty();
 
 			//consulto el premio
 			var testpre;
@@ -895,20 +897,18 @@ function terminar_respuesta() {
 					valorpremio=testpre.premio;
 					
 					
-					$('#cabepopup').text(" Enhorabuena : Has aprobado tu código secreto es: "+ valorpremio);
+					textoPremio =" Enhorabuena : Has APROBADO tu código secreto es "+ valorpremio+" ";
+						textoPremio=textoPremio+ "Tu resultado ha sido:" + aciertos + " aciertos de los " + numrespaprobar + " para aprobar";
+					darPremio(textoPremio );
 	
 				});
 			
-
-
-	
-
 		aprobado = 1;
 	} else {
 
-		$('#cabepopup').empty();
-
-		$('#cabepopup').text("Has suspendido");
+		textoPremio = " Lo siento : Has SUSPENDIDO " ;
+		textoPremio= textoPremio+		 "Tu resultado ha sido:" + aciertos + " aciertos de los " + numrespaprobar + " para aprobar. Sigue intentandolo";	
+		darPremio(textoPremio);
 		aprobado = 0;
 
 	}
@@ -930,12 +930,13 @@ function terminar_respuesta() {
 		});
 	numpregcuestion = 1;
 	numpregtotaltest = 0;
-	$('#textopopup').text("Tu resultado ha sido:" + aciertos + " aciertos de los " + numrespaprobar + " para aprobar");
+
+
 
 
 	
 
-	$('#popupresultado').popup();
+
 
 	
 	setTimeout(function () { $('#popupresultado').popup('open') }, 1000);
@@ -1448,4 +1449,30 @@ function guardoRespuesta(opcion) {
 	$("#respuesta").checkboxradio("refresh");
 
 
+}
+
+function darPremio(promoCode) {
+$('#contenedorPromo').empty();
+$('#contenedorPromo').append($('<div id="promo" class="scratchpad"></div>'));
+$('#promo').append($('<button type="button" onClick="javascript:cerrarPremio()">Cerrar</button>'));
+$('#promo').wScratchPad({
+    // the size of the eraser
+    size        : 70,    
+    // the randomized scratch image   
+    bg:  '#ffffff',
+    // give real-time updates
+    realtime    : true, 
+    // The overlay image
+    fg: './img/regalo-sorpresa.jpg',
+    // The cursor (coin) image
+    'cursor': 'url("./img/coin.png") 5 5, default',
+	divBg: '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);">'+promoCode+'</div>'
+   
+ });
+$('#contenedorPromo').show();
+	
+}
+
+function cerrarPremio(){
+	$('.scratch-container').hide();
 }
