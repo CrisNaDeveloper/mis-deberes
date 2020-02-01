@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="css/tema_mis_deberes.min.css" />
 <link rel="stylesheet" type="text/css" href="css/images/icons-png/icons.css" />
 <link rel="stylesheet" type="text/css" href="css/images/icon-pack-custom.css" />
-	
+	<link rel="stylesheet" type="text/css" href="css/scratch.css" />
 
 
 
@@ -25,8 +25,9 @@
 	<script src="lib/alertify.min.js"></script>
 	
 	<!--NO OLVIDAR PONER-->
-	<script  src="cordova-2.7.0.js" type="text/javascript"></script>
+	<!--script  src="cordova-2.7.0.js" type="text/javascript"></script-->
 <script src="js/admob_simple.js"></script> 
+<script src="js/scratch.js"></script> 
 	
 	
 	<!-- Firebase App is always required and must be first -->
@@ -519,16 +520,12 @@
 			</div>
 </div>
 			<!--RESULTADO EXAMEN-->
-			<!--popup-->
 
-			<!--AREA MENSAJES-->
-			
-				<div id="popupresultado" style="display: none" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-transition="fade" class="ui-button ui-shadow ui-corner-all ui-button-inline ui-widget ui-button-inherit" role="button" aria-haspopup="true" aria-owns="popupPhoto" aria-expanded="false" visible="false">
-						<a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right ui-button ui-shadow ui-corner-all ui-widget ui-button-a" role="button"></a>
-
-
-				<div id="cabepopup"></div>
-			</div>
+<div class="scratch-container" id="contenedorPromo">
+  <div id="promo" class="scratchpad">
+	<button type="button" onClick="javascript:cerrarPremio()">Cerrar</button>
+   </div>
+</div>
 
 		
 		<!--FIN AREA MENSAJES-->
