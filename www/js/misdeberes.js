@@ -808,8 +808,8 @@ function crear_respuesta(res) {
 		}
 
 	} else {
-		alertify.error("Ha de terminar el test, es la última pregunta");
-
+	//	alertify.error("Ha de terminar el test, es la última pregunta");
+		terminar_respuesta();
 		$("#sigpreg").addClass("ui-disabled")
 	}
 
@@ -897,8 +897,8 @@ function terminar_respuesta() {
 					valorpremio=testpre.premio;
 					
 					
-					textoPremio =" Enhorabuena : Has APROBADO tu código secreto es "+ valorpremio+" ";
-						textoPremio=textoPremio+ "Tu resultado ha sido:" + aciertos + " aciertos de los " + numrespaprobar + " para aprobar";
+					textoPremio =" APROBADO tu código es "+ valorpremio+" ";
+						textoPremio=textoPremio+ "RESULTADO:" + aciertos + " aciertos de " + numrespaprobar + " para aprobar";
 					darPremio(textoPremio );
 	
 				});
@@ -906,8 +906,8 @@ function terminar_respuesta() {
 		aprobado = 1;
 	} else {
 
-		textoPremio = " Lo siento : Has SUSPENDIDO " ;
-		textoPremio= textoPremio+		 "Tu resultado ha sido:" + aciertos + " aciertos de los " + numrespaprobar + " para aprobar. Sigue intentandolo";	
+		textoPremio = "SUSPENDIDO " ;
+		textoPremio= textoPremio+"RESULTADO:" + aciertos + " aciertos de " + numrespaprobar + " para aprobar";	
 		darPremio(textoPremio);
 		aprobado = 0;
 
@@ -946,7 +946,7 @@ function terminar_respuesta() {
 		reverse: true
 	});
 	leer_test(email);
-	alertify.success("Ha decidido finalizar el test, se guardaran los resultados");
+	alertify.success("Ha finalizado el test, se han guardado los resultados");
 }
 
 
@@ -1072,115 +1072,105 @@ function cargarListaPregunta(idtest, nombretest, respuesta, numresa,valorpremio)
 function borrarTest(id_test) {
 	var usuariocrea = "";
 
-
+	alertify.confirm('¿Esta seguro que quiere borrar este Test?', function(e){ 
+	if (e) {
 	
-
-
-//si es usuario creador
-
-	
-		var test_borrar = db.collection('tests').doc(id_test);
-	
+	alertify.success('Ok') ;
+	//si es usuario creador
+	var test_borrar = db.collection('tests').doc(id_test);
+			
 	test_borrar.get()
-		.then(function (doc) {
+	.then(function (doc) {
 
-			let registro1 = doc.data();
-			
-			
-			usuariocrea = registro1.usuario_creador;
-				
-
-											
-			
+	let registro1 = doc.data();
 					
+					
+	usuariocrea = registro1.usuario_creador;
+	
+			
+		if (usuariocrea == email) {
+			doc.ref.delete();
+			var compartidos_borrar = db.collection('test_compartidos').where('id_test', '==', id_test);
+			compartidos_borrar.get()
+				.then(function (querySnapshot) {
+					querySnapshot.forEach(function (doc2) {
 
+						let registro2 = doc2.data();
+						doc2.ref.delete();
+					});
+				}).catch(function (error) {
+					console.error("Error borrando compartidos: ", error);
+				});
+
+				var preguntas_borrar = db.collection('preguntas').where('id_test', '==', id_test);
+				preguntas_borrar.get()
+					.then(function (querySnapshot) {
+						querySnapshot.forEach(function (doc) {
+							doc.ref.delete();
+						});
+					}).catch(function (error) {
+						console.error("Error borrando preguntas: ", error);
+					});
+					
+				var preguntas_opciones = db.collection('opciones').where('id_test', '==', id_test);
+				preguntas_opciones.get()
+					.then(function (querySnapshot) {
+						querySnapshot.forEach(function (doc) {
+							doc.ref.delete();
+						});
+					}).catch(function (error) {
+						console.error("Error borrando opciones: ", error);
+					});
+
+				var hechosalumnos_borrar = db.collection('tests_alumnos').where('id_test', '==', id_test);
+				hechosalumnos_borrar.get()
+					.then(function (querySnapshot) {
+						querySnapshot.forEach(function (doc) {
+							doc.ref.delete();
+						});
+					}).catch(function (error) {
+						console.error("Error borrando tests alumnos: ", error);
+					});
+
+
+				var resultados_alumno = db.collection('resultado_alumno').where('id_test', '==', id_test);
+				resultados_alumno.get()
+					.then(function (querySnapshot) {
+						querySnapshot.forEach(function (doc) {
+							doc.ref.delete();
+						});
+					}).catch(function (error) {
+						console.error("Error borrando los resultados del alumno: ", error);
+					});
+					
+							$.mobile.changePage("#inicio", {
+		transition: "slide",
+		reverse: true
+		});
+
+		leer_test(email);
+					
+					
 		
-	
-if (usuariocrea == email) {
-	doc.ref.delete();
-	var compartidos_borrar = db.collection('test_compartidos').where('id_test', '==', id_test);
-	compartidos_borrar.get()
-		.then(function (querySnapshot) {
-			querySnapshot.forEach(function (doc2) {
+		}else{
+			alertify.error("no es su test, no puede borralo");
+			
+		}
 
-				let registro2 = doc2.data();
-				doc2.ref.delete();
-			});
 		}).catch(function (error) {
-			console.error("Error borrando compartidos: ", error);
-		});
-
-
-
-
-	
-
-		var preguntas_borrar = db.collection('preguntas').where('id_test', '==', id_test);
-		preguntas_borrar.get()
-			.then(function (querySnapshot) {
-				querySnapshot.forEach(function (doc) {
-					doc.ref.delete();
+					console.error("Error borrando en test: ", error);
 				});
-			}).catch(function (error) {
-				console.error("Error borrando preguntas: ", error);
-			});
-			
-			var preguntas_opciones = db.collection('opciones').where('id_test', '==', id_test);
-		preguntas_opciones.get()
-			.then(function (querySnapshot) {
-				querySnapshot.forEach(function (doc) {
-					doc.ref.delete();
-				});
-			}).catch(function (error) {
-				console.error("Error borrando opciones: ", error);
-			});
-
-	
 
 
 
-		var hechosalumnos_borrar = db.collection('tests_alumnos').where('id_test', '==', id_test);
-		hechosalumnos_borrar.get()
-			.then(function (querySnapshot) {
-				querySnapshot.forEach(function (doc) {
-					doc.ref.delete();
-				});
-			}).catch(function (error) {
-				console.error("Error borrando tests alumnos: ", error);
-			});
 
 
-		var resultados_alumno = db.collection('resultado_alumno').where('id_test', '==', id_test);
-		resultados_alumno.get()
-			.then(function (querySnapshot) {
-				querySnapshot.forEach(function (doc) {
-					doc.ref.delete();
-				});
-			}).catch(function (error) {
-				console.error("Error borrando los resultados del alumno: ", error);
-			});
-			
-				
-	
-
-
-	
-}else{
-	alertify.error("no es su test, no puede borralo");
-	
+}else{ 
+alertify.error('Cancel');
 }
-
-}).catch(function (error) {
-			console.error("Error borrando en test: ", error);
-		});
+	});
 
 
-		$.mobile.changePage("#inicio", {
-					transition: "slide",
-					reverse: true
-				});
-
-leer_test(email);
 }
 
 
@@ -1454,7 +1444,7 @@ function guardoRespuesta(opcion) {
 function darPremio(promoCode) {
 $('#contenedorPromo').empty();
 $('#contenedorPromo').append($('<div id="promo" class="scratchpad"></div>'));
-$('#promo').append($('<div style="position:absolute; z-index:100"><button type="button" onClick="javascript:cerrarPremio()">Cerrar</button> Rasca con el dedo</div>'));
+$('#promo').append($('<div style="position:absolute; z-index:100"><button type="button" style="display:block;box-sizing:border-box;width:20px;height:20px;aling:right;border-width:3px;border-style: solid; border-color:red; border-radius:100%;  background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%);  background-color:red;  box-shadow:0px 0px 5px 2px rgba(0,0,0,0.5);  transition: all 0.3s ease;" onClick="javascript:cerrarPremio()"></button> Rasca con el dedo</div>'));
 $('#promo').wScratchPad({
     // the size of the eraser
     size        : 70,    
