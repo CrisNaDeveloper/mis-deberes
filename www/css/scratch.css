@@ -10,10 +10,10 @@ html {
   height: 445px;
   border: solid 10px #FFFFFF;
   margin:0 auto;
-  background:orange;
+  background:FFFFFF;
 }
 body {
-    background:#efefef;
+    background:#FFFFFF;
 }
 .scratch-container {
   -webkit-touch-callout: none;
@@ -23,7 +23,7 @@ body {
   -ms-user-select: none;
   user-select: none;
   width:100%;
-    background:purple;
+    background:#ffffff;
 }
   /* Extra Small Devices, Phones */ 
           @media only screen and (max-width : 480px) {
@@ -38,7 +38,7 @@ body {
           }
 .promo-container {
 
-	background:#FFF;
+	background:#FFFfff;
 	border-radius:5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
