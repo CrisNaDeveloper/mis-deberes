@@ -116,18 +116,30 @@
 			<input data-theme="b" name="password" id="password" type="password" value="" autocomplete="off" data-clear-btn="true" placeholder="Password">
 					<a id="olvido" onclick="recuperacontrasenna($('#usuario').val())">¿Se te ha olvidado la contraseña?</a>
 	
-				<ul data-role="listview" data-split-icon="plus" data-split-theme="b" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
-					<li class="ui-block-a"><a href="#" data-role="button" data-icon="edit">Puedes Crear Test para preguntar la lección</a></li>
-						<li class="ui-block-a"><a href="#" data-role="button" data-icon="comments-o">Puedes Contestar los test</a></li>
-							<li class="ui-block-a"><a href="#" data-role="button" data-icon="bar-chart-o">Puedes ver tus resultados y los de tus amigos/alumnos</a></li>
-							<li class="ui-block-a"><a href="#" data-role="button" data-icon="group">Puedes añadir amigos/alumnos</a></li>
-							<li class="ui-block-a"><a href="#" data-role="button" data-icon="external-link3">Si apruebas verás el premio o código de desbloqueo</a></li>
+	
+	
+	
+	
+			<ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+					<li class="ui-block-a" ><img  src="css/images/png_images/edit.png" ><h3>Puedes Crear Test para preguntar la lección</h3></li>
+						<li class="ui-block-a"><img src="css/images/png_images/comments-o.png" ><h3>Puedes Contestar los test</h3></li>
+							<li class="ui-block-a"><img src="css/images/png_images/bar-chart-o.png"><h3>Puedes ver tus resultados y los de tus amigos/alumnos</h3></li>
+							<li class="ui-block-a"><img src="css/images/png_images/group.png"><h3>Puedes añadir amigos/alumnos</h3></a></li>
+							<li class="ui-block-a"><img src="css/images/png_images/external-link3.png"><h3>Si apruebas verás el premio o código de desbloqueo</h3></li>
 							</ul>
+					
 					
 			
 		
 	
 		</div>
+		
+
+		
+		
+		
+		
+		
 
 		<div data-role="footer" data-theme="b" data-position="fixed">
 		<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
@@ -182,6 +194,10 @@
 				
 
 				<div data-role="footer" data-theme="b" data-position="fixed">
+				
+				
+				
+
 						<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
 				<ul class="ui-grid-d">
 						<li class="ui-block-a"><a href="#num_preg" data-role="button"  data-transition="flip" data-icon="edit" onClick="limpiarCrearTest()">Crear</a></li>
@@ -319,7 +335,7 @@
 				<li class="ui-block-a"><a href="#inicio" data-role="button" data-transition="flip" data-icon="back">Volver</a></li>
 				<li class="ui-block-c"><a href="#inicio" data-role="button" data-transition="flip" id="botonborrar" onclick="borrarTest(id_test)" data-icon="trash-o">Borrar este test</a></li>
 				<li class="ui-block-b"><a href="#amigos" onclick="cargarListaAmigos()" data-role="button" data-transition="flip" data-icon="share-square-o">compartir</a></li>				
-				<li class="ui-block-d"><a data-role="button" data-transition="flip" onclick="hacerTest(numpregcuestion,id_test,nombre,numrespaprobar)" data-icon="comments-o">Contestar test</a></li>
+				<li class="ui-block-d"><a data-role="button" data-transition="flip" onclick="hacerTest(numpregcuestion,id_test,nombre,numrespaprobar)" data-icon="comments-o">Contestar</a></li>
 				<li class="ui-block-e"><a href="#ayuda" data-role="button" data-transition="flip" data-icon="info">Ayuda</a></li>
 				</ul>
 				</div>
@@ -476,9 +492,13 @@
 			</div>
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
-				<a data-role="button" data-transition="flip" onClick="aceptar_registro()" data-icon="check-square-o">Aceptar</a>
-				<a href="#login" data-role="button" data-transition="flip" data-icon="back">Volver</a>
-					<a href="#ayuda"  data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+					
+					<li class="ui-block-a"><a data-role="button" data-transition="flip" onClick="aceptar_registro()" data-icon="check-square-o">Aceptar</a></li>
+					<li class="ui-block-b"><a href="#login" data-role="button" data-transition="flip" data-icon="back">Volver</a></li>
+					
+					</ul></div>
 			</div>
 
 		</div>
@@ -596,8 +616,13 @@
 
 
 	<div data-role="footer" data-theme="b" data-position="fixed">
-			
+		<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+				<li class="ui-block-a">
 			<a href="#inicio" data-role="button" data-rel="external" data-transition="flip" data-icon="back">Volver</a>
+			</li>
+			</ul>
+			</div>
 		</div>
 		</div>
 </div>
@@ -612,8 +637,13 @@ una aplicación tanto web como app donde padres, profesores y alumnos puede crea
 testsy compartir entre alumnos, amigos, profesores u
 padres.</p>
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li>
+					</ul>
+					</div>
 			</div>
 </div>
 </div>
@@ -648,8 +678,13 @@ no, así como la cantidad de aciertos y errores.</p>
 hay estadísticas de los test que yo hago.</p>
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li>
+					</ul>
+					</div>
 			</div>
 </div>
 </div>
@@ -679,8 +714,13 @@ cifrado diseñado por Google, solo tu conocerás tu clave, puedes pedir la clave
 si se te ha olvidado y te la enviará por correo.</p>
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
-					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
+							<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+						</li>
+				</ul>
+				</div>
 			</div>
 </div>
 </div>
@@ -692,8 +732,13 @@ si se te ha olvidado y te la enviará por correo.</p>
 <p>No hay problema, vuelve al inicio
 y pincha sobre el enlace “¿Se te ha olvidado la contraseña?”</p>
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li>
+					</ul>
+					</div>
 			</div>
 </div>
 </div>
@@ -733,8 +778,13 @@ pulsaremos sobre el botón “Crear Test” ,nos aparecerá
 un mensaje en verde informativo donde se nos indica que se ha creado y
 empezaremos a introducir las preguntas con sus posibles respuestas</p>
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li>
+					</ul>
+					</div>
 			</div>
 </div>
 </div>
@@ -785,8 +835,11 @@ pantalla donde se listan los test.</p>
 
 <p><img border=0 width=354 height=319 src="img/image010.jpg" ></p>
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li></ul></div>
 			</div>
 </div>
 </div>
@@ -804,8 +857,11 @@ respuestas</p>
 
 <p><img border=0 width=354 height=321 src="img/image013.jpg" ></p>
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li></ul></div>
 			</div>
 </div>
 </div>
@@ -837,8 +893,13 @@ respuesta nos aparecerá la siguiente pregunta, se nos informará cuando sea la
 última pregunta, pero podremos terminar el test cuando nosotros deseemos
 presionando sobre “Terminar Preguntas”.</p>
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li>
+					</ul>
+					</div>
 			</div>
 </div>
 </div>
@@ -858,8 +919,13 @@ pregunta</p>
 
 <p><img border=0 width=327 height=295 src="img/image018.jpg"></p>
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li>
+					</ul>
+					</div>
 			</div>
 </div>
 </div>
@@ -880,8 +946,11 @@ informativo con tu premio en caso de aprobar</p>
 
 			
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li></ul></div>
 			</div>
 </div>
 </div>
