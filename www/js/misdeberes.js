@@ -1444,7 +1444,7 @@ function guardoRespuesta(opcion) {
 function darPremio(promoCode) {
 $('#contenedorPromo').empty();
 $('#contenedorPromo').append($('<div id="promo" class="scratchpad"></div>'));
-$('#promo').append($('<div style="position:absolute; z-index:100"><button type="button" style="display:block;box-sizing:border-box;width:20px;height:20px;aling:right;border-width:3px;border-style: solid; border-color:red; border-radius:100%;  background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%);  background-color:red;  box-shadow:0px 0px 5px 2px rgba(0,0,0,0.5);  transition: all 0.3s ease;" onClick="javascript:cerrarPremio()"></button> Rasca con el dedo</div>'));
+$('#promo').append($('<div style="position:absolute; z-index:100"><button type="button" style="box-sizing:border-box;width: 2em;height: 2em;aling:right;border-width:3px;border-style: solid;border-color: #ff4000;border-radius:100%;background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%);text-align: right;background-color: #ff4000;background-color: #ff4000;ox-shadow:0px 0px 5px 2px rgba(0,0,0,0.5);transition: all 0.3s ease;" onClick="javascript:cerrarPremio()"></button> <div style="margin:1em">Rasca con el dedo</div></div>'));
 $('#promo').wScratchPad({
     // the size of the eraser
     size        : 70,    
