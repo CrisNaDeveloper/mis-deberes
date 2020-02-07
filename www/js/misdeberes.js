@@ -772,7 +772,7 @@ function crear_respuesta(res) {
 	//res = $('#respcuestion').val();
 
 
-	if (numpregtotaltest != numpregcuestion) {
+	if (numpregtotaltest > numpregcuestion) {
 		if (res != "") {
 			db.collection("tests_alumnos").add({
 
@@ -991,13 +991,11 @@ function cargarListaPregunta(idtest, nombretest, respuesta, numresa,valorpremio)
 	numpregtotaltest = 0;
 	db.collection("preguntas").where("id_test", "==", idtest).get()
 		.then((querySnapshot) => {
-			// $("#listapreguntas").append(" <h2 data-theme='b' data-form='ui-bar-b'>" + nombretest + " Respuestas para aprobar: " + numrespaprobar + "</h3>");
-
+		
 
 			$("#listapreguntas").append(" <h2 data-theme='b' data-form='ui-bar-b'>" + nombretest + "</h2>");
 			querySnapshot.forEach((doc) => {
-				// console.log(`${doc.nombre} => ${doc.data()}`);
-
+				
 				let pregunta = doc.data();
 				numpregtotaltest = numpregtotaltest + 1;
 
@@ -1013,14 +1011,11 @@ function cargarListaPregunta(idtest, nombretest, respuesta, numresa,valorpremio)
 						querySnapshot2.forEach((doc2) => {
 							let contestacion = doc2.data();
 
-
-
-
 							if (contestacion.texto != "") {
 								if (pregant != pregunta.pregunta) {
 									$("#listapreguntas").append("<div class='ui-body-b' data-theme='b'>" + pregunta.pregunta);
 								}
-								$("#listapreguntas").append("<div data-theme='a' class='ui-btn-active'>" + contestacion.texto + "</div>");
+								$("#listapreguntas").append("<div data-theme='b' class='ui-btn-active'>" + contestacion.texto + "</div>");
 							}
 							pregant = pregunta.pregunta;
 
