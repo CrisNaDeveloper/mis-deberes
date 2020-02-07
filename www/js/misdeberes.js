@@ -588,19 +588,7 @@ function leer_test(email) {
 
 			});
 		});
-	db.collection("test_compartidos").where("usuario_creador", "==", emailadministrador).get()
-		.then((querySnapshot) => {
 
-			querySnapshot.forEach((doc) => {
-
-
-				testcompartidos = doc.data();
-
-				cargarListaCompartidos(testcompartidos.id_test, testcompartidos.nombre, "Compartido por Mis deberes");
-
-
-			});
-		});
 
 }
 
@@ -958,7 +946,7 @@ function cargarListaCompartidos(id_test, nombre, creador) {
 
 
 	$("#listacompartidos").listview();
-	$("#listacompartidos").empty();
+	$("#listapreguntas").empty();
 	$("#listacompartidos").append("<li><a  onclick='cargarListaPregunta(`" + id_test + "`,`" + nombre + "`,false,`" + numrespaprobar  + "`)' >" + nombre + " creador por: " + creador + "</a>");
 	$("#listacompartidos").append("</li>");
 	$("#listacompartidos").listview('refresh');
@@ -1144,9 +1132,9 @@ function borrarTest(id_test) {
 					});
 					
 							$.mobile.changePage("#inicio", {
-		transition: "slide",
-		reverse: true
-		});
+								transition: "slide",
+									reverse: true
+								});
 
 		leer_test(email);
 					
