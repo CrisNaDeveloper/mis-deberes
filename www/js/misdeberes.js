@@ -16,6 +16,45 @@ var config = {
 
 firebase.initializeApp(config);
 
+var provider="";
+	
+	
+function logarse(provider){
+
+firebase.auth().languageCode = 'es_es';
+	if(provider=="google"){
+			provider= new firebase.auth.GoogleAuthProvider();
+	}
+
+firebase.auth().signInWithPopup(provider)
+  .then(function(result) {
+	 
+    // User is signed in.
+    // IdP data available in result.additionalUserInfo.profile.
+    // OAuth access token can also be retrieved:
+    // result.credential.accessToken
+  })
+  .catch(function(error) {
+    alert(error)
+  });
+  firebase.auth().getRedirectResult()
+  .then(function(result) {
+    // User is signed in.
+    // IdP data available in result.additionalUserInfo.profile.
+    // OAuth access token can also be retrieved:
+	// result.credential.accessToken
+
+  })
+  .catch(function(error) {
+    // Handle error.
+  });
+
+}
+
+
+
+
+
 
 var db = firebase.firestore();
 
