@@ -107,12 +107,24 @@
 <div data-role="page" id="login">
 		<div data-role="header" data-theme="b">Mis deberes: Login</div>
 			<div data-role="content" data-theme="b">
+			<ul>
+			<li>
+			<div>incia Sesion con tu cuenta:</div>
+			
+				<div data-theme="b">
+						<a href="#" data-role="img" data-transition="flip" data-icon="auth_service_google" onClick="logarse('google')"><img src="css/images/png_images/auth_service_google.svg"/ ></a>
+		
+					</div>
+			</li>
+			<li>
+			<div>O con un usuario y contraseña:</div>
 			<input data-theme="b" type="text" name="usuario" id="usuario" placeholder="Usuario (correo)"/>
 
 			<input data-theme="b" name="password" id="password" type="password" value="" autocomplete="off" data-clear-btn="true" placeholder="Password">
 					<a id="olvido" onclick="recuperacontrasenna($('#usuario').val())">¿Se te ha olvidado la contraseña?</a>
-	
-	
+					
+			</li>	
+
 	<div id="test" class="ui-content ui-alt-icon ui-page-theme-b ui-shadow-icon">
 
 						<div><div style="display:inline-flex;padding:7px 6px"><button class="ui-btn ui-icon-edit ui-shadow ui-corner-all ui-btn-icon-notext"></button></div>	<div style="display:inline-flex;padding:7px 6px"> Crear Test para preguntar la </div></div>
@@ -122,7 +134,7 @@
 						<div><div style="display:inline-flex;padding:7px 6px"><button class="ui-btn ui-icon-external-link3 ui-shadow ui-corner-all ui-btn-icon-notext"></button></div>	<div style="display:inline-flex;padding:7px 6px">Si apruebas verás el premio o código de desbloqueo</div></div>
 							
 			</div>		
-					
+			
 			
 		
 	
