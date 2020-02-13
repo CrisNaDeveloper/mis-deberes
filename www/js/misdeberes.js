@@ -15,7 +15,7 @@ var config = {
 
 
       if(!firebase.apps.length){
-        firebase.initializeApp(firebaseConfig);
+        firebase.initializeApp(config);
       }
 
 var provider="";
