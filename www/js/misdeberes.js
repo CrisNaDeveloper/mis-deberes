@@ -14,7 +14,62 @@ var config = {
 };
 
 
-firebase.initializeApp(config);
+      if(!firebase.apps.length){
+        firebase.initializeApp(config);
+      }
+
+var provider="";
+	
+	
+function logarse(provider){
+
+firebase.auth().languageCode = 'es_es';
+
+	if(provider=="google"){
+			provider= new firebase.auth.GoogleAuthProvider();
+			provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+
+	}
+	if(provider=="facebook"){
+			provider= new firebase.auth.FacebookAuthProvider();
+	}
+
+	
+  firebase.auth().getRedirectResult().then(function(result) {
+        if (result.credential) {
+          // This gives you a Google Access Token. You can use it to access the Google API.
+          var token = result.credential.accessToken;
+          // [START_EXCLUDE]
+          document.getElementById('quickstart-oauthtoken').textContent = token;
+        } else {
+          document.getElementById('quickstart-oauthtoken').textContent = 'null';
+          // [END_EXCLUDE]
+        }
+        // The signed-in user info.
+        var user = result.user;
+      }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // [START_EXCLUDE]
+        if (errorCode === 'auth/account-exists-with-different-credential') {
+          alert('You have already signed up with a different auth provider for that email.');
+          // If you are using multiple auth providers on your app you should handle linking
+          // the user's accounts here.
+        } else {
+          console.error(error);
+        }
+        // [END_EXCLUDE]
+      });
+}
+
+
+
+
 
 
 var db = firebase.firestore();
@@ -106,6 +161,7 @@ var acertada = 0;
 var numrespaprobar = 0;
 var emailadministrador = "c_navarro_martinez@hotmail.com"
 var valorpremio = "";
+var textoPremio=""
 
 
 
@@ -124,7 +180,8 @@ function aceptar_registro() {
 				transition: "slide",
 				reverse: true
 			})
-			//leer_test(email);
+					$("#usu").empty();
+			leer_test(email);
 
 
 			alertify.success("Usuario Creado");
@@ -155,7 +212,7 @@ function validar_usuario() {
 				transition: "slide",
 				reverse: true
 			});
-				leer_test(email);
+				
 
 		})
 		.catch(function (error) {
@@ -232,74 +289,76 @@ function crear_test() {
 	} else {
 		if (valorcategoria == "--") {
 			alertify.error("Ha de seleccionar la categoria");
-		}
+		}else{
 
 
 
-		if ((isNaN(numrespaprobar)) || numrespaprobar == "" || numrespaprobar == 0) {
-			alertify.error("Ha de poner un número de respuestas para aprobar");
+				if ((isNaN(numrespaprobar)) || numrespaprobar == "" || numrespaprobar == 0) {
+					alertify.error("Ha de poner un número de respuestas para aprobar");
 
-		} else {
+				} else {
 
-			if (nom != "") {
+					if (nom != "") {
 
-				db.collection("tests").add({
-					nombre: nom,
-					numrespaprobar: numrespaprobar,
+						db.collection("tests").add({
+							nombre: nom,
+							numrespaprobar: numrespaprobar,
 
-					premio: valorpremio,
+							premio: valorpremio,
 
-					usuario_creador: usu,
-					timestamp: timestamp,
-					id_categoria: valorcategoria,
-					id_edad: valoredad
+							usuario_creador: usu,
+							timestamp: timestamp,
+							id_categoria: valorcategoria,
+							id_edad: valoredad
 
-				})
-					.then(function (docRef) {
-
-
+						})
+							.then(function (docRef) {
 
 
-						$.mobile.changePage("#preguntas", {
-							transition: "slide",
-							reverse: true
-						});
-						for (var i = 1; i < 5; i++) {
 
 
-							var valboton = "guardar" + i;
-							var valradio = "radio" + i;
-							var valimput = "opcion" + i;
+								$.mobile.changePage("#preguntas", {
+									transition: "slide",
+									reverse: true
+								});
+								for (var i = 1; i < 5; i++) {
 
 
-							$("#" + valimput).show();
-							$("#" + valboton).removeClass("ui-disabled");
-							$('label[for="' + valradio + '"]').hide();
-							$('label[for="' + valimput + '"]').show();
-
-							document.getElementById(valradio).style.visibility = 'hidden';
-							$("#" + valboton).text("Guardar Respuesta" + i);
-							$("#" + valimput).val("");
-
-						}
-						alertify.success("Test creado");
-						console.log("Teste creado ", docRef.id);
-						id_test = docRef.id;
-						$('#divNivel').empty();
-
-						$('#divNivel').append("PREGUNTA: " + numpreguntas + " ACIERTOS PARA APROBAR: " + numrespaprobar);
-
-						$('#cabpreguntas').append(" PREGUNTAS DEL TEST: " + nom);
+									var valboton = "guardar" + i;
+									var valradio = "radio" + i;
+									var valimput = "opcion" + i;
 
 
-					})
-					.catch(function (error) {
+									$("#" + valimput).show();
+									$("#" + valboton).removeClass("ui-disabled");
+									$('label[for="' + valradio + '"]').hide();
+									$('label[for="' + valimput + '"]').show();
 
-						console.error("Error adding document: ", error);
-					});
-			} else {
-				alertify.error("Ha de poner un nombre");
-			}
+									document.getElementById(valradio).style.visibility = 'hidden';
+									$("#" + valboton).text("Opción " + i);
+									$("#" + valimput).val("");
+
+								}
+								alertify.success("Test creado");
+								console.log("Teste creado ", docRef.id);
+								id_test = docRef.id;
+								$('#divNivel').empty();
+
+								$('#divNivel').append("PREGUNTA: " + numpreguntas + " ACIERTOS PARA APROBAR: " + numrespaprobar);
+
+								$('#cabpreguntas').append(" PREGUNTAS DEL TEST: " + nom);
+
+
+							})
+							.catch(function (error) {
+
+								console.error("Error adding document: ", error);
+							});
+					} else {
+						alertify.error("Ha de poner un nombre");
+					}
+					
+				}
 		}
 	}
 	leer_test(email);
@@ -331,8 +390,7 @@ function crear_pregunta() {
 
 
 
-	//if con else de david
-	if (respuestas.length == 0 && (res == "" || res == null || res == undefined)) {
+	if (respuestas.length == 0 && (res == "" || res == null || res == undefined )) {
 		alertify.error("Ha de insertar una respuesta y ademas ha de guardarla");
 		return false;
 
@@ -342,103 +400,104 @@ function crear_pregunta() {
 		
 		if(isNaN(res)){
 			alertify.error("Ha de seleccionar la opción correcta");
-		return false;
+			return false;
 		}
 
-		if (preg != "" && res != "" && res != null && res != undefined) {
-			db.collection("preguntas").add({
+					if (preg != "" && res != "" && res != null && res != undefined) {
+							db.collection("preguntas").add({
 
-				pregunta: preg,
-				respuesta: res,
-				num_pregunta: numpreguntas,
-				id_test: id_test,
-				timestamp: timestamp
-
-			})
-				.then(function (docRef) {
-
-					$("input[name=respuesta]").each(function (index) {
-						var idpregunta = parseInt($(this).val());
-						//var idtextopreg=$(this).text();
-
-						var idtextopreg = $("label[for='radio" + idpregunta + "']").text();
-
-
-						if (idtextopreg != "") {
-							db.collection("opciones").add({
+								pregunta: preg,
+								respuesta: res,
+								num_pregunta: numpreguntas,
 								id_test: id_test,
-								id_pregunta: numpreguntas,
-								opcion_numero: idpregunta,
-								texto: idtextopreg
+								timestamp: timestamp
+
 							})
-								.catch(function (error) {
-									console.error("Error adding document: ", error);
+							.then(function (docRef) {
+
+								$("input[name=respuesta]").each(function (index) {
+									var idpregunta = parseInt($(this).val());
+									//var idtextopreg=$(this).text();
+
+									var idtextopreg = $("label[for='radio" + idpregunta + "']").text();
+
+
+									if (idtextopreg != "") {
+										db.collection("opciones").add({
+											id_test: id_test,
+											id_pregunta: numpreguntas,
+											opcion_numero: idpregunta,
+											texto: idtextopreg
+										})
+											.catch(function (error) {
+												console.error("Error adding document: ", error);
+											});
+									}
 								});
-						}
-					});
 
 
-					alertify.success("pregunta creada");
-					console.log("pregunta creada ", docRef.id);
+								alertify.success("pregunta creada");
+								console.log("pregunta creada ", docRef.id);
 
-					numpreguntas = numpreguntas + 1;
-
-
-					for (var i = 1; i < 5; i++) {
-
-						var valboton = "guardar" + i;
-						var valradio = "radio" + i;
-						var valimput = "opcion" + i;
-
-						$("#" + valimput).show();
+								numpreguntas = numpreguntas + 1;
 
 
-						$("#" + valboton).removeClass("ui-disabled");
+								for (var i = 1; i < 5; i++) {
 
-						$('label[for="' + valradio + '"]').hide();
-						$('label[for="' + valimput + '"]').show();
+									var valboton = "guardar" + i;
+									var valradio = "radio" + i;
+									var valimput = "opcion" + i;
 
-						document.getElementById(valradio).style.visibility = 'hidden';
+									$("#" + valimput).show();
 
-						$("#" + valboton).text("Guardar Respuesta" + i);
-						$("#" + valimput).val("");
-						$("label[for='radio" + i + "']").text("");
 
-						//añadido david
-						if ($("#" + valradio).is(':checked')) {
-							$("#" + valradio).attr("checked", false);
-							$("#" + valradio).attr("checked", "checked");
-							$("#" + valradio).prop('checked', false);
-							$("#" + valradio).checkboxradio("refresh");
+									$("#" + valboton).removeClass("ui-disabled");
 
-							$("#respuesta").checkboxradio("refresh");
-							//$(valradio).removeAttr("checked") ;
-						}
-						//fin añadido david
+									$('label[for="' + valradio + '"]').hide();
+									$('label[for="' + valimput + '"]').show();
+
+									document.getElementById(valradio).style.visibility = 'hidden';
+
+									$("#" + valboton).text("Opción " + i);
+									$("#" + valimput).val("");
+									$("label[for='radio" + i + "']").text("");
+
+									
+									if ($("#" + valradio).is(':checked')) {
+										$("#" + valradio).attr("checked", false);
+										$("#" + valradio).attr("checked", "checked");
+										$("#" + valradio).prop('checked', false);
+										$("#" + valradio).checkboxradio("refresh");
+
+										$("#respuesta").checkboxradio("refresh");
+										//$(valradio).removeAttr("checked") ;
+									}
+									
+
+								}
+
+								$('#pregunta').val('');
+
+								//$('#respuesta').val('');
+								$('#divNivel').empty();
+
+								// $('#divNivel').append("PREGUNTA: " + numpreguntas + " ACIERTOS PARA APROBAR: " + numrespaprobar);
+								$('#divNivel').append("PREGUNTA: " + numpreguntas);
+								$('#formuresp').empty();
+
+							})
+							.catch(function (error) {
+
+								console.error("Error adding pregunta: ", error);
+							});
+
+					} else {
+						alertify.error("Ha de insertar una pregunta con su respuesta");
+						return false;
 
 					}
-
-					$('#pregunta').val('');
-
-					//$('#respuesta').val('');
-					$('#divNivel').empty();
-
-					// $('#divNivel').append("PREGUNTA: " + numpreguntas + " ACIERTOS PARA APROBAR: " + numrespaprobar);
-					$('#divNivel').append("PREGUNTA: " + numpreguntas);
-					$('#formuresp').empty();
-
-				})
-				.catch(function (error) {
-
-					console.error("Error adding pregunta: ", error);
-				});
-
-		} else {
-			alertify.error("Ha de insertar una pregunta con su respuesta");
-			return false;
-
-		}//fin else david
 	}
+	
 
 }
 
@@ -503,7 +562,7 @@ function terminar_test() {
 					$('label[for="' + valimput + '"]').show();
 
 					document.getElementById(valradio).style.visibility = 'hidden';
-					$("#" + valboton).text("Guardar Respuesta" + i);
+					$("#" + valboton).text("Opción" + i);
 					$("#" + valimput).val("");
 					$("label[for='radio" + i + "']").text("");
 
@@ -546,6 +605,7 @@ function leer_test(email) {
 	
 	let test = "";
 	let testcompartidos = "";
+		$("#usu").empty();
 	$("#usu").append(""+email+"");
 	$("#listatests").empty();
 	$("#listatests").listview('refresh');
@@ -583,33 +643,40 @@ function leer_test(email) {
 
 			});
 		});
-	db.collection("test_compartidos").where("usuario_creador", "==", emailadministrador).get()
-		.then((querySnapshot) => {
 
-			querySnapshot.forEach((doc) => {
-
-
-				testcompartidos = doc.data();
-
-				cargarListaCompartidos(testcompartidos.id_test, testcompartidos.nombre, "Compartido por Mis deberes");
-
-
-			});
-		});
 
 }
 
+function limpiarCrearTest() {
+		$.mobile.changePage("#num_preg", {
+		transition: "slide",
+		reverse: true
+	});
+	$('#nomtest').val('');
+	$('#aciertos').val('');
+	$('#premio').val('');
+	numpreguntas = 1;
+	numrespaprobar = 0;
 
+  $('#listacategorias').selectmenu('refresh');
+
+	$("#listacategorias").append("<option value='--' selected >Seleccione una categoría...</option>");
+	cargarcategorias();
+		  $('#listaedades').selectmenu('refresh');	
+
+	$("#listaedades").append("<option value='--'  selected >Seleccione una edad...</option>");
+	cargaredades();
+
+}
 
 function cargarcategorias() {
 	// db.collection("tests").get().then((querySnapshot) => {
 
 	let categoria = "";
 
+
 	$("#listacategorias").empty();
 	$("#listacategorias").select('refresh');
-
-
 	$("#listacategorias").append("<option value='--' selected >Seleccione una categoría...</option>");
 	db.collection("categorias").get()
 		.then((querySnapshot) => {
@@ -619,24 +686,22 @@ function cargarcategorias() {
 
 				categoria = doc.data();
 
-				$("#listacategorias").append(" <option select value='" + categoria.id_categoria + "'>" + categoria.nombre + "</option>")
+				$("#listacategorias").append(" <option value='" + categoria.id_categoria + "'>" + categoria.nombre + "</option>")
 
 
 
 			});
 		});
+			
 }
 
 function cargaredades() {
 	// db.collection("tests").get().then((querySnapshot) => {
 
 	let edad = "";
-
 	$("#listaedades").empty();
 	$("#listaedades").select('refresh');
-
-
-	$("#listaedades").append("<option select value='--'  selected>Seleccione una edad...</option>");
+	$("#listaedades").append("<option value='--'  selected >Seleccione una edad...</option>");
 
 	db.collection("edades").get()
 		.then((querySnapshot) => {
@@ -652,6 +717,7 @@ function cargaredades() {
 
 			});
 		});
+
 }
 
 
@@ -761,7 +827,7 @@ function crear_respuesta(res) {
 	//res = $('#respcuestion').val();
 
 
-	if (numpregtotaltest != numpregcuestion) {
+	if (numpregtotaltest > numpregcuestion) {
 		if (res != "") {
 			db.collection("tests_alumnos").add({
 
@@ -785,8 +851,8 @@ function crear_respuesta(res) {
 		}
 
 	} else {
-		alertify.error("Ha de terminar el test, es la última pregunta");
-
+	//	alertify.error("Ha de terminar el test, es la última pregunta");
+		terminar_respuesta();
 		$("#sigpreg").addClass("ui-disabled")
 	}
 
@@ -860,8 +926,9 @@ function terminar_respuesta() {
 
 	var aprobado = 0;
 
+
 	if (aciertos >= numrespaprobar) {
-		$('#cabepopup').empty();
+		//$('#cabepopup').empty();
 
 			//consulto el premio
 			var testpre;
@@ -873,20 +940,18 @@ function terminar_respuesta() {
 					valorpremio=testpre.premio;
 					
 					
-					$('#cabepopup').text(" Enhorabuena : Has aprobado tu código secreto es: "+ valorpremio);
+					textoPremio =" APROBADO tu código es "+ valorpremio+" ";
+						textoPremio=textoPremio+ "RESULTADO:" + aciertos + " aciertos de " + numrespaprobar + " para aprobar";
+					darPremio(textoPremio );
 	
 				});
 			
-
-
-	
-
 		aprobado = 1;
 	} else {
 
-		$('#cabepopup').empty();
-
-		$('#cabepopup').text("Has suspendido");
+		textoPremio = "SUSPENDIDO " ;
+		textoPremio= textoPremio+"RESULTADO:" + aciertos + " aciertos de " + numrespaprobar + " para aprobar";	
+		darPremio(textoPremio);
 		aprobado = 0;
 
 	}
@@ -908,12 +973,13 @@ function terminar_respuesta() {
 		});
 	numpregcuestion = 1;
 	numpregtotaltest = 0;
-	$('#textopopup').text("Tu resultado ha sido:" + aciertos + " aciertos de los " + numrespaprobar + " para aprobar");
+
+
 
 
 	
 
-	$('#popupresultado').popup();
+
 
 	
 	setTimeout(function () { $('#popupresultado').popup('open') }, 1000);
@@ -923,7 +989,7 @@ function terminar_respuesta() {
 		reverse: true
 	});
 	leer_test(email);
-	alertify.success("Ha decidido finalizar el test, se guardaran los resultados");
+	alertify.success("Ha finalizado el test, se han guardado los resultados");
 }
 
 
@@ -935,7 +1001,7 @@ function cargarListaCompartidos(id_test, nombre, creador) {
 
 
 	$("#listacompartidos").listview();
-	$("#listacompartidos").empty();
+	$("#listapreguntas").empty();
 	$("#listacompartidos").append("<li><a  onclick='cargarListaPregunta(`" + id_test + "`,`" + nombre + "`,false,`" + numrespaprobar  + "`)' >" + nombre + " creador por: " + creador + "</a>");
 	$("#listacompartidos").append("</li>");
 	$("#listacompartidos").listview('refresh');
@@ -980,13 +1046,11 @@ function cargarListaPregunta(idtest, nombretest, respuesta, numresa,valorpremio)
 	numpregtotaltest = 0;
 	db.collection("preguntas").where("id_test", "==", idtest).get()
 		.then((querySnapshot) => {
-			// $("#listapreguntas").append(" <h2 data-theme='b' data-form='ui-bar-b'>" + nombretest + " Respuestas para aprobar: " + numrespaprobar + "</h3>");
-
+		
 
 			$("#listapreguntas").append(" <h2 data-theme='b' data-form='ui-bar-b'>" + nombretest + "</h2>");
 			querySnapshot.forEach((doc) => {
-				// console.log(`${doc.nombre} => ${doc.data()}`);
-
+				
 				let pregunta = doc.data();
 				numpregtotaltest = numpregtotaltest + 1;
 
@@ -1002,14 +1066,11 @@ function cargarListaPregunta(idtest, nombretest, respuesta, numresa,valorpremio)
 						querySnapshot2.forEach((doc2) => {
 							let contestacion = doc2.data();
 
-
-
-
 							if (contestacion.texto != "") {
 								if (pregant != pregunta.pregunta) {
 									$("#listapreguntas").append("<div class='ui-body-b' data-theme='b'>" + pregunta.pregunta);
 								}
-								$("#listapreguntas").append("<div data-theme='a' class='ui-btn-active'>" + contestacion.texto + "</div>");
+								$("#listapreguntas").append("<div data-theme='b' class='ui-btn-active'>" + contestacion.texto + "</div>");
 							}
 							pregant = pregunta.pregunta;
 
@@ -1049,89 +1110,109 @@ function cargarListaPregunta(idtest, nombretest, respuesta, numresa,valorpremio)
 function borrarTest(id_test) {
 	var usuariocrea = "";
 
-
+	alertify.confirm('¿Esta seguro que quiere borrar este Test?', function(e){ 
+	if (e) {
+	
+	alertify.success('Ok') ;
+	//si es usuario creador
 	var test_borrar = db.collection('tests').doc(id_test);
+			
 	test_borrar.get()
-		.then(function (doc) {
-			let registro1 = doc.data();
-			usuariocrea = registro1.usuario_creador;
+	.then(function (doc) {
+
+	let registro1 = doc.data();
+					
+					
+	usuariocrea = registro1.usuario_creador;
+	
+			
+		if (usuariocrea == email) {
 			doc.ref.delete();
+			var compartidos_borrar = db.collection('test_compartidos').where('id_test', '==', id_test);
+			compartidos_borrar.get()
+				.then(function (querySnapshot) {
+					querySnapshot.forEach(function (doc2) {
+
+						let registro2 = doc2.data();
+						doc2.ref.delete();
+					});
+				}).catch(function (error) {
+					console.error("Error borrando compartidos: ", error);
+				});
+
+				var preguntas_borrar = db.collection('preguntas').where('id_test', '==', id_test);
+				preguntas_borrar.get()
+					.then(function (querySnapshot) {
+						querySnapshot.forEach(function (doc) {
+							doc.ref.delete();
+						});
+					}).catch(function (error) {
+						console.error("Error borrando preguntas: ", error);
+					});
+					
+				var preguntas_opciones = db.collection('opciones').where('id_test', '==', id_test);
+				preguntas_opciones.get()
+					.then(function (querySnapshot) {
+						querySnapshot.forEach(function (doc) {
+							doc.ref.delete();
+						});
+					}).catch(function (error) {
+						console.error("Error borrando opciones: ", error);
+					});
+
+				var hechosalumnos_borrar = db.collection('tests_alumnos').where('id_test', '==', id_test);
+				hechosalumnos_borrar.get()
+					.then(function (querySnapshot) {
+						querySnapshot.forEach(function (doc) {
+							doc.ref.delete();
+						});
+					}).catch(function (error) {
+						console.error("Error borrando tests alumnos: ", error);
+					});
+
+
+				var resultados_alumno = db.collection('resultado_alumno').where('id_test', '==', id_test);
+				resultados_alumno.get()
+					.then(function (querySnapshot) {
+						querySnapshot.forEach(function (doc) {
+							doc.ref.delete();
+						});
+					}).catch(function (error) {
+						console.error("Error borrando los resultados del alumno: ", error);
+					});
+					
+							$.mobile.changePage("#inicio", {
+								transition: "slide",
+									reverse: true
+								});
+
+		leer_test(email);
+					
+					
 		
+		}else{
+			alertify.error("no es su test, no puede borralo");
+			
+		}
+
 		}).catch(function (error) {
-			console.error("Error borrando en test: ", error);
-		});
-
-	var compartidos_borrar = db.collection('test_compartidos').where('id_test', '==', id_test);
-	compartidos_borrar.get()
-		.then(function (querySnapshot) {
-			querySnapshot.forEach(function (doc2) {
-
-				let registro2 = doc2.data();
-				doc2.ref.delete();
-			});
-		}).catch(function (error) {
-			console.error("Error borrando compartidos: ", error);
-		});
-
-
-
-//si es mio el test
-	if (usuariocrea == email) {
-
-		var preguntas_borrar = db.collection('preguntas').where('id_test', '==', id_test);
-		preguntas_borrar.get()
-			.then(function (querySnapshot) {
-				querySnapshot.forEach(function (doc) {
-					doc.ref.delete();
+					console.error("Error borrando en test: ", error);
 				});
-			}).catch(function (error) {
-				console.error("Error borrando preguntas: ", error);
-			});
-
-		db.collection("tests").doc(id_test).delete()
-			.then(function () {
-				console.log("Document successfully deleted!");
-
-			})
-			.catch(function (error) {
-				console.error("Error borrando test: ", error);
-			});
-
-//fin si es mio el test
-
-		var hechosalumnos_borrar = db.collection('tests_alumnos').where('id_test', '==', id_test);
-		hechosalumnos_borrar.get()
-			.then(function (querySnapshot) {
-				querySnapshot.forEach(function (doc) {
-					doc.ref.delete();
-				});
-			}).catch(function (error) {
-				console.error("Error borrando tests alumnos: ", error);
-			});
 
 
-		var resultados_alumno = db.collection('resultado_alumno').where('id_test', '==', id_test);
-		resultados_alumno.get()
-			.then(function (querySnapshot) {
-				querySnapshot.forEach(function (doc) {
-					doc.ref.delete();
-				});
-			}).catch(function (error) {
-				console.error("Error borrando los resultados del alumno: ", error);
-			});
-	}
-	leer_test(email);
+
+
+
+}else{ 
+alertify.error('Cancel');
+}
+	});
+
+
 }
 
 
-function limpiarCrearTest() {
-	$('#nomtest').val('');
-	$('#aciertos').val('');
-	numpreguntas = 1;
-	numrespaprobar = 0;
-	cargarcategorias();
-	cargaredades();
-}
+
 
 function compartirTest() {
 
@@ -1272,22 +1353,34 @@ $('#closeresult').on('click', function () {
 
 });
 
-function cargarListaAlumnos() {
+function cargarResultados(){
 
-	$.mobile.changePage("#resultados", {
-				transition: "slide",
-				reverse: true
-			})
-			
-	let alumno = "";
-
+$.mobile.changePage("#resultados", {
+	transition: "slide",
+	reverse: true
+});
 	$("#listaalumnos").empty();
 	$("#listaalumnos").select('refresh');
 
 
 
+cargarListaAlumnos();
+cargarTestAlumno() ;
+}
+function cargarListaAlumnos() {
+
+
+			
+	let alumno = "";
+
+
+
+	$("#listaalumnos").append("<option value='--' selected='selected' >Seleccione un Alumno...</option>");
+
 
 	$("#listaalumnos").append("<option value='" + email + "' >Mis estadísticas</option>");
+$("#listaalumnos").selectmenu('refresh')
+
 	db.collection("usuarios_alumnos").where("usuario_creador", "==", email)
 		.get()
 		.then((querySnapshot) => {
@@ -1305,7 +1398,7 @@ function cargarListaAlumnos() {
 		});
 		
 		
-		$("#listaalumnos").select('refresh');
+	
 	
 }
 
@@ -1357,7 +1450,7 @@ function guardoRespuesta(opcion) {
 	var idimput = 'opcion' + opcion;
 	var idboton = 'guardar' + opcion;
 	var idradio = 'radio' + opcion;
-	//añadido david verifar texto
+	
 	var vtexto = $("#" + idimput).val();
 	if (vtexto.length == 0) {
 
@@ -1365,7 +1458,7 @@ function guardoRespuesta(opcion) {
 		alertify.error("Para guardar la respuesta ha de escribir");
 		return false;
 	}
-	//fin añadido david
+
 	var textoAnterior = $("#" + idboton).text() + ": ";
 	$("#" + idboton).text(textoAnterior + $("#" + idimput).val());
 	$('label[for="' + idimput + '"]').hide();
@@ -1380,8 +1473,34 @@ function guardoRespuesta(opcion) {
 
 
 	//$("#" + idradio).attr("checked", "checked");
-	$("#" + idradio).checkboxradio("refresh")
+	$("#" + idradio).checkboxradio("refresh");
 	$("#respuesta").checkboxradio("refresh");
 
 
+}
+
+function darPremio(promoCode) {
+$('#contenedorPromo').empty();
+$('#contenedorPromo').append($('<div id="promo" class="scratchpad"></div>'));
+$('#promo').append($('<div id="contenedorboton" style="position:absolute; z-index:100;width:100%"><button type="button" style="box-sizing:border-box;width: 2em;height: 2em;aling:right;border-width:3px;border-style: solid;border-color: #ff4000;border-radius:100%;background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%);text-align: right;background-color: #ff4000;background-color: #ff4000;ox-shadow:0px 0px 5px 2px rgba(0,0,0,0.5);transition: all 0.3s ease;float:right" onClick="javascript:cerrarPremio()"></button> <div style="margin:1em">Rasca con el dedo</div></div>'));
+$('#promo').wScratchPad({
+    // the size of the eraser
+    size        : 70,    
+    // the randomized scratch image   
+    bg:  '#ffffff',
+    // give real-time updates
+    realtime    : true, 
+    // The overlay image
+    fg: './img/regalo-sorpresa.jpg',
+    // The cursor (coin) image
+    'cursor': 'url("./img/coin.png") 5 5, default',
+	divBg: '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);">'+promoCode+'</div>'
+   
+ });
+$('#contenedorPromo').show();
+	
+}
+
+function cerrarPremio(){
+	$('.scratch-container').hide();
 }
