@@ -3,7 +3,8 @@
 <head>
 	<meta charset="utf-8" />
 		<meta http-equiv="Access-Control-Allow-Origin" content="*">
-	<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+	<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline';  media-src *;img-src * 'self' data: https:;" />
+
 
 	<title>Mis deberes</title>
 	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons.min.css" /> 
@@ -11,8 +12,10 @@
 	<!--link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /-->
 		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" >
 	<link rel="stylesheet" type="text/css" href="css/tema_mis_deberes.min.css" />
+<link rel="stylesheet" type="text/css" href="css/images/icons-png/icons.css" />
+<link rel="stylesheet" type="text/css" href="css/images/icon-pack-custom.css" />
+	<link rel="stylesheet" type="text/css" href="css/scratch.css" />
 
-<link rel="stylesheet" type="text/css" href="css/scratch.css" />
 
 
 	<link rel="stylesheet" href="themes/alertify.core.css" />
@@ -22,20 +25,21 @@
 	<script src="lib/alertify.min.js"></script>
 	
 	<!--NO OLVIDAR PONER-->
-	<script  src="cordova-2.7.0.js" type="text/javascript"></script>
+	<!--script  src="cordova-2.7.0.js" type="text/javascript"></script-->
 <script src="js/admob_simple.js"></script> 
+<script src="js/scratch.js"></script> 
 	
 	
 	<!-- Firebase App is always required and must be first -->
-	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
 	<!-- Add additional services that you want to use -->
-	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-database.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-messaging.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-functions.js"></script> 
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-messaging.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-functions.js"></script> 
 	<!-- Comment out (or don't include) services that you don't want to use -->
-	 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-storage.js"></script> 
+	 <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-storage.js"></script> 
 	
 		<!-- <script src="firebase/firebase-auth.js"></script>
 	<script src="firebase/firebase-database.js"></script>
@@ -45,10 +49,6 @@
 	
 	<!-- Comment out (or don't include) services that you don't want to use -->
 	<!-- <script src="firebase/firebase-storage.js"></script> -->
-	
-	
-	
-	
 	
  	<script src="jquery.mobile-1.4.5/jquery-1.10.2.min.js"></script>
 	<script src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> 
@@ -106,23 +106,63 @@
 	<!--INICIO-->
 <div data-role="page" id="login">
 		<div data-role="header" data-theme="b">Mis deberes: Login</div>
-	
-		<div data-role="content" data-theme="b">
+			<div data-role="content" data-theme="b">
+			<ul>
+			<li>
+			<div>incia Sesion con tu cuenta:</div>
+			
+				<div data-theme="b">
+		<div style="display:inline-flex;padding:7px 6px"><button class="ui-btn ui-icon-google-plus ui-shadow ui-corner-all ui-btn-icon-notext" onClick="logarse('google')"></button></div><div style="display:inline-flex;padding:7px 6px">Con Gmail </div>			
+		<div style="display:inline-flex;padding:7px 6px"><button class="ui-btn ui-icon-facebook-square ui-shadow ui-corner-all ui-btn-icon-notext" onClick="logarse('facebook')"></button></div><div style="display:inline-flex;padding:7px 6px">Con Facebook </div>
+		
+					</div>
+			</li>
+			<li>
+			<div>O con un usuario y contraseña:</div>
+			<input data-theme="b" type="text" name="usuario" id="usuario" placeholder="Usuario (correo)"/>
 
-			<label for="usuario" data-icon="user">Usuario (correo): </label>
-			<input data-theme="b" type="text" name="usuario" id="usuario" />
-
-			<label for="password" data-icon="lock">Password: </label>
-			<input data-theme="b" name="password" id="password" type="password" value="" autocomplete="off" data-clear-btn="true">
+			<input data-theme="b" name="password" id="password" type="password" value="" autocomplete="off" data-clear-btn="true" placeholder="Password">
 					<a id="olvido" onclick="recuperacontrasenna($('#usuario').val())">¿Se te ha olvidado la contraseña?</a>
+					
+			</li>	
+
+	<div id="test" class="ui-content ui-alt-icon ui-page-theme-b ui-shadow-icon">
+
+						<div><div style="display:inline-flex;padding:7px 6px"><button class="ui-btn ui-icon-edit ui-shadow ui-corner-all ui-btn-icon-notext"></button></div>	<div style="display:inline-flex;padding:7px 6px"> Crear Test para preguntar la </div></div>
+						<div><div style="display:inline-flex;padding:7px 6px"><button class="ui-btn ui-icon-comments-o ui-shadow ui-corner-all ui-btn-icon-notext"></button></div>	<div style="display:inline-flex;padding:7px 6px">Puedes Contestar los test</div></div>
+						<div><div style="display:inline-flex;padding:7px 6px"><button class="ui-btn ui-icon-bar-chart-o ui-shadow ui-corner-all ui-btn-icon-notext"></button></div>	<div style="display:inline-flex;padding:7px 6px">Puedes ver tus resultados y los de tus amigos/alumnos</div></div>
+						<div><div style="display:inline-flex;padding:7px 6px"><button class="ui-btn ui-icon-group ui-shadow ui-corner-all ui-btn-icon-notext"></button></div>	<div style="display:inline-flex;padding:7px 6px">Puedes añadir amigos/alumnos</div></div>
+						<div><div style="display:inline-flex;padding:7px 6px"><button class="ui-btn ui-icon-external-link3 ui-shadow ui-corner-all ui-btn-icon-notext"></button></div>	<div style="display:inline-flex;padding:7px 6px">Si apruebas verás el premio o código de desbloqueo</div></div>
+							
+			</div>		
+			
+			
+		
+	
 		</div>
+		
+
+		
+		
+		
+		
+		
 
 		<div data-role="footer" data-theme="b" data-position="fixed">
-			<a data-role="button" data-transition="flip" id="aceptar" onClick="validar_usuario()" data-icon="check">Aceptar</a>
-			<a href="#registro" data-role="button" data-transition="flip" data-icon="lock">Registrarse</a>
-			<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+		<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+					<li class="ui-block-a"><a data-role="button" data-transition="flip" id="aceptar" onClick="validar_usuario()" data-icon="check-square-o">Aceptar</a></li>
+					<li class="ui-block-b"><a href="#registro" data-role="button" data-transition="flip" data-icon="user">Registrarse</a></li>
+			
+
+				</ul>
+			</div>
+		
 		</div>
 </div>
+
+
+<!-- PAGINA INICIO-->
 	<div data-role="page" id="inicio" >
 
 		<div data-role="header" data-theme="b">MIS DEBERES
@@ -134,40 +174,49 @@
 			<form>
 				<fieldset data-role="controlgroup">
 					<legend>Mis test:</legend>
+				
 					<!--aquí va la imagen-->
 					<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="a" id="listatests">
 
 						<li data-role="list-divider">Mis tests:</li>
 
 					</ul>
-				</fieldset>
-
-				<fieldset data-role="controlgroup">
+					
+							<fieldset data-role="controlgroup">
 					<legend>Test que me han compartido:</legend>
 
 
-					<div data-role="content" data-theme="b">
+				
 						<!--aquí va la imagen-->
 						<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="a" id="listacompartidos">
 
 							<li data-role="list-divider">Mis tests:</li>
-				</fieldset>
+					</fieldset>
 
 
+</form>
+</div>
 
 
-
-				</div>
+				
 
 				<div data-role="footer" data-theme="b" data-position="fixed">
-					<a href="#num_preg" data-role="button"  data-transition="flip" onclick="limpiarCrearTest()" data-icon="bullets">Crear Test</a>
-					<a href="#inicio" data-role="button" data-transition="flip" data-icon="back">volver</a>
-					<a href="#annadir_alumno" data-role="button" data-transition="flip" data-icon="user">añadir alumnos</a>
-					<a href="#resultados" data-role="button" data-transition="flip" onClick="cargarListaAlumnos()" data-icon="bullets">Ver resultados</a>
-						<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="info">Ayuda</a>
+				
+				
+				
+
+						<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a"><a href="#num_preg" data-role="button"  data-transition="flip" data-icon="edit" onClick="limpiarCrearTest()">Crear</a></li>
+					
+						<li class="ui-block-b"><a href="#annadir_alumno" data-role="button" data-transition="flip" data-icon="group">añadir</a></li>
+						<li class="ui-block-c"><a href="#resultados" data-role="button" data-transition="flip" onClick="cargarResultados()" data-icon="bar-chart-o">resultados</a></li>
+						<li class="ui-block-d"><a href="#ayuda"  data-role="button" data-transition="flip" data-icon="info">Ayuda</a></li>
+</ul>
+</div>
 				</div>
 
-			</form>
+			
 
 		</div>
 
@@ -187,35 +236,35 @@
 
 
 
-			<label for="opcion1">Respuesta 1:</label>
-			<input type="text" id="opcion1" required>
+	
+			<input type="text" id="opcion1" placeholder="Texto de la Opción 1" required>
 
 			<label for="radio1" style="display:none"></label>
 
-			<input type='radio' name='respuesta' id='radio1' checked value="1" style="visibility:hidden" >
-			<a data-role="button" data-transition="flip"  id="guardar1" onclick="guardoRespuesta(1)" >Guardar Respuesta 1</a>
+			<input type='radio' name='respuesta' id='radio1'  value="1" style="visibility:hidden" >
+			<a data-role="button" data-transition="flip"  id="guardar1" onclick="guardoRespuesta(1)"  data-icon="save" ></a>
 		</input>
-			<label for="opcion2">Respuesta 2:</label>
-			<input type="text" id="opcion2">
+			
+			<input type="text" id="opcion2" placeholder="Texto de la Opción 2">
 
 			<label for="radio2" style="display:none"></label>
 
 			<input type='radio' name='respuesta'  id='radio2' value="2" style="visibility:hidden"></input>
-			<a data-role="button" data-transition="flip"  id="guardar2" onclick="guardoRespuesta(2)">Guardar Respuesta 2</a>
-			<label for="opcion3">Respuesta 3:</label>
-			<input type="text" id="opcion3">
+			<a data-role="button" data-transition="flip"  id="guardar2" onclick="guardoRespuesta(2)" data-icon="save"></a>
+		
+			<input type="text" id="opcion3" placeholder="Texto de la Opción 3">
 
 			<label for="radio3" style="display:none" style="visibility:hidden"></label>
 
 			<input type='radio' name='respuesta'  id='radio3'  value="3" style="visibility:hidden"></input>
-			<a data-role="button" data-transition="flip"  id="guardar3" onclick="guardoRespuesta(3)">Guardar Respuesta 3</a>
-			<label for="opcion4">Respuesta 4:</label>
-			<input type="text" id="opcion4">
+			<a data-role="button" data-transition="flip"  id="guardar3" onclick="guardoRespuesta(3)" data-icon="save"></a>
+		
+			<input type="text" id="opcion4" placeholder="Texto de la Opción 4">
 
 			<label for="radio4" style="display:none"></label>
 
 			<input type='radio' name='respuesta'  id='radio4'  value="4" style="visibility:hidden"></input>
-			<a data-role="button" data-transition="flip"  id="guardar4" onclick="guardoRespuesta(4)">Guardar Respuesta 4</a>
+			<a data-role="button" data-transition="flip"  id="guardar4" onclick="guardoRespuesta(4)" data-icon="save"></a>
 			<div id="selrespu"></div>
 
 
@@ -227,10 +276,15 @@
 
 		<div id="divNivel" data-role="footer" data-theme="b"> </div>
 		<div data-role="footer" data-theme="b" data-position="fixed">
-			<a href="#pregunta" id="sigpreg" data-role="button" data-transition="flip" onClick="crear_pregunta()" data-icon="arror-r">Siguiente pregunta</a>
-			<a href="#num_preg" data-role="button" data-transition="flip" data-icon="back">volver</a>
-			<a data-role="button" data-transition="flip" onclick="terminar_test()" data-icon="home">Terminar Preguntas</a>
-				<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="info">Ayuda</a>
+		
+			<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a"><a href="#pregunta" id="sigpreg" data-role="button" data-transition="flip" onClick="crear_pregunta()" data-icon="arrow-circle-right">Siguiente</a></li>
+			<li class="ui-block-b"><a href="#num_preg" data-role="button" data-transition="flip" data-icon="back">Volver</a></li>
+			<li class="ui-block-c"><a data-role="button" data-transition="flip" onclick="terminar_test()" data-icon="home">Terminar</a></li>
+				<li class="ui-block-d"><a href="#ayuda"  data-role="button" data-transition="flip" data-icon="info">Ayuda</a></li>
+				</ul>
+				</div>
 		</div>
 	</div>
 
@@ -249,15 +303,16 @@
 
 
 
-
-
-
 		<div id="piepregunta" data-role="footer" data-theme="b"> </div>
 		<div data-role="footer" data-theme="b" data-position="fixed">
-			<a href="#realizartest" data-role="button" data-transition="flip" onClick="crear_respuesta()">Siguiente pregunta</a>
-			<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
-			<a data-role="button" data-transition="flip" onclick="terminar_respuesta()">Terminar Preguntas</a>
-				<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+		<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+		<ul class="ui-grid-d">
+					
+			<li class="ui-block-b">	<a href="#inicio" data-role="button" data-transition="flip" data-icon="back">Volver</a></li>
+			<li class="ui-block-c">	<a data-role="button" data-transition="flip" onclick="terminar_respuesta()" data-icon="home">Terminar</a></li>
+				<li class="ui-block-d">	<a href="#ayuda" data-role="button" data-transition="flip" data-icon="info">Ayuda</a></li>
+				</ul>
+				</div>
 		</div>
 	</div>
 
@@ -281,12 +336,16 @@
 		</div>
 
 		<div data-role="footer" data-theme="b" data-position="fixed">
-
-			<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
-			<a href="#amigos" onclick="cargarListaAmigos()" data-role="button" data-transition="flip">compartir</a>
-			<a href="#inicio" data-role="button" data-transition="flip" id="botonborrar" onclick="borrarTest(id_test)" data-icon="delete">Borrar este test</a>
-			<a data-role="button" data-transition="flip" onclick="hacerTest(numpregcuestion,id_test,nombre,numrespaprobar)" data-icon="comment">Contestar test</a>
-				<a href="#ayuda" data-role="button" data-transition="flip" data-icon="info">Ayuda</a>
+	<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+		<ul class="ui-grid-d">
+					
+				<li class="ui-block-a"><a href="#inicio" data-role="button" data-transition="flip" data-icon="back">Volver</a></li>
+				<li class="ui-block-c"><a href="#inicio" data-role="button" data-transition="flip" id="botonborrar" onclick="borrarTest(id_test)" data-icon="trash-o">Borrar</a></li>
+				<li class="ui-block-b"><a href="#amigos" onclick="cargarListaAmigos()" data-role="button" data-transition="flip" data-icon="share-square-o">compartir</a></li>				
+				<li class="ui-block-d"><a data-role="button" data-transition="flip" onclick="hacerTest(numpregcuestion,id_test,nombre,numrespaprobar)" data-icon="comments-o">Contestar</a></li>
+				<li class="ui-block-e"><a href="#ayuda" data-role="button" data-transition="flip" data-icon="info">Ayuda</a></li>
+				</ul>
+				</div>
 		</div>
 
 	</div>
@@ -324,22 +383,29 @@
 
 					<label for="listacategorias">Selecciona la categoría:</label>
 			
-				<select name="listacategorias" id="listacategorias" data-theme="b" onload="cargarcategorias()">
-				
+				<select name="listacategorias" id="listacategorias" data-theme="b" >
+						<option value='--' selected >Seleccione una categoría...</option>
 				</select>
 				
 				
 					<label for="listaedades">Selecciona la edad:</label>
-					<select name="listaedades" id="listaedades" data-theme="b" onload="cargaredades()">
+					<select name="listaedades" id="listaedades" data-theme="b" >
+			<option value='--'  selected >Seleccione una edad...</option>
 					
 				</select>
 				
 			</div>
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
-				<a data-role="button" data-transition="flip" onClick="crear_test()"data-icon="bullets">Crear Test</a>
-				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
-					<a href="#ayuda"  data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a"><a data-role="button" data-transition="flip" onClick="crear_test()"data-icon="check-square-o">Crear</a></li>
+				<li class="ui-block-b"><a href="#inicio" data-role="button" data-transition="flip"data-icon="back">Volver</a></li>
+					<li class="ui-block-c"><a href="#ayuda"  data-role="button" data-transition="flip"data-icon="info">Ayuda</a></li>
+					
+					</ul>
+					</div>
 			</div>
 
 		</div>
@@ -389,9 +455,14 @@
 
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
-				<a data-role="button" data-transition="flip" onClick="compartirTest()">compartir</a>
-				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
-					<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+		<ul class="ui-grid-d">
+					
+				<li class="ui-block-a">	<a data-role="button" data-transition="flip" onClick="compartirTest()" data-icon="share-square-o">compartir</a></li>
+				<li class="ui-block-b">	<a href="#inicio" data-role="button" data-transition="flip" data-icon="back">Volver</a></li>
+				<li class="ui-block-c">	<a href="#ayuda" data-role="button" data-transition="flip" data-icon="info">Ayuda</a></li>
+		</ul>
+		</div>
 			</div>
 
 		</div>
@@ -428,9 +499,13 @@
 			</div>
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
-				<a data-role="button" data-transition="flip" onClick="aceptar_registro()">Aceptar</a>
-				<a href="#login" data-role="button" data-transition="flip" data-icon="back">volver</a>
-					<a href="#ayuda"  data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+					
+					<li class="ui-block-a"><a data-role="button" data-transition="flip" onClick="aceptar_registro()" data-icon="check-square-o">Aceptar</a></li>
+					<li class="ui-block-b"><a href="#login" data-role="button" data-transition="flip" data-icon="back">Volver</a></li>
+					
+					</ul></div>
 			</div>
 
 		</div>
@@ -458,33 +533,25 @@
 			</div>
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
-				<a data-role="button" data-transition="flip" onClick="annadirAlumno()">Aceptar</a>
-				<a href="#inicio" data-role="button" data-transition="flip"data-icon="back">volver</a>
-					<a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a>
+			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+					<ul class="ui-grid-d">					
+						<li class="ui-block-a"><a data-role="button" data-transition="flip" onClick="annadirAlumno()" data-icon="check-square-o">Aceptar</a></li>
+						<li class="ui-block-b"><a href="#inicio" data-role="button" data-transition="flip"data-icon="back">Volver</a></li>
+						<li class="ui-block-c"><a href="#ayuda" data-role="button" data-transition="flip"data-icon="info">Ayuda</a></li>
+					</ul>
+				</div>	
+					
+					
+					
 			</div>
 </div>
 			<!--RESULTADO EXAMEN-->
-			<!--popup-->
 
+<div class="scratch-container" id="contenedorPromo" >
+ 
+</div>
 
-
-
-
-
-		
-
-
-			<!--AREA MENSAJES-->
-			
-				<div id="popupresultado" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-transition="fade" class="ui-button ui-shadow ui-corner-all ui-button-inline ui-widget ui-button-inherit" role="button" aria-haspopup="true" aria-owns="popupPhoto" aria-expanded="false">
-						<a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right ui-button ui-shadow ui-corner-all ui-widget ui-button-a" role="button"></a>
-
-
-				<div id="cabepopup"></div>
-			</div>
-
-		
-		<!--FIN AREA MENSAJES-->
 		<!--FIN RESULTADO EXAMEN-->
 
 
@@ -496,7 +563,7 @@
 
 			
 			<select name="listaalumnos" id="listaalumnos" data-theme="b"  onChange="cargarTestAlumno()"  >
-			<option selected='selected' value='--' >Seleccione un Alumno...</option>
+				<option  value='--' >Seleccione un Alumno...</option>
 			</select>
 
 			<table data-role="table" data-theme="b" id="tablaresultados" data-mode="columntoggle"  class="ui-responsive ui-body-d table-stripe" data-column-btn-text="Selecione Filtro" data-column-btn-theme="b" >
@@ -516,8 +583,13 @@
 					
 				
 			<div data-role="footer" data-theme="b" data-position="fixed">
-				<a href="#inicio" data-role="button" data-transition="flip" data-icon="back">volver</a>
-					<a href="#ayuda" data-role="button" data-transition="flip">Ayuda</a>
+			
+					<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a"><a href="#inicio" data-role="button" data-transition="flip" data-icon="back">Volver</a></li>
+					<li class="ui-block-b"><a href="#ayuda" data-role="button" data-icon="info" data-transition="flip">Ayuda</a></li>
+					</ul>
+					</div>
 			</div>
 
 		</div>
@@ -549,8 +621,13 @@
 
 
 	<div data-role="footer" data-theme="b" data-position="fixed">
-			
+		<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+				<li class="ui-block-a">
 			<a href="#inicio" data-role="button" data-rel="external" data-transition="flip" data-icon="back">Volver</a>
+			</li>
+			</ul>
+			</div>
 		</div>
 		</div>
 </div>
@@ -565,8 +642,13 @@ una aplicación tanto web como app donde padres, profesores y alumnos puede crea
 testsy compartir entre alumnos, amigos, profesores u
 padres.</p>
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li>
+					</ul>
+					</div>
 			</div>
 </div>
 </div>
@@ -601,8 +683,13 @@ no, así como la cantidad de aciertos y errores.</p>
 hay estadísticas de los test que yo hago.</p>
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li>
+					</ul>
+					</div>
 			</div>
 </div>
 </div>
@@ -632,8 +719,13 @@ cifrado diseñado por Google, solo tu conocerás tu clave, puedes pedir la clave
 si se te ha olvidado y te la enviará por correo.</p>
 
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
-					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
+							<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+						</li>
+				</ul>
+				</div>
 			</div>
 </div>
 </div>
@@ -645,8 +737,13 @@ si se te ha olvidado y te la enviará por correo.</p>
 <p>No hay problema, vuelve al inicio
 y pincha sobre el enlace “¿Se te ha olvidado la contraseña?”</p>
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li>
+					</ul>
+					</div>
 			</div>
 </div>
 </div>
@@ -686,8 +783,13 @@ pulsaremos sobre el botón “Crear Test” ,nos aparecerá
 un mensaje en verde informativo donde se nos indica que se ha creado y
 empezaremos a introducir las preguntas con sus posibles respuestas</p>
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li>
+					</ul>
+					</div>
 			</div>
 </div>
 </div>
@@ -738,8 +840,11 @@ pantalla donde se listan los test.</p>
 
 <p><img border=0 width=354 height=319 src="img/image010.jpg" ></p>
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li></ul></div>
 			</div>
 </div>
 </div>
@@ -757,8 +862,11 @@ respuestas</p>
 
 <p><img border=0 width=354 height=321 src="img/image013.jpg" ></p>
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li></ul></div>
 			</div>
 </div>
 </div>
@@ -790,8 +898,13 @@ respuesta nos aparecerá la siguiente pregunta, se nos informará cuando sea la
 última pregunta, pero podremos terminar el test cuando nosotros deseemos
 presionando sobre “Terminar Preguntas”.</p>
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li>
+					</ul>
+					</div>
 			</div>
 </div>
 </div>
@@ -811,8 +924,13 @@ pregunta</p>
 
 <p><img border=0 width=327 height=295 src="img/image018.jpg"></p>
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li>
+					</ul>
+					</div>
 			</div>
 </div>
 </div>
@@ -833,8 +951,11 @@ informativo con tu premio en caso de aprobar</p>
 
 			
 			<div data-role="footer" data-theme="b" data-position="fixed">
-			
+				<div class="ui-navbar" role="navigation" data-role="navbar" data-theme="a" data-mini="true">
+				<ul class="ui-grid-d">
+						<li class="ui-block-a">
 					<a href="#ayuda"  data-role="button" data-transition="flip" data-icon="back">Volver</a>
+					</li></ul></div>
 			</div>
 </div>
 </div>
