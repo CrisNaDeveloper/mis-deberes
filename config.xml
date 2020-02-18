@@ -7,7 +7,7 @@
     <author email="arturodormilon@gmail.com" href="http://phonegap.com">
        Apperse
     </author>
-    <content src="index.html" />
+    <content src="https://crisnadeveloper.github.io/misdeberes/www/index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
 <!--     <preference name="AndroidPersistentFileLocation" value="Compatibility" /> -->
