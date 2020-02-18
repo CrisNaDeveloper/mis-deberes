@@ -36,7 +36,7 @@ firebase.auth().languageCode = 'es_es';
 	}
 
 	
-  firebase.auth().signInWithPopup().then(function(result) {
+  firebase.auth().signInWithPopup(provider).then(function(result) {
         if (result.credential) {
           // This gives you a Google Access Token. You can use it to access the Google API.
           var token = result.credential.accessToken;
