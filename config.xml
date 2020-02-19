@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.apperse.misdeberes" version="48.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.apperse.misdeberes" version="44.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Mis deberes</name>
     <description>
         Otra manera de hacer los deberes
@@ -7,7 +7,7 @@
     <author email="arturodormilon@gmail.com" href="http://phonegap.com">
        Apperse
     </author>
-    <content src="https://crisnadeveloper.github.io/misdeberes/www/index.html" />
+    <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
 <!--     <preference name="AndroidPersistentFileLocation" value="Compatibility" /> -->
