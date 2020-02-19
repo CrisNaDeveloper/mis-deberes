@@ -10,6 +10,7 @@ var config = {
 	projectId: "mis-deberes",
 	storageBucket: "mis-deberes.appspot.com",
 	messagingSenderId: "616346485951",
+	timestampsInSnapshots: true ,
 	appId: "1:616346485951:web:b512fb38900d74fe"
 };
 
