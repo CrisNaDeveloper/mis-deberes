@@ -38,7 +38,7 @@ firebase.auth().languageCode = 'es_es';
 	
 // Step 1.
 // User tries to sign in to Google.
-auth.signInWithPopup(provider).catch(function(error) {
+firebase.auth.signInWithPopup(provider).catch(function(error) {
   // An error happened.
   if (error.code === 'auth/account-exists-with-different-credential') {
     // Step 2.
