@@ -73,7 +73,7 @@ function otramaneralogin(){
 
  var uiConfig = {
    signInFlow: 'popup',
-        signInSuccessUrl: 'https://crisnadeveloper.github.io/misdeberes/www/index.html',
+        signInSuccessUrl: 'index.html',
 		
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
