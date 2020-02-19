@@ -72,7 +72,9 @@ firebase.auth().languageCode = 'es_es';
 function otramaneralogin(){
 
  var uiConfig = {
-        signInSuccessUrl: 'index.html',
+   signInFlow: 'popup',
+        signInSuccessUrl: 'https://crisnadeveloper.github.io/misdeberes/www/index.html',
+		
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
