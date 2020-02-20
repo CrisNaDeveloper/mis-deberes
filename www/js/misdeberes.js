@@ -38,7 +38,7 @@ firebase.auth().languageCode = 'es_es';
 	
 // Step 1.
 // User tries to sign in to Google.
-firebase.auth.signInWithPopup(provider).catch(function(error) {
+firebase.auth().signInWithPopup(provider).catch(function(error) {
   // An error happened.
   if (error.code === 'auth/account-exists-with-different-credential') {
     // Step 2.
@@ -75,7 +75,7 @@ firebase.auth.signInWithPopup(provider).catch(function(error) {
       // Sign in to provider. Note: browsers usually block popup triggered asynchronously,
       // so in real scenario you should ask the user to click on a "continue" button
       // that will trigger the signInWithPopup.
-      auth.signInWithPopup(provider).then(function(result) {
+      firebase.auth().signInWithPopup(provider).then(function(result) {
         // Remember that the user may have signed in with an account that has a different email
         // address than the first one. This can happen as Firebase doesn't control the provider's
         // sign in flow and the user is free to login using whichever account they own.
