@@ -16,6 +16,7 @@
 	
 	<preference name="CordovaWebViewEngine" value="CDVUIWebViewEngine" />
 	<preference name="OverrideUserAgent" value="Mozilla/5.0 Google" />
+		<preference name="AndroidLaunchMode" value="singleTask" />
 
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
@@ -120,6 +121,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
 	   <allow-intent href="file:*" />
+	      <allow-intent href="data:*" />
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
