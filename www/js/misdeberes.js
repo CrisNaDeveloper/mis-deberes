@@ -16,7 +16,7 @@ var config = {
 
       if(!firebase.apps.length){
         firebase.initializeApp(config);
-		
+		otramaneralogin();
       }
 
 var provider="";
