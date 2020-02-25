@@ -95,7 +95,7 @@ firebase.auth().signInWithPopup(provider).catch(function(error) {
 
 
 function otramaneralogin(){
-
+firebase.auth().useDeviceLanguage();
  var uiConfig = {
    signInFlow: 'popup',
         signInSuccessUrl: '#inicio',
@@ -1480,7 +1480,7 @@ function cargarTestAlumno() {
 				var testaprobado = "NO";
 				test = doc.data();
 				var fechareatest = new Date(test.timestamp);
-				doc.timestamp
+				
 				if (test.aprobado == 1) {
 					testaprobado = "SI";
 				}
