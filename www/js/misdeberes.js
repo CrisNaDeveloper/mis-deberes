@@ -94,6 +94,37 @@ firebase.auth().signInWithPopup(provider).catch(function(error) {
 }
 
 
+function banner(){
+// select the right Ad Id according to platform
+  var admobid = {};
+  if( /(android)/i.test(navigator.userAgent) ) { // for android & amazon-fireos
+    admobid = {
+      banner: 'cca-app-pub-2512504278709047/8783949487', // or DFP format "/6253334/dfp_example_ad"
+      interstitial: 'ca-app-pub-2512504278709047/8783949487'
+    };
+  } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
+    admobid = {
+      banner: 'ca-app-pub-2512504278709047/8783949487', // or DFP format "/6253334/dfp_example_ad"
+      interstitial: 'ca-app-pub-2512504278709047/8783949487'
+    };
+  } else { // for windows phone
+    admobid = {
+      banner: 'ca-app-pub-2512504278709047/8783949487', // or DFP format "/6253334/dfp_example_ad"
+      interstitial: 'ca-app-pub-2512504278709047/8783949487'
+    };
+  }
+  
+  if(AdMob) AdMob.createBanner({
+  adId: admobid.banner,
+  position: AdMob.AD_POSITION.TOP_CENTER,
+  autoShow: true });
+  
+  showBanner();
+  
+}
+
+
+
 function otramaneralogin(){
 firebase.auth().useDeviceLanguage();
  var uiConfig = {
